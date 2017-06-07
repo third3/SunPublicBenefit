@@ -13,13 +13,14 @@
     <edmx:ConceptualModels>
       <Schema xmlns="http://schemas.microsoft.com/ado/2009/11/edm" xmlns:cg="http://schemas.microsoft.com/ado/2006/04/codegeneration" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" Namespace="SunShine" Alias="Self" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" annotation:UseStrongSpatialTypes="false">
         <EntityContainer Name="SunShineContainer" annotation:LazyLoadingEnabled="true">
-          <EntitySet Name="UserSet" EntityType="SunShine.User" />
+          <EntitySet Name="RoleSet" EntityType="SunShine.Role" />
         </EntityContainer>
-        <EntityType Name="User">
+        <EntityType Name="Role">
           <Key>
-            <PropertyRef Name="ID" />
+            <PropertyRef Name="RoleID" />
           </Key>
-          <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="RoleID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="RoleName" Type="String" Nullable="false" Unicode="true" FixedLength="false" MaxLength="50" />
         </EntityType>
       </Schema>
     </edmx:ConceptualModels>

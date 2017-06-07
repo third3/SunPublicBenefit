@@ -5,7 +5,7 @@
     <!-- Diagram content (shape and connector positions) -->
     <edmx:Diagrams>
       <Diagram DiagramId="573392b48c6b4b51b95878cbfe8d3fc0" Name="Diagram1" >
-        <EntityTypeShape EntityType="SunShine.User" Width="1.5" PointX="1.875" PointY="1.25" />
+        <EntityTypeShape EntityType="SunShine.Role" Width="1.5" PointX="0.5" PointY="0.75" />
       </Diagram>
     </edmx:Diagrams>
   </edmx:Designer>
