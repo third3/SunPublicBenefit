@@ -20,6 +20,10 @@
             <PropertyRef Name="ID" />
           </Key>
           <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="UserName" Type="String" Nullable="false" FixedLength="false" Unicode="true" MaxLength="20" />
+          <Property Name="UserPassWord" Type="String" Nullable="false" Unicode="true" MaxLength="20" />
+          <Property Name="RoleID" Type="Int32" Nullable="false" />
+          <Property Name="RoleName" Type="String" Nullable="false" Unicode="true" MaxLength="20" />
         </EntityType>
       </Schema>
     </edmx:ConceptualModels>
