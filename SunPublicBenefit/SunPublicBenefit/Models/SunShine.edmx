@@ -15,6 +15,7 @@
         <EntityContainer Name="SunShineContainer" annotation:LazyLoadingEnabled="true">
           <EntitySet Name="UserSet" EntityType="SunShine.User" />
           <EntitySet Name="RolesSet" EntityType="SunShine.Roles" />
+          <EntitySet Name="DonationRecordSet" EntityType="SunShine.DonationRecord" />
         </EntityContainer>
         <EntityType Name="User">
           <Key>
@@ -32,6 +33,18 @@
           </Key>
           <Property Name="RoleID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <Property Name="RoleName" Type="String" Nullable="false" Unicode="true" FixedLength="false" MaxLength="50" />
+        </EntityType>
+        <EntityType Name="DonationRecord">
+          <Key>
+            <PropertyRef Name="DonationID" />
+          </Key>
+          <Property Name="DonationID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="UserID" Type="Int32" Nullable="false" />
+          <Property Name="UserName" Type="String" Nullable="false" Unicode="true" FixedLength="false" MaxLength="10" />
+          <Property Name="DonationDate" Type="DateTime" Nullable="false" />
+          <Property Name="DonationAmount" Type="Decimal" Nullable="false" Scale="11" Precision="2" />
+          <Property Name="DonationProjectID" Type="Int32" Nullable="false" />
+          <Property Name="DonationProjectName" Type="String" Nullable="false" Unicode="true" FixedLength="false" MaxLength="50" />
         </EntityType>
       </Schema>
     </edmx:ConceptualModels>
