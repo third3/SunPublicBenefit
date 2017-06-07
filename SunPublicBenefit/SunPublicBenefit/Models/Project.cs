@@ -14,14 +14,24 @@ namespace SunPublicBenefit.Models
     
     public partial class Project
     {
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
+        public Project()
+        {
+            this.User1 = new HashSet<User1>();
+        }
+    
         public int ID { get; set; }
         public string ProjectName { get; set; }
-        public int UserID { get; set; }
-        public string UserName { get; set; }
         public System.DateTime StartProjectTime { get; set; }
         public System.DateTime EndProjectTime { get; set; }
         public decimal Moneyd { get; set; }
         public short Isstatus { get; set; }
         public int UserNumber { get; set; }
+    
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<User1> User1 { get; set; }
+        public virtual ProjectRecord ProjectRecord { get; set; }
+        public virtual Finance Finance { get; set; }
+        public virtual DoNationRecord DoNationRecord { get; set; }
     }
 }

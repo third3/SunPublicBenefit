@@ -6,12 +6,22 @@
     <edmx:Diagrams>
       <Diagram DiagramId="573392b48c6b4b51b95878cbfe8d3fc0" Name="Diagram1" >
         <EntityTypeShape EntityType="SunShine.Role" Width="1.5" PointX="0.5" PointY="0.75" />
-        <EntityTypeShape EntityType="SunShine.User1" Width="1.5" PointX="0.5" PointY="0.875" />
-        <EntityTypeShape EntityType="SunShine.Project" Width="1.5" PointX="2.375" PointY="0.875" />
-        <EntityTypeShape EntityType="SunShine.ProjectRecord" Width="1.5" PointX="4.125" PointY="0.875" />
-        <EntityTypeShape EntityType="SunShine.Finance" Width="1.5" PointX="6" PointY="0.875" />
-        <EntityTypeShape EntityType="SunShine.PublicBenefitRecord" Width="1.5" PointX="7.75" PointY="1.5" />
-        <EntityTypeShape EntityType="SunShine.PublicBenefit" Width="1.5" PointX="9.875" PointY="2" />
+        <EntityTypeShape EntityType="SunShine.User1" Width="1.5" PointX="5.625" PointY="3" />
+        <EntityTypeShape EntityType="SunShine.Project" Width="1.5" PointX="8.125" PointY="3.125" />
+        <EntityTypeShape EntityType="SunShine.ProjectRecord" Width="1.5" PointX="11.75" PointY="5.625" />
+        <EntityTypeShape EntityType="SunShine.Finance" Width="1.5" PointX="5.375" PointY="6.25" />
+        <EntityTypeShape EntityType="SunShine.PublicBenefitRecord" Width="1.5" PointX="3.375" PointY="3.625" />
+        <EntityTypeShape EntityType="SunShine.PublicBenefit" Width="1.5" PointX="1.125" PointY="3.75" />
+        <EntityTypeShape EntityType="SunShine.DoNationRecord" Width="1.875" PointX="8.375" PointY="0.625" />
+        <AssociationConnector Association="SunShine.User1Role" />
+        <AssociationConnector Association="SunShine.ProjectUser1" />
+        <AssociationConnector Association="SunShine.ProjectRecordProject" />
+        <AssociationConnector Association="SunShine.DoNationRecordUser1" />
+        <AssociationConnector Association="SunShine.PublicBenefitRecordUser1" />
+        <AssociationConnector Association="SunShine.PublicBenefitRecordPublicBenefit" />
+        <AssociationConnector Association="SunShine.FinanceProject" />
+        <AssociationConnector Association="SunShine.PublicBenefitUser1" />
+        <AssociationConnector Association="SunShine.DoNationRecordProject" />
       </Diagram>
     </edmx:Diagrams>
   </edmx:Designer>

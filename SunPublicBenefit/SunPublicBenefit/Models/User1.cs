@@ -14,10 +14,21 @@ namespace SunPublicBenefit.Models
     
     public partial class User1
     {
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
+        public User1()
+        {
+            this.Role = new HashSet<Role>();
+        }
+    
         public int ID { get; set; }
         public string UserName { get; set; }
         public string UserPassword { get; set; }
-        public int RoleID { get; set; }
-        public string RoleName { get; set; }
+    
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<Role> Role { get; set; }
+        public virtual Project Project { get; set; }
+        public virtual DoNationRecord DoNationRecord { get; set; }
+        public virtual PublicBenefitRecord PublicBenefitRecord { get; set; }
+        public virtual PublicBenefit PublicBenefit { get; set; }
     }
 }

@@ -118,6 +118,9 @@
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
+    <Compile Include="Models\DoNationRecord.cs">
+      <DependentUpon>SunShine.tt</DependentUpon>
+    </Compile>
     <Compile Include="Models\Finance.cs">
       <DependentUpon>SunShine.tt</DependentUpon>
     </Compile>
@@ -131,6 +134,9 @@
       <DependentUpon>SunShine.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\PublicBenefitRecord.cs">
+      <DependentUpon>SunShine.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\Role.cs">
       <DependentUpon>SunShine.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\SunShine.Context.cs">

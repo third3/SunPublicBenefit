@@ -12,26 +12,22 @@ namespace SunPublicBenefit.Models
     using System;
     using System.Collections.Generic;
     
-    public partial class PublicBenefit
+    public partial class DoNationRecord
     {
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
-        public PublicBenefit()
+        public DoNationRecord()
         {
             this.User1 = new HashSet<User1>();
+            this.Project = new HashSet<Project>();
         }
     
         public int ID { get; set; }
-        public string BenefitName { get; set; }
-        public bool IsOnLine { get; set; }
-        public Nullable<System.DateTime> ApplyStartDate { get; set; }
-        public string Site { get; set; }
-        public System.DateTime ApplyAbortDate { get; set; }
-        public int ApplyCount { get; set; }
-        public string ActivityProfile { get; set; }
-        public bool ConsentApply { get; set; }
+        public string DonationDate { get; set; }
+        public string DonationAmout { get; set; }
     
-        public virtual PublicBenefitRecord PublicBenefitRecord { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<User1> User1 { get; set; }
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<Project> Project { get; set; }
     }
 }

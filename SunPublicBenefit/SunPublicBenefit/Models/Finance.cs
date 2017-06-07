@@ -14,15 +14,20 @@ namespace SunPublicBenefit.Models
     
     public partial class Finance
     {
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
+        public Finance()
+        {
+            this.Project = new HashSet<Project>();
+        }
+    
         public int ID { get; set; }
         public decimal PreMoney { get; set; }
         public bool IsIn { get; set; }
         public decimal MoneyL { get; set; }
-        public int UserID { get; set; }
-        public int ProjectID { get; set; }
         public decimal OutMoney { get; set; }
-        public string UserName { get; set; }
-        public string ProjectName { get; set; }
         public System.DateTime LDateTime { get; set; }
+    
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<Project> Project { get; set; }
     }
 }

@@ -12,17 +12,11 @@ namespace SunPublicBenefit.Models
     using System;
     using System.Collections.Generic;
     
-    public partial class ProjectRecord
+    public partial class Role
     {
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
-        public ProjectRecord()
-        {
-            this.Project = new HashSet<Project>();
-        }
-    
         public int ID { get; set; }
+        public string RoleName { get; set; }
     
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<Project> Project { get; set; }
+        public virtual User1 User1 { get; set; }
     }
 }
