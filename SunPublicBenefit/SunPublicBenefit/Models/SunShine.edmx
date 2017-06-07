@@ -13,14 +13,17 @@
     <edmx:ConceptualModels>
       <Schema xmlns="http://schemas.microsoft.com/ado/2009/11/edm" xmlns:cg="http://schemas.microsoft.com/ado/2006/04/codegeneration" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" Namespace="SunShine" Alias="Self" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" annotation:UseStrongSpatialTypes="false">
         <EntityContainer Name="SunShineContainer" annotation:LazyLoadingEnabled="true">
-          <EntitySet Name="RoleSet" EntityType="SunShine.Role" />
+          <EntitySet Name="UserSet" EntityType="SunShine.User" />
         </EntityContainer>
-        <EntityType Name="Role">
+        <EntityType Name="User">
           <Key>
-            <PropertyRef Name="RoleID" />
+            <PropertyRef Name="ID" />
           </Key>
-          <Property Name="RoleID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-          <Property Name="RoleName" Type="String" Nullable="false" Unicode="true" FixedLength="false" MaxLength="50" />
+          <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="UserName" Type="String" Nullable="false" FixedLength="false" Unicode="true" MaxLength="20" />
+          <Property Name="UserPassWord" Type="String" Nullable="false" Unicode="true" MaxLength="20" />
+          <Property Name="RoleID" Type="Int32" Nullable="false" />
+          <Property Name="RoleName" Type="String" Nullable="false" Unicode="true" MaxLength="20" />
         </EntityType>
       </Schema>
     </edmx:ConceptualModels>
