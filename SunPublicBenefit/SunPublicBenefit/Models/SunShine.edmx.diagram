@@ -6,6 +6,12 @@
     <edmx:Diagrams>
       <Diagram DiagramId="573392b48c6b4b51b95878cbfe8d3fc0" Name="Diagram1" >
         <EntityTypeShape EntityType="SunShine.Role" Width="1.5" PointX="0.5" PointY="0.75" />
+        <EntityTypeShape EntityType="SunShine.User1" Width="1.5" PointX="0.5" PointY="0.875" />
+        <EntityTypeShape EntityType="SunShine.Project" Width="1.5" PointX="2.375" PointY="0.875" />
+        <EntityTypeShape EntityType="SunShine.ProjectRecord" Width="1.5" PointX="4.125" PointY="0.875" />
+        <EntityTypeShape EntityType="SunShine.Finance" Width="1.5" PointX="6" PointY="0.875" />
+        <EntityTypeShape EntityType="SunShine.PublicBenefitRecord" Width="1.5" PointX="7.75" PointY="1.5" />
+        <EntityTypeShape EntityType="SunShine.PublicBenefit" Width="1.5" PointX="9.875" PointY="2" />
       </Diagram>
     </edmx:Diagrams>
   </edmx:Designer>

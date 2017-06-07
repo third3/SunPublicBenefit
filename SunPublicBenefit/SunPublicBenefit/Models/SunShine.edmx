@@ -4,38 +4,251 @@
   <edmx:Runtime>
     <!-- SSDL content -->
     <edmx:StorageModels>
-      <Schema xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl" Namespace="SunShine.Store" Alias="Self" Provider="System.Data.SqlClient" ProviderManifestToken="2005">
-        <EntityContainer Name="SunShineTargetContainer" >
-        </EntityContainer>
-      </Schema>
-    </edmx:StorageModels>
+    <Schema Namespace="SunShine.Store" Alias="Self" Provider="System.Data.SqlClient" ProviderManifestToken="2012" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+  <EntityContainer Name="SunShineStoreContainer">
+    <EntitySet Name="User1Set" EntityType="SunShine.Store.User1Set" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="ProjectSet" EntityType="SunShine.Store.ProjectSet" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="ProjectRecordSet" EntityType="SunShine.Store.ProjectRecordSet" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="FinanceSet" EntityType="SunShine.Store.FinanceSet" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="PublicBenefitRecordSet" EntityType="SunShine.Store.PublicBenefitRecordSet" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="PublicBenefitSet" EntityType="SunShine.Store.PublicBenefitSet" store:Type="Tables" Schema="dbo" />
+  </EntityContainer>
+  <EntityType Name="User1Set">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="UserName" Type="nvarchar" Nullable="false" MaxLength="20" />
+    <Property Name="UserPassword" Type="nvarchar" Nullable="false" MaxLength="20" />
+    <Property Name="RoleID" Type="int" Nullable="false" />
+    <Property Name="RoleName" Type="nvarchar" Nullable="false" MaxLength="20" />
+  </EntityType>
+  <EntityType Name="ProjectSet">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="ProjectName" Type="nvarchar" Nullable="false" MaxLength="50" />
+    <Property Name="UserID" Type="int" Nullable="false" />
+    <Property Name="UserName" Type="nvarchar" Nullable="false" MaxLength="20" />
+    <Property Name="StartProjectTime" Type="datetime" Nullable="false" />
+    <Property Name="EndProjectTime" Type="datetime" Nullable="false" />
+    <Property Name="Moneyd" Type="decimal" Nullable="false" Precision="11" Scale="2" />
+    <Property Name="Isstatus" Type="smallint" Nullable="false" />
+    <Property Name="UserNumber" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="ProjectRecordSet">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="ProjectID" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="FinanceSet">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="PreMoney" Type="decimal" Nullable="false" Precision="11" Scale="2" />
+    <Property Name="IsIn" Type="bit" Nullable="false" />
+    <Property Name="MoneyL" Type="decimal" Nullable="false" Precision="11" Scale="2" />
+    <Property Name="UserID" Type="int" Nullable="false" />
+    <Property Name="ProjectID" Type="int" Nullable="false" />
+    <Property Name="OutMoney" Type="decimal" Nullable="false" Precision="11" Scale="2" />
+    <Property Name="UserName" Type="nvarchar" Nullable="false" MaxLength="20" />
+    <Property Name="ProjectName" Type="nvarchar" Nullable="false" MaxLength="50" />
+    <Property Name="LDateTime" Type="datetime" Nullable="false" />
+  </EntityType>
+  <EntityType Name="PublicBenefitRecordSet">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="UserName" Type="nvarchar" Nullable="false" MaxLength="20" />
+    <Property Name="UserID" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="PublicBenefitSet">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="BenefitName" Type="nvarchar" Nullable="false" MaxLength="50" />
+    <Property Name="BenefitInitiator" Type="nvarchar" Nullable="false" MaxLength="50" />
+    <Property Name="IsOnLine" Type="bit" Nullable="false" />
+    <Property Name="ApplyStartDate" Type="datetime" Nullable="true" />
+    <Property Name="Site" Type="nvarchar" Nullable="true" MaxLength="100" />
+    <Property Name="ApplyAbortDate" Type="datetime" Nullable="false" />
+    <Property Name="ApplyCount" Type="int" Nullable="false" />
+    <Property Name="ActivityProfile" Type="nvarchar" Nullable="true" MaxLength="200" />
+    <Property Name="UserID" Type="int" Nullable="false" />
+    <Property Name="ConsentApply" Type="bit" Nullable="false" />
+  </EntityType>
+</Schema></edmx:StorageModels>
     <!-- CSDL content -->
     <edmx:ConceptualModels>
       <Schema xmlns="http://schemas.microsoft.com/ado/2009/11/edm" xmlns:cg="http://schemas.microsoft.com/ado/2006/04/codegeneration" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" Namespace="SunShine" Alias="Self" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" annotation:UseStrongSpatialTypes="false">
         <EntityContainer Name="SunShineContainer" annotation:LazyLoadingEnabled="true">
-          <EntitySet Name="UserSet" EntityType="SunShine.User" />
+          <EntitySet Name="User1Set" EntityType="SunShine.User1" />
+          <EntitySet Name="ProjectSet" EntityType="SunShine.Project" />
+          <EntitySet Name="ProjectRecordSet" EntityType="SunShine.ProjectRecord" />
+          <EntitySet Name="FinanceSet" EntityType="SunShine.Finance" />
+          <EntitySet Name="PublicBenefitRecordSet" EntityType="SunShine.PublicBenefitRecord" />
+          <EntitySet Name="PublicBenefitSet" EntityType="SunShine.PublicBenefit" />
         </EntityContainer>
-        <EntityType Name="User">
+        <EntityType Name="User1">
           <Key>
             <PropertyRef Name="ID" />
           </Key>
           <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-          <Property Name="UserName" Type="String" Nullable="false" FixedLength="false" Unicode="true" MaxLength="20" />
-          <Property Name="UserPassWord" Type="String" Nullable="false" Unicode="true" MaxLength="20" />
+          <Property Name="UserName" Type="String" Nullable="false" Unicode="true" MaxLength="20" />
+          <Property Name="UserPassword" Type="String" Nullable="false" Unicode="true" MaxLength="20" />
           <Property Name="RoleID" Type="Int32" Nullable="false" />
           <Property Name="RoleName" Type="String" Nullable="false" Unicode="true" MaxLength="20" />
+        </EntityType>
+        <EntityType Name="Project">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="ProjectName" Type="String" Nullable="false" MaxLength="50" Unicode="true" />
+          <Property Name="UserID" Type="Int32" Nullable="false" />
+          <Property Name="UserName" Type="String" Nullable="false" Unicode="true" MaxLength="20" />
+          <Property Name="StartProjectTime" Type="DateTime" Nullable="false" />
+          <Property Name="EndProjectTime" Type="DateTime" Nullable="false" />
+          <Property Name="Moneyd" Type="Decimal" Nullable="false" Precision="11" Scale="2" />
+          <Property Name="Isstatus" Type="Int16" Nullable="false" />
+          <Property Name="UserNumber" Type="Int32" Nullable="false" />
+        </EntityType>
+        <EntityType Name="ProjectRecord">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="ProjectID" Type="Int32" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Finance">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="PreMoney" Type="Decimal" Nullable="false" Scale="2" Precision="11" />
+          <Property Name="IsIn" Type="Boolean" Nullable="false" />
+          <Property Name="MoneyL" Type="Decimal" Nullable="false" Scale="2" Precision="11" />
+          <Property Name="UserID" Type="Int32" Nullable="false" />
+          <Property Name="ProjectID" Type="Int32" Nullable="false" />
+          <Property Name="OutMoney" Type="Decimal" Nullable="false" Scale="2" Precision="11" />
+          <Property Name="UserName" Type="String" Nullable="false" Unicode="true" MaxLength="20" />
+          <Property Name="ProjectName" Type="String" Nullable="false" Unicode="true" MaxLength="50" />
+          <Property Name="LDateTime" Type="DateTime" Nullable="false" />
+        </EntityType>
+        <EntityType Name="PublicBenefitRecord">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="UserName" Type="String" Nullable="false" Unicode="true" MaxLength="20" />
+          <Property Name="UserID" Type="Int32" Nullable="false" />
+        </EntityType>
+        <EntityType Name="PublicBenefit">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="BenefitName" Type="String" Nullable="false" Unicode="true" MaxLength="50" />
+          <Property Name="BenefitInitiator" Type="String" Nullable="false" Unicode="true" MaxLength="50" />
+          <Property Name="IsOnLine" Type="Boolean" Nullable="false" />
+          <Property Name="ApplyStartDate" Type="DateTime" Nullable="true" />
+          <Property Name="Site" Type="String" Nullable="true" Unicode="true" MaxLength="100" />
+          <Property Name="ApplyAbortDate" Type="DateTime" Nullable="false" />
+          <Property Name="ApplyCount" Type="Int32" Nullable="false" />
+          <Property Name="ActivityProfile" Type="String" Nullable="true" Unicode="true" MaxLength="200" />
+          <Property Name="UserID" Type="Int32" Nullable="false" />
+          <Property Name="ConsentApply" Type="Boolean" Nullable="false" />
         </EntityType>
       </Schema>
     </edmx:ConceptualModels>
     <!-- C-S mapping content -->
     <edmx:Mappings>
-      <Mapping xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs" Space="C-S">
-        <Alias Key="Model" Value="SunShine" />
-        <Alias Key="Target" Value="SunShine.Store" />
-        <EntityContainerMapping CdmEntityContainer="SunShineContainer" StorageEntityContainer="SunShineTargetContainer">
-        </EntityContainerMapping>
-      </Mapping>
-    </edmx:Mappings>
+    <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="SunShineStoreContainer" CdmEntityContainer="SunShineContainer">
+    <EntitySetMapping Name="User1Set">
+      <EntityTypeMapping TypeName="IsTypeOf(SunShine.User1)">
+        <MappingFragment StoreEntitySet="User1Set">
+          <ScalarProperty Name="ID" ColumnName="ID" />
+          <ScalarProperty Name="UserName" ColumnName="UserName" />
+          <ScalarProperty Name="UserPassword" ColumnName="UserPassword" />
+          <ScalarProperty Name="RoleID" ColumnName="RoleID" />
+          <ScalarProperty Name="RoleName" ColumnName="RoleName" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="ProjectSet">
+      <EntityTypeMapping TypeName="IsTypeOf(SunShine.Project)">
+        <MappingFragment StoreEntitySet="ProjectSet">
+          <ScalarProperty Name="ID" ColumnName="ID" />
+          <ScalarProperty Name="ProjectName" ColumnName="ProjectName" />
+          <ScalarProperty Name="UserID" ColumnName="UserID" />
+          <ScalarProperty Name="UserName" ColumnName="UserName" />
+          <ScalarProperty Name="StartProjectTime" ColumnName="StartProjectTime" />
+          <ScalarProperty Name="EndProjectTime" ColumnName="EndProjectTime" />
+          <ScalarProperty Name="Moneyd" ColumnName="Moneyd" />
+          <ScalarProperty Name="Isstatus" ColumnName="Isstatus" />
+          <ScalarProperty Name="UserNumber" ColumnName="UserNumber" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="ProjectRecordSet">
+      <EntityTypeMapping TypeName="IsTypeOf(SunShine.ProjectRecord)">
+        <MappingFragment StoreEntitySet="ProjectRecordSet">
+          <ScalarProperty Name="ID" ColumnName="ID" />
+          <ScalarProperty Name="ProjectID" ColumnName="ProjectID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="FinanceSet">
+      <EntityTypeMapping TypeName="IsTypeOf(SunShine.Finance)">
+        <MappingFragment StoreEntitySet="FinanceSet">
+          <ScalarProperty Name="ID" ColumnName="ID" />
+          <ScalarProperty Name="PreMoney" ColumnName="PreMoney" />
+          <ScalarProperty Name="IsIn" ColumnName="IsIn" />
+          <ScalarProperty Name="MoneyL" ColumnName="MoneyL" />
+          <ScalarProperty Name="UserID" ColumnName="UserID" />
+          <ScalarProperty Name="ProjectID" ColumnName="ProjectID" />
+          <ScalarProperty Name="OutMoney" ColumnName="OutMoney" />
+          <ScalarProperty Name="UserName" ColumnName="UserName" />
+          <ScalarProperty Name="ProjectName" ColumnName="ProjectName" />
+          <ScalarProperty Name="LDateTime" ColumnName="LDateTime" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="PublicBenefitRecordSet">
+      <EntityTypeMapping TypeName="IsTypeOf(SunShine.PublicBenefitRecord)">
+        <MappingFragment StoreEntitySet="PublicBenefitRecordSet">
+          <ScalarProperty Name="ID" ColumnName="ID" />
+          <ScalarProperty Name="UserName" ColumnName="UserName" />
+          <ScalarProperty Name="UserID" ColumnName="UserID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="PublicBenefitSet">
+      <EntityTypeMapping TypeName="IsTypeOf(SunShine.PublicBenefit)">
+        <MappingFragment StoreEntitySet="PublicBenefitSet">
+          <ScalarProperty Name="ID" ColumnName="ID" />
+          <ScalarProperty Name="BenefitName" ColumnName="BenefitName" />
+          <ScalarProperty Name="BenefitInitiator" ColumnName="BenefitInitiator" />
+          <ScalarProperty Name="IsOnLine" ColumnName="IsOnLine" />
+          <ScalarProperty Name="ApplyStartDate" ColumnName="ApplyStartDate" />
+          <ScalarProperty Name="Site" ColumnName="Site" />
+          <ScalarProperty Name="ApplyAbortDate" ColumnName="ApplyAbortDate" />
+          <ScalarProperty Name="ApplyCount" ColumnName="ApplyCount" />
+          <ScalarProperty Name="ActivityProfile" ColumnName="ActivityProfile" />
+          <ScalarProperty Name="UserID" ColumnName="UserID" />
+          <ScalarProperty Name="ConsentApply" ColumnName="ConsentApply" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+  </EntityContainerMapping>
+</Mapping></edmx:Mappings>
   </edmx:Runtime>
   <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
   <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
@@ -49,6 +262,7 @@
         <DesignerProperty Name="ValidateOnBuild" Value="true" />
         <DesignerProperty Name="EnablePluralization" Value="False" />
         <DesignerProperty Name="CodeGenerationStrategy" Value="无" />
+        <DesignerProperty Name="UseLegacyProvider" Value="False" />
       </DesignerInfoPropertySet>
     </edmx:Options>
     <!-- Diagram content (shape and connector positions) -->
