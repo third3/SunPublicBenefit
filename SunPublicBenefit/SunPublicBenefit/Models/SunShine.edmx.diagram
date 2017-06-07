@@ -4,8 +4,9 @@
   <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
     <!-- Diagram content (shape and connector positions) -->
     <edmx:Diagrams>
-      <Diagram DiagramId="573392b48c6b4b51b95878cbfe8d3fc0" Name="Diagram1" >
+      <Diagram DiagramId="573392b48c6b4b51b95878cbfe8d3fc0" Name="Diagram1" ZoomLevel="70" >
         <EntityTypeShape EntityType="SunShine.Role" Width="1.5" PointX="0.5" PointY="0.75" />
+        <EntityTypeShape EntityType="SunShine.Roles" Width="3.5" PointX="1.875" PointY="3.125" />
       </Diagram>
     </edmx:Diagrams>
   </edmx:Designer>
