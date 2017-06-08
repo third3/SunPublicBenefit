@@ -14,18 +14,9 @@ namespace SunPublicBenefit.Models
     
     public partial class PublicBenefitRecord
     {
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
-        public PublicBenefitRecord()
-        {
-            this.User1 = new HashSet<User1>();
-            this.PublicBenefit = new HashSet<PublicBenefit>();
-        }
-    
         public string ID { get; set; }
     
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<User1> User1 { get; set; }
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<PublicBenefit> PublicBenefit { get; set; }
+        public virtual User1 User1 { get; set; }
+        public virtual PublicBenefit PublicBenefit { get; set; }
     }
 }

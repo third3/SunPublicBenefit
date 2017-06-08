@@ -14,12 +14,6 @@ namespace SunPublicBenefit.Models
     
     public partial class Finance
     {
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
-        public Finance()
-        {
-            this.Project = new HashSet<Project>();
-        }
-    
         public string ID { get; set; }
         public decimal PreMoney { get; set; }
         public bool IsIn { get; set; }
@@ -27,7 +21,6 @@ namespace SunPublicBenefit.Models
         public decimal OutMoney { get; set; }
         public System.DateTime LDateTime { get; set; }
     
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<Project> Project { get; set; }
+        public virtual Project Project { get; set; }
     }
 }

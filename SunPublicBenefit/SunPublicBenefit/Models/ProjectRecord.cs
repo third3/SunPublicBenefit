@@ -14,15 +14,8 @@ namespace SunPublicBenefit.Models
     
     public partial class ProjectRecord
     {
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
-        public ProjectRecord()
-        {
-            this.Project = new HashSet<Project>();
-        }
-    
         public string ID { get; set; }
     
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<Project> Project { get; set; }
+        public virtual Project Project { get; set; }
     }
 }

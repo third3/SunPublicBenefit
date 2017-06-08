@@ -10,19 +10,27 @@ namespace SunPublicBenefit.Controllers
     public class ApproveController : ContextController
     {
         // GET: Approve
-
-        [HttpPost]
+        public ActionResult AutoUserApprove()
+        {
+            return View("PersonalAuthentication.html");
+        }
+       [HttpPost]
         public ActionResult AutoUserApprove(string identityNumber, string realName, UserApprove approve,User1 user)
         {
+            string userValidateCode = Request["txtCode"];
+            string seesionVCode = Session["VCode"] as string;
+            Session["VCode"] = null;
+            if (string.IsNullOrEmpty(seesionVCode)||userValidateCode!=seesionVCode)
+            {
+                ViewBag.Message = "<script>alert('验证码错误！')</script>";
+                return View() ;
+            }
             if (IDVerify(identityNumber) && IsCN(realName))
             {
                 user = Session["userInfo"] as User1;
                 try
                 {
-                    foreach (Role item in user.Role)
-                    {
-                        item.RoleName = "Individual_User";
-                    }
+                    user.Role.RoleName = "Individual_User";
                     approve.ID = Guid.NewGuid().ToString();
                     approve.RealName = realName;
                     approve.IdentityNumber = identityNumber;

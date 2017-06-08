@@ -17,7 +17,7 @@ namespace SunPublicBenefit.Models
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
         public PublicBenefit()
         {
-            this.User1 = new HashSet<User1>();
+            this.PublicBenefitRecord = new HashSet<PublicBenefitRecord>();
         }
     
         public string ID { get; set; }
@@ -30,8 +30,7 @@ namespace SunPublicBenefit.Models
         public string ActivityProfile { get; set; }
         public bool ConsentApply { get; set; }
     
-        public virtual PublicBenefitRecord PublicBenefitRecord { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<User1> User1 { get; set; }
+        public virtual ICollection<PublicBenefitRecord> PublicBenefitRecord { get; set; }
     }
 }

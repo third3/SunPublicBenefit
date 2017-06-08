@@ -17,7 +17,9 @@ namespace SunPublicBenefit.Models
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
         public Project()
         {
-            this.User1 = new HashSet<User1>();
+            this.DoNationRecord = new HashSet<DoNationRecord>();
+            this.ProjectRecord = new HashSet<ProjectRecord>();
+            this.Finance = new HashSet<Finance>();
         }
     
         public string ID { get; set; }
@@ -29,9 +31,10 @@ namespace SunPublicBenefit.Models
         public int UserNumber { get; set; }
     
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<User1> User1 { get; set; }
-        public virtual ProjectRecord ProjectRecord { get; set; }
-        public virtual Finance Finance { get; set; }
-        public virtual DoNationRecord DoNationRecord { get; set; }
+        public virtual ICollection<DoNationRecord> DoNationRecord { get; set; }
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<ProjectRecord> ProjectRecord { get; set; }
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<Finance> Finance { get; set; }
     }
 }

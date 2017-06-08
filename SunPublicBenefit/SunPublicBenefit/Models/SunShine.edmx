@@ -15,45 +15,37 @@
     <EntitySet Name="RoleSet" EntityType="SunShine.Store.RoleSet" store:Type="Tables" Schema="dbo" />
     <EntitySet Name="DoNationRecordSet" EntityType="SunShine.Store.DoNationRecordSet" store:Type="Tables" Schema="dbo" />
     <EntitySet Name="UserApproveSet" EntityType="SunShine.Store.UserApproveSet" store:Type="Tables" Schema="dbo" />
-    <AssociationSet Name="User1Role" Association="SunShine.Store.User1Role">
-      <End Role="User1" EntitySet="User1Set" />
+    <AssociationSet Name="RoleUser1" Association="SunShine.Store.RoleUser1">
       <End Role="Role" EntitySet="RoleSet" />
-    </AssociationSet>
-    <AssociationSet Name="ProjectUser1" Association="SunShine.Store.ProjectUser1">
-      <End Role="Project" EntitySet="ProjectSet" />
       <End Role="User1" EntitySet="User1Set" />
     </AssociationSet>
-    <AssociationSet Name="ProjectRecordProject" Association="SunShine.Store.ProjectRecordProject">
-      <End Role="ProjectRecord" EntitySet="ProjectRecordSet" />
-      <End Role="Project" EntitySet="ProjectSet" />
-    </AssociationSet>
-    <AssociationSet Name="DoNationRecordUser1" Association="SunShine.Store.DoNationRecordUser1">
-      <End Role="DoNationRecord" EntitySet="DoNationRecordSet" />
+    <AssociationSet Name="User1PublicBenefitRecord" Association="SunShine.Store.User1PublicBenefitRecord">
       <End Role="User1" EntitySet="User1Set" />
-    </AssociationSet>
-    <AssociationSet Name="PublicBenefitRecordUser1" Association="SunShine.Store.PublicBenefitRecordUser1">
       <End Role="PublicBenefitRecord" EntitySet="PublicBenefitRecordSet" />
+    </AssociationSet>
+    <AssociationSet Name="User1UserApprove" Association="SunShine.Store.User1UserApprove">
       <End Role="User1" EntitySet="User1Set" />
-    </AssociationSet>
-    <AssociationSet Name="PublicBenefitRecordPublicBenefit" Association="SunShine.Store.PublicBenefitRecordPublicBenefit">
-      <End Role="PublicBenefitRecord" EntitySet="PublicBenefitRecordSet" />
-      <End Role="PublicBenefit" EntitySet="PublicBenefitSet" />
-    </AssociationSet>
-    <AssociationSet Name="FinanceProject" Association="SunShine.Store.FinanceProject">
-      <End Role="Finance" EntitySet="FinanceSet" />
-      <End Role="Project" EntitySet="ProjectSet" />
-    </AssociationSet>
-    <AssociationSet Name="PublicBenefitUser1" Association="SunShine.Store.PublicBenefitUser1">
-      <End Role="PublicBenefit" EntitySet="PublicBenefitSet" />
-      <End Role="User1" EntitySet="User1Set" />
-    </AssociationSet>
-    <AssociationSet Name="DoNationRecordProject" Association="SunShine.Store.DoNationRecordProject">
-      <End Role="DoNationRecord" EntitySet="DoNationRecordSet" />
-      <End Role="Project" EntitySet="ProjectSet" />
-    </AssociationSet>
-    <AssociationSet Name="UserApproveUser1" Association="SunShine.Store.UserApproveUser1">
       <End Role="UserApprove" EntitySet="UserApproveSet" />
+    </AssociationSet>
+    <AssociationSet Name="User1DoNationRecord" Association="SunShine.Store.User1DoNationRecord">
       <End Role="User1" EntitySet="User1Set" />
+      <End Role="DoNationRecord" EntitySet="DoNationRecordSet" />
+    </AssociationSet>
+    <AssociationSet Name="ProjectDoNationRecord" Association="SunShine.Store.ProjectDoNationRecord">
+      <End Role="Project" EntitySet="ProjectSet" />
+      <End Role="DoNationRecord" EntitySet="DoNationRecordSet" />
+    </AssociationSet>
+    <AssociationSet Name="ProjectProjectRecord" Association="SunShine.Store.ProjectProjectRecord">
+      <End Role="Project" EntitySet="ProjectSet" />
+      <End Role="ProjectRecord" EntitySet="ProjectRecordSet" />
+    </AssociationSet>
+    <AssociationSet Name="ProjectFinance" Association="SunShine.Store.ProjectFinance">
+      <End Role="Project" EntitySet="ProjectSet" />
+      <End Role="Finance" EntitySet="FinanceSet" />
+    </AssociationSet>
+    <AssociationSet Name="PublicBenefitPublicBenefitRecord" Association="SunShine.Store.PublicBenefitPublicBenefitRecord">
+      <End Role="PublicBenefit" EntitySet="PublicBenefitSet" />
+      <End Role="PublicBenefitRecord" EntitySet="PublicBenefitRecordSet" />
     </AssociationSet>
   </EntityContainer>
   <EntityType Name="User1Set">
@@ -63,11 +55,7 @@
     <Property Name="ID" Type="nvarchar" StoreGeneratedPattern="Identity" Nullable="false" MaxLength="20" />
     <Property Name="UserName" Type="nvarchar" Nullable="false" MaxLength="20" />
     <Property Name="UserPassword" Type="nvarchar" Nullable="false" MaxLength="20" />
-    <Property Name="Project_ID" Type="nvarchar" MaxLength="20" Nullable="true" />
-    <Property Name="DoNationRecord_ID" Type="nvarchar" MaxLength="20" Nullable="true" />
-    <Property Name="PublicBenefitRecord_ID" Type="nvarchar" MaxLength="20" Nullable="true" />
-    <Property Name="PublicBenefit_ID" Type="nvarchar" MaxLength="20" Nullable="true" />
-    <Property Name="UserApprove_ID" Type="nvarchar" MaxLength="20" Nullable="true" />
+    <Property Name="Role_ID" Type="nvarchar" MaxLength="20" Nullable="true" />
   </EntityType>
   <EntityType Name="ProjectSet">
     <Key>
@@ -80,15 +68,13 @@
     <Property Name="Moneyd" Type="decimal" Nullable="false" Precision="11" Scale="2" />
     <Property Name="Isstatus" Type="smallint" Nullable="false" />
     <Property Name="UserNumber" Type="int" Nullable="false" />
-    <Property Name="ProjectRecord_ID" Type="nvarchar" MaxLength="20" Nullable="true" />
-    <Property Name="Finance_ID" Type="nvarchar" MaxLength="20" Nullable="true" />
-    <Property Name="DoNationRecord_ID" Type="nvarchar" MaxLength="20" Nullable="true" />
   </EntityType>
   <EntityType Name="ProjectRecordSet">
     <Key>
       <PropertyRef Name="ID" />
     </Key>
     <Property Name="ID" Type="nvarchar" StoreGeneratedPattern="Identity" Nullable="false" MaxLength="20" />
+    <Property Name="Project_ID" Type="nvarchar" MaxLength="20" Nullable="false" />
   </EntityType>
   <EntityType Name="FinanceSet">
     <Key>
@@ -100,12 +86,15 @@
     <Property Name="MoneyL" Type="decimal" Nullable="false" Precision="11" Scale="2" />
     <Property Name="OutMoney" Type="decimal" Nullable="false" Precision="11" Scale="2" />
     <Property Name="LDateTime" Type="datetime" Nullable="false" />
+    <Property Name="Project_ID" Type="nvarchar" MaxLength="20" Nullable="false" />
   </EntityType>
   <EntityType Name="PublicBenefitRecordSet">
     <Key>
       <PropertyRef Name="ID" />
     </Key>
     <Property Name="ID" Type="nvarchar" StoreGeneratedPattern="Identity" Nullable="false" MaxLength="20" />
+    <Property Name="User1_ID" Type="nvarchar" MaxLength="20" Nullable="false" />
+    <Property Name="PublicBenefit_ID" Type="nvarchar" MaxLength="20" Nullable="false" />
   </EntityType>
   <EntityType Name="PublicBenefitSet">
     <Key>
@@ -120,7 +109,6 @@
     <Property Name="ApplyCount" Type="int" Nullable="false" />
     <Property Name="ActivityProfile" Type="nvarchar" Nullable="true" MaxLength="200" />
     <Property Name="ConsentApply" Type="bit" Nullable="false" />
-    <Property Name="PublicBenefitRecord_ID" Type="nvarchar" MaxLength="20" Nullable="true" />
   </EntityType>
   <EntityType Name="RoleSet">
     <Key>
@@ -128,7 +116,6 @@
     </Key>
     <Property Name="ID" Type="nvarchar" StoreGeneratedPattern="Identity" Nullable="false" MaxLength="20" />
     <Property Name="RoleName" Type="nvarchar" Nullable="false" MaxLength="20" />
-    <Property Name="User1_ID" Type="nvarchar" MaxLength="20" Nullable="true" />
   </EntityType>
   <EntityType Name="DoNationRecordSet">
     <Key>
@@ -137,6 +124,8 @@
     <Property Name="ID" Type="nvarchar" StoreGeneratedPattern="Identity" Nullable="false" MaxLength="20" />
     <Property Name="DonationDate" Type="nvarchar(max)" Nullable="false" />
     <Property Name="DonationAmout" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="User1_ID" Type="nvarchar" MaxLength="20" Nullable="false" />
+    <Property Name="Project_ID" Type="nvarchar" MaxLength="20" Nullable="false" />
   </EntityType>
   <EntityType Name="UserApproveSet">
     <Key>
@@ -145,124 +134,101 @@
     <Property Name="ID" Type="nvarchar" StoreGeneratedPattern="Identity" Nullable="false" MaxLength="20" />
     <Property Name="RealName" Type="nvarchar" Nullable="false" MaxLength="10" />
     <Property Name="IdentityNumber" Type="nchar" Nullable="false" MaxLength="18" />
+    <Property Name="User1_ID" Type="nvarchar" MaxLength="20" Nullable="false" />
   </EntityType>
-  <Association Name="User1Role">
-    <End Role="User1" Type="SunShine.Store.User1Set" Multiplicity="0..1" />
-    <End Role="Role" Type="SunShine.Store.RoleSet" Multiplicity="*" />
+  <Association Name="RoleUser1">
+    <End Role="Role" Type="SunShine.Store.RoleSet" Multiplicity="0..1" />
+    <End Role="User1" Type="SunShine.Store.User1Set" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Role">
+        <PropertyRef Name="ID" />
+      </Principal>
+      <Dependent Role="User1">
+        <PropertyRef Name="Role_ID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="User1PublicBenefitRecord">
+    <End Role="User1" Type="SunShine.Store.User1Set" Multiplicity="1" />
+    <End Role="PublicBenefitRecord" Type="SunShine.Store.PublicBenefitRecordSet" Multiplicity="*" />
     <ReferentialConstraint>
       <Principal Role="User1">
         <PropertyRef Name="ID" />
       </Principal>
-      <Dependent Role="Role">
+      <Dependent Role="PublicBenefitRecord">
         <PropertyRef Name="User1_ID" />
       </Dependent>
     </ReferentialConstraint>
   </Association>
-  <Association Name="ProjectUser1">
-    <End Role="Project" Type="SunShine.Store.ProjectSet" Multiplicity="0..1" />
-    <End Role="User1" Type="SunShine.Store.User1Set" Multiplicity="*" />
+  <Association Name="User1UserApprove">
+    <End Role="User1" Type="SunShine.Store.User1Set" Multiplicity="1" />
+    <End Role="UserApprove" Type="SunShine.Store.UserApproveSet" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="User1">
+        <PropertyRef Name="ID" />
+      </Principal>
+      <Dependent Role="UserApprove">
+        <PropertyRef Name="User1_ID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="User1DoNationRecord">
+    <End Role="User1" Type="SunShine.Store.User1Set" Multiplicity="1" />
+    <End Role="DoNationRecord" Type="SunShine.Store.DoNationRecordSet" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="User1">
+        <PropertyRef Name="ID" />
+      </Principal>
+      <Dependent Role="DoNationRecord">
+        <PropertyRef Name="User1_ID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="ProjectDoNationRecord">
+    <End Role="Project" Type="SunShine.Store.ProjectSet" Multiplicity="1" />
+    <End Role="DoNationRecord" Type="SunShine.Store.DoNationRecordSet" Multiplicity="*" />
     <ReferentialConstraint>
       <Principal Role="Project">
         <PropertyRef Name="ID" />
       </Principal>
-      <Dependent Role="User1">
+      <Dependent Role="DoNationRecord">
         <PropertyRef Name="Project_ID" />
       </Dependent>
     </ReferentialConstraint>
   </Association>
-  <Association Name="ProjectRecordProject">
-    <End Role="ProjectRecord" Type="SunShine.Store.ProjectRecordSet" Multiplicity="0..1" />
-    <End Role="Project" Type="SunShine.Store.ProjectSet" Multiplicity="*" />
+  <Association Name="ProjectProjectRecord">
+    <End Role="Project" Type="SunShine.Store.ProjectSet" Multiplicity="1" />
+    <End Role="ProjectRecord" Type="SunShine.Store.ProjectRecordSet" Multiplicity="*" />
     <ReferentialConstraint>
-      <Principal Role="ProjectRecord">
+      <Principal Role="Project">
         <PropertyRef Name="ID" />
       </Principal>
-      <Dependent Role="Project">
-        <PropertyRef Name="ProjectRecord_ID" />
+      <Dependent Role="ProjectRecord">
+        <PropertyRef Name="Project_ID" />
       </Dependent>
     </ReferentialConstraint>
   </Association>
-  <Association Name="DoNationRecordUser1">
-    <End Role="DoNationRecord" Type="SunShine.Store.DoNationRecordSet" Multiplicity="0..1" />
-    <End Role="User1" Type="SunShine.Store.User1Set" Multiplicity="*" />
+  <Association Name="ProjectFinance">
+    <End Role="Project" Type="SunShine.Store.ProjectSet" Multiplicity="1" />
+    <End Role="Finance" Type="SunShine.Store.FinanceSet" Multiplicity="*" />
     <ReferentialConstraint>
-      <Principal Role="DoNationRecord">
+      <Principal Role="Project">
         <PropertyRef Name="ID" />
       </Principal>
-      <Dependent Role="User1">
-        <PropertyRef Name="DoNationRecord_ID" />
+      <Dependent Role="Finance">
+        <PropertyRef Name="Project_ID" />
       </Dependent>
     </ReferentialConstraint>
   </Association>
-  <Association Name="PublicBenefitRecordUser1">
-    <End Role="PublicBenefitRecord" Type="SunShine.Store.PublicBenefitRecordSet" Multiplicity="0..1" />
-    <End Role="User1" Type="SunShine.Store.User1Set" Multiplicity="*" />
-    <ReferentialConstraint>
-      <Principal Role="PublicBenefitRecord">
-        <PropertyRef Name="ID" />
-      </Principal>
-      <Dependent Role="User1">
-        <PropertyRef Name="PublicBenefitRecord_ID" />
-      </Dependent>
-    </ReferentialConstraint>
-  </Association>
-  <Association Name="PublicBenefitRecordPublicBenefit">
-    <End Role="PublicBenefitRecord" Type="SunShine.Store.PublicBenefitRecordSet" Multiplicity="0..1" />
-    <End Role="PublicBenefit" Type="SunShine.Store.PublicBenefitSet" Multiplicity="*" />
-    <ReferentialConstraint>
-      <Principal Role="PublicBenefitRecord">
-        <PropertyRef Name="ID" />
-      </Principal>
-      <Dependent Role="PublicBenefit">
-        <PropertyRef Name="PublicBenefitRecord_ID" />
-      </Dependent>
-    </ReferentialConstraint>
-  </Association>
-  <Association Name="FinanceProject">
-    <End Role="Finance" Type="SunShine.Store.FinanceSet" Multiplicity="0..1" />
-    <End Role="Project" Type="SunShine.Store.ProjectSet" Multiplicity="*" />
-    <ReferentialConstraint>
-      <Principal Role="Finance">
-        <PropertyRef Name="ID" />
-      </Principal>
-      <Dependent Role="Project">
-        <PropertyRef Name="Finance_ID" />
-      </Dependent>
-    </ReferentialConstraint>
-  </Association>
-  <Association Name="PublicBenefitUser1">
-    <End Role="PublicBenefit" Type="SunShine.Store.PublicBenefitSet" Multiplicity="0..1" />
-    <End Role="User1" Type="SunShine.Store.User1Set" Multiplicity="*" />
+  <Association Name="PublicBenefitPublicBenefitRecord">
+    <End Role="PublicBenefit" Type="SunShine.Store.PublicBenefitSet" Multiplicity="1" />
+    <End Role="PublicBenefitRecord" Type="SunShine.Store.PublicBenefitRecordSet" Multiplicity="*" />
     <ReferentialConstraint>
       <Principal Role="PublicBenefit">
         <PropertyRef Name="ID" />
       </Principal>
-      <Dependent Role="User1">
+      <Dependent Role="PublicBenefitRecord">
         <PropertyRef Name="PublicBenefit_ID" />
-      </Dependent>
-    </ReferentialConstraint>
-  </Association>
-  <Association Name="DoNationRecordProject">
-    <End Role="DoNationRecord" Type="SunShine.Store.DoNationRecordSet" Multiplicity="0..1" />
-    <End Role="Project" Type="SunShine.Store.ProjectSet" Multiplicity="*" />
-    <ReferentialConstraint>
-      <Principal Role="DoNationRecord">
-        <PropertyRef Name="ID" />
-      </Principal>
-      <Dependent Role="Project">
-        <PropertyRef Name="DoNationRecord_ID" />
-      </Dependent>
-    </ReferentialConstraint>
-  </Association>
-  <Association Name="UserApproveUser1">
-    <End Role="UserApprove" Type="SunShine.Store.UserApproveSet" Multiplicity="0..1" />
-    <End Role="User1" Type="SunShine.Store.User1Set" Multiplicity="*" />
-    <ReferentialConstraint>
-      <Principal Role="UserApprove">
-        <PropertyRef Name="ID" />
-      </Principal>
-      <Dependent Role="User1">
-        <PropertyRef Name="UserApprove_ID" />
       </Dependent>
     </ReferentialConstraint>
   </Association>
@@ -279,46 +245,38 @@
           <EntitySet Name="PublicBenefitSet" EntityType="SunShine.PublicBenefit" />
           <EntitySet Name="RoleSet" EntityType="SunShine.Role" />
           <EntitySet Name="DoNationRecordSet" EntityType="SunShine.DoNationRecord" />
-          <AssociationSet Name="User1Role" Association="SunShine.User1Role">
-            <End Role="User1" EntitySet="User1Set" />
-            <End Role="Role" EntitySet="RoleSet" />
-          </AssociationSet>
-          <AssociationSet Name="ProjectUser1" Association="SunShine.ProjectUser1">
-            <End Role="Project" EntitySet="ProjectSet" />
-            <End Role="User1" EntitySet="User1Set" />
-          </AssociationSet>
-          <AssociationSet Name="ProjectRecordProject" Association="SunShine.ProjectRecordProject">
-            <End Role="ProjectRecord" EntitySet="ProjectRecordSet" />
-            <End Role="Project" EntitySet="ProjectSet" />
-          </AssociationSet>
-          <AssociationSet Name="DoNationRecordUser1" Association="SunShine.DoNationRecordUser1">
-            <End Role="DoNationRecord" EntitySet="DoNationRecordSet" />
-            <End Role="User1" EntitySet="User1Set" />
-          </AssociationSet>
-          <AssociationSet Name="PublicBenefitRecordUser1" Association="SunShine.PublicBenefitRecordUser1">
-            <End Role="PublicBenefitRecord" EntitySet="PublicBenefitRecordSet" />
-            <End Role="User1" EntitySet="User1Set" />
-          </AssociationSet>
-          <AssociationSet Name="PublicBenefitRecordPublicBenefit" Association="SunShine.PublicBenefitRecordPublicBenefit">
-            <End Role="PublicBenefitRecord" EntitySet="PublicBenefitRecordSet" />
-            <End Role="PublicBenefit" EntitySet="PublicBenefitSet" />
-          </AssociationSet>
-          <AssociationSet Name="FinanceProject" Association="SunShine.FinanceProject">
-            <End Role="Finance" EntitySet="FinanceSet" />
-            <End Role="Project" EntitySet="ProjectSet" />
-          </AssociationSet>
-          <AssociationSet Name="PublicBenefitUser1" Association="SunShine.PublicBenefitUser1">
-            <End Role="PublicBenefit" EntitySet="PublicBenefitSet" />
-            <End Role="User1" EntitySet="User1Set" />
-          </AssociationSet>
-          <AssociationSet Name="DoNationRecordProject" Association="SunShine.DoNationRecordProject">
-            <End Role="DoNationRecord" EntitySet="DoNationRecordSet" />
-            <End Role="Project" EntitySet="ProjectSet" />
-          </AssociationSet>
           <EntitySet Name="UserApproveSet" EntityType="SunShine.UserApprove" />
-          <AssociationSet Name="UserApproveUser1" Association="SunShine.UserApproveUser1">
-            <End Role="UserApprove" EntitySet="UserApproveSet" />
+          <AssociationSet Name="RoleUser1" Association="SunShine.RoleUser1">
+            <End Role="Role" EntitySet="RoleSet" />
             <End Role="User1" EntitySet="User1Set" />
+          </AssociationSet>
+          <AssociationSet Name="User1PublicBenefitRecord" Association="SunShine.User1PublicBenefitRecord">
+            <End Role="User1" EntitySet="User1Set" />
+            <End Role="PublicBenefitRecord" EntitySet="PublicBenefitRecordSet" />
+          </AssociationSet>
+          <AssociationSet Name="User1UserApprove" Association="SunShine.User1UserApprove">
+            <End Role="User1" EntitySet="User1Set" />
+            <End Role="UserApprove" EntitySet="UserApproveSet" />
+          </AssociationSet>
+          <AssociationSet Name="User1DoNationRecord" Association="SunShine.User1DoNationRecord">
+            <End Role="User1" EntitySet="User1Set" />
+            <End Role="DoNationRecord" EntitySet="DoNationRecordSet" />
+          </AssociationSet>
+          <AssociationSet Name="ProjectDoNationRecord" Association="SunShine.ProjectDoNationRecord">
+            <End Role="Project" EntitySet="ProjectSet" />
+            <End Role="DoNationRecord" EntitySet="DoNationRecordSet" />
+          </AssociationSet>
+          <AssociationSet Name="ProjectProjectRecord" Association="SunShine.ProjectProjectRecord">
+            <End Role="Project" EntitySet="ProjectSet" />
+            <End Role="ProjectRecord" EntitySet="ProjectRecordSet" />
+          </AssociationSet>
+          <AssociationSet Name="ProjectFinance" Association="SunShine.ProjectFinance">
+            <End Role="Project" EntitySet="ProjectSet" />
+            <End Role="Finance" EntitySet="FinanceSet" />
+          </AssociationSet>
+          <AssociationSet Name="PublicBenefitPublicBenefitRecord" Association="SunShine.PublicBenefitPublicBenefitRecord">
+            <End Role="PublicBenefit" EntitySet="PublicBenefitSet" />
+            <End Role="PublicBenefitRecord" EntitySet="PublicBenefitRecordSet" />
           </AssociationSet>
         </EntityContainer>
         <EntityType Name="User1">
@@ -328,12 +286,10 @@
           <Property Name="ID" Type="String" Nullable="false" annotation:StoreGeneratedPattern="Identity" Unicode="true" MaxLength="20" />
           <Property Name="UserName" Type="String" Nullable="false" Unicode="true" MaxLength="20" />
           <Property Name="UserPassword" Type="String" Nullable="false" Unicode="true" MaxLength="20" />
-          <NavigationProperty Name="Role" Relationship="SunShine.User1Role" FromRole="User1" ToRole="Role" />
-          <NavigationProperty Name="Project" Relationship="SunShine.ProjectUser1" FromRole="User1" ToRole="Project" />
-          <NavigationProperty Name="DoNationRecord" Relationship="SunShine.DoNationRecordUser1" FromRole="User1" ToRole="DoNationRecord" />
-          <NavigationProperty Name="PublicBenefitRecord" Relationship="SunShine.PublicBenefitRecordUser1" FromRole="User1" ToRole="PublicBenefitRecord" />
-          <NavigationProperty Name="PublicBenefit" Relationship="SunShine.PublicBenefitUser1" FromRole="User1" ToRole="PublicBenefit" />
-          <NavigationProperty Name="UserApprove" Relationship="SunShine.UserApproveUser1" FromRole="User1" ToRole="UserApprove" />
+          <NavigationProperty Name="Role" Relationship="SunShine.RoleUser1" FromRole="User1" ToRole="Role" />
+          <NavigationProperty Name="PublicBenefitRecord" Relationship="SunShine.User1PublicBenefitRecord" FromRole="User1" ToRole="PublicBenefitRecord" />
+          <NavigationProperty Name="UserApprove" Relationship="SunShine.User1UserApprove" FromRole="User1" ToRole="UserApprove" />
+          <NavigationProperty Name="DoNationRecord" Relationship="SunShine.User1DoNationRecord" FromRole="User1" ToRole="DoNationRecord" />
         </EntityType>
         <EntityType Name="Project">
           <Key>
@@ -346,17 +302,16 @@
           <Property Name="Moneyd" Type="Decimal" Nullable="false" Precision="11" Scale="2" />
           <Property Name="Isstatus" Type="Int16" Nullable="false" />
           <Property Name="UserNumber" Type="Int32" Nullable="false" />
-          <NavigationProperty Name="User1" Relationship="SunShine.ProjectUser1" FromRole="Project" ToRole="User1" />
-          <NavigationProperty Name="ProjectRecord" Relationship="SunShine.ProjectRecordProject" FromRole="Project" ToRole="ProjectRecord" />
-          <NavigationProperty Name="Finance" Relationship="SunShine.FinanceProject" FromRole="Project" ToRole="Finance" />
-          <NavigationProperty Name="DoNationRecord" Relationship="SunShine.DoNationRecordProject" FromRole="Project" ToRole="DoNationRecord" />
+          <NavigationProperty Name="DoNationRecord" Relationship="SunShine.ProjectDoNationRecord" FromRole="Project" ToRole="DoNationRecord" />
+          <NavigationProperty Name="ProjectRecord" Relationship="SunShine.ProjectProjectRecord" FromRole="Project" ToRole="ProjectRecord" />
+          <NavigationProperty Name="Finance" Relationship="SunShine.ProjectFinance" FromRole="Project" ToRole="Finance" />
         </EntityType>
         <EntityType Name="ProjectRecord">
           <Key>
             <PropertyRef Name="ID" />
           </Key>
           <Property Name="ID" Type="String" Nullable="false" annotation:StoreGeneratedPattern="Identity" Unicode="true" MaxLength="20" />
-          <NavigationProperty Name="Project" Relationship="SunShine.ProjectRecordProject" FromRole="ProjectRecord" ToRole="Project" />
+          <NavigationProperty Name="Project" Relationship="SunShine.ProjectProjectRecord" FromRole="ProjectRecord" ToRole="Project" />
         </EntityType>
         <EntityType Name="Finance">
           <Key>
@@ -368,15 +323,15 @@
           <Property Name="MoneyL" Type="Decimal" Nullable="false" Scale="2" Precision="11" />
           <Property Name="OutMoney" Type="Decimal" Nullable="false" Scale="2" Precision="11" />
           <Property Name="LDateTime" Type="DateTime" Nullable="false" />
-          <NavigationProperty Name="Project" Relationship="SunShine.FinanceProject" FromRole="Finance" ToRole="Project" />
+          <NavigationProperty Name="Project" Relationship="SunShine.ProjectFinance" FromRole="Finance" ToRole="Project" />
         </EntityType>
         <EntityType Name="PublicBenefitRecord">
           <Key>
             <PropertyRef Name="ID" />
           </Key>
           <Property Name="ID" Type="String" Nullable="false" annotation:StoreGeneratedPattern="Identity" MaxLength="20" Unicode="true" />
-          <NavigationProperty Name="User1" Relationship="SunShine.PublicBenefitRecordUser1" FromRole="PublicBenefitRecord" ToRole="User1" />
-          <NavigationProperty Name="PublicBenefit" Relationship="SunShine.PublicBenefitRecordPublicBenefit" FromRole="PublicBenefitRecord" ToRole="PublicBenefit" />
+          <NavigationProperty Name="User1" Relationship="SunShine.User1PublicBenefitRecord" FromRole="PublicBenefitRecord" ToRole="User1" />
+          <NavigationProperty Name="PublicBenefit" Relationship="SunShine.PublicBenefitPublicBenefitRecord" FromRole="PublicBenefitRecord" ToRole="PublicBenefit" />
         </EntityType>
         <EntityType Name="PublicBenefit">
           <Key>
@@ -391,8 +346,7 @@
           <Property Name="ApplyCount" Type="Int32" Nullable="false" />
           <Property Name="ActivityProfile" Type="String" Nullable="true" Unicode="true" MaxLength="200" />
           <Property Name="ConsentApply" Type="Boolean" Nullable="false" />
-          <NavigationProperty Name="PublicBenefitRecord" Relationship="SunShine.PublicBenefitRecordPublicBenefit" FromRole="PublicBenefit" ToRole="PublicBenefitRecord" />
-          <NavigationProperty Name="User1" Relationship="SunShine.PublicBenefitUser1" FromRole="PublicBenefit" ToRole="User1" />
+          <NavigationProperty Name="PublicBenefitRecord" Relationship="SunShine.PublicBenefitPublicBenefitRecord" FromRole="PublicBenefit" ToRole="PublicBenefitRecord" />
         </EntityType>
         <EntityType Name="Role">
           <Key>
@@ -400,7 +354,7 @@
           </Key>
           <Property Name="ID" Type="String" Nullable="false" annotation:StoreGeneratedPattern="Identity" MaxLength="20" Unicode="true" />
           <Property Name="RoleName" Type="String" Nullable="false" MaxLength="20" Unicode="true" />
-          <NavigationProperty Name="User1" Relationship="SunShine.User1Role" FromRole="Role" ToRole="User1" />
+          <NavigationProperty Name="User1" Relationship="SunShine.RoleUser1" FromRole="Role" ToRole="User1" />
         </EntityType>
         <EntityType Name="DoNationRecord">
           <Key>
@@ -409,45 +363,9 @@
           <Property Name="ID" Type="String" Nullable="false" annotation:StoreGeneratedPattern="Identity" MaxLength="20" Unicode="true" />
           <Property Name="DonationDate" Type="String" Nullable="false" />
           <Property Name="DonationAmout" Type="String" Nullable="false" />
-          <NavigationProperty Name="User1" Relationship="SunShine.DoNationRecordUser1" FromRole="DoNationRecord" ToRole="User1" />
-          <NavigationProperty Name="Project" Relationship="SunShine.DoNationRecordProject" FromRole="DoNationRecord" ToRole="Project" />
+          <NavigationProperty Name="User1" Relationship="SunShine.User1DoNationRecord" FromRole="DoNationRecord" ToRole="User1" />
+          <NavigationProperty Name="Project" Relationship="SunShine.ProjectDoNationRecord" FromRole="DoNationRecord" ToRole="Project" />
         </EntityType>
-        <Association Name="User1Role">
-          <End Type="SunShine.User1" Role="User1" Multiplicity="0..1" />
-          <End Type="SunShine.Role" Role="Role" Multiplicity="*" />
-        </Association>
-        <Association Name="ProjectUser1">
-          <End Type="SunShine.Project" Role="Project" Multiplicity="0..1" />
-          <End Type="SunShine.User1" Role="User1" Multiplicity="*" />
-        </Association>
-        <Association Name="ProjectRecordProject">
-          <End Type="SunShine.ProjectRecord" Role="ProjectRecord" Multiplicity="0..1" />
-          <End Type="SunShine.Project" Role="Project" Multiplicity="*" />
-        </Association>
-        <Association Name="DoNationRecordUser1">
-          <End Type="SunShine.DoNationRecord" Role="DoNationRecord" Multiplicity="0..1" />
-          <End Type="SunShine.User1" Role="User1" Multiplicity="*" />
-        </Association>
-        <Association Name="PublicBenefitRecordUser1">
-          <End Type="SunShine.PublicBenefitRecord" Role="PublicBenefitRecord" Multiplicity="0..1" />
-          <End Type="SunShine.User1" Role="User1" Multiplicity="*" />
-        </Association>
-        <Association Name="PublicBenefitRecordPublicBenefit">
-          <End Type="SunShine.PublicBenefitRecord" Role="PublicBenefitRecord" Multiplicity="0..1" />
-          <End Type="SunShine.PublicBenefit" Role="PublicBenefit" Multiplicity="*" />
-        </Association>
-        <Association Name="FinanceProject">
-          <End Type="SunShine.Finance" Role="Finance" Multiplicity="0..1" />
-          <End Type="SunShine.Project" Role="Project" Multiplicity="*" />
-        </Association>
-        <Association Name="PublicBenefitUser1">
-          <End Type="SunShine.PublicBenefit" Role="PublicBenefit" Multiplicity="0..1" />
-          <End Type="SunShine.User1" Role="User1" Multiplicity="*" />
-        </Association>
-        <Association Name="DoNationRecordProject">
-          <End Type="SunShine.DoNationRecord" Role="DoNationRecord" Multiplicity="0..1" />
-          <End Type="SunShine.Project" Role="Project" Multiplicity="*" />
-        </Association>
         <EntityType Name="UserApprove">
           <Key>
             <PropertyRef Name="ID" />
@@ -455,11 +373,39 @@
           <Property Name="ID" Type="String" Nullable="false" annotation:StoreGeneratedPattern="Identity" Unicode="true" MaxLength="20" />
           <Property Name="RealName" Type="String" Nullable="false" MaxLength="10" annotation:StoreGeneratedPattern="None" Unicode="true" />
           <Property Name="IdentityNumber" Type="String" Nullable="false" MaxLength="18" Unicode="true" FixedLength="true" />
-          <NavigationProperty Name="User1" Relationship="SunShine.UserApproveUser1" FromRole="UserApprove" ToRole="User1" />
+          <NavigationProperty Name="User1" Relationship="SunShine.User1UserApprove" FromRole="UserApprove" ToRole="User1" />
         </EntityType>
-        <Association Name="UserApproveUser1">
-          <End Type="SunShine.UserApprove" Role="UserApprove" Multiplicity="0..1" />
+        <Association Name="RoleUser1">
+          <End Type="SunShine.Role" Role="Role" Multiplicity="0..1" />
           <End Type="SunShine.User1" Role="User1" Multiplicity="*" />
+        </Association>
+        <Association Name="User1PublicBenefitRecord">
+          <End Type="SunShine.User1" Role="User1" Multiplicity="1" />
+          <End Type="SunShine.PublicBenefitRecord" Role="PublicBenefitRecord" Multiplicity="*" />
+        </Association>
+        <Association Name="User1UserApprove">
+          <End Type="SunShine.User1" Role="User1" Multiplicity="1" />
+          <End Type="SunShine.UserApprove" Role="UserApprove" Multiplicity="*" />
+        </Association>
+        <Association Name="User1DoNationRecord">
+          <End Type="SunShine.User1" Role="User1" Multiplicity="1" />
+          <End Type="SunShine.DoNationRecord" Role="DoNationRecord" Multiplicity="*" />
+        </Association>
+        <Association Name="ProjectDoNationRecord">
+          <End Type="SunShine.Project" Role="Project" Multiplicity="1" />
+          <End Type="SunShine.DoNationRecord" Role="DoNationRecord" Multiplicity="*" />
+        </Association>
+        <Association Name="ProjectProjectRecord">
+          <End Type="SunShine.Project" Role="Project" Multiplicity="1" />
+          <End Type="SunShine.ProjectRecord" Role="ProjectRecord" Multiplicity="*" />
+        </Association>
+        <Association Name="ProjectFinance">
+          <End Type="SunShine.Project" Role="Project" Multiplicity="1" />
+          <End Type="SunShine.Finance" Role="Finance" Multiplicity="*" />
+        </Association>
+        <Association Name="PublicBenefitPublicBenefitRecord">
+          <End Type="SunShine.PublicBenefit" Role="PublicBenefit" Multiplicity="1" />
+          <End Type="SunShine.PublicBenefitRecord" Role="PublicBenefitRecord" Multiplicity="*" />
         </Association>
       </Schema>
     </edmx:ConceptualModels>
@@ -556,95 +502,70 @@
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
-    <AssociationSetMapping Name="User1Role" TypeName="SunShine.User1Role" StoreEntitySet="RoleSet">
+    <AssociationSetMapping Name="RoleUser1" TypeName="SunShine.RoleUser1" StoreEntitySet="User1Set">
+      <EndProperty Name="Role">
+        <ScalarProperty Name="ID" ColumnName="Role_ID" />
+      </EndProperty>
+      <EndProperty Name="User1">
+        <ScalarProperty Name="ID" ColumnName="ID" />
+      </EndProperty>
+      <Condition ColumnName="Role_ID" IsNull="false" />
+    </AssociationSetMapping>
+    <AssociationSetMapping Name="User1PublicBenefitRecord" TypeName="SunShine.User1PublicBenefitRecord" StoreEntitySet="PublicBenefitRecordSet">
       <EndProperty Name="User1">
         <ScalarProperty Name="ID" ColumnName="User1_ID" />
       </EndProperty>
-      <EndProperty Name="Role">
+      <EndProperty Name="PublicBenefitRecord">
         <ScalarProperty Name="ID" ColumnName="ID" />
       </EndProperty>
-      <Condition ColumnName="User1_ID" IsNull="false" />
     </AssociationSetMapping>
-    <AssociationSetMapping Name="ProjectUser1" TypeName="SunShine.ProjectUser1" StoreEntitySet="User1Set">
+    <AssociationSetMapping Name="User1UserApprove" TypeName="SunShine.User1UserApprove" StoreEntitySet="UserApproveSet">
+      <EndProperty Name="User1">
+        <ScalarProperty Name="ID" ColumnName="User1_ID" />
+      </EndProperty>
+      <EndProperty Name="UserApprove">
+        <ScalarProperty Name="ID" ColumnName="ID" />
+      </EndProperty>
+    </AssociationSetMapping>
+    <AssociationSetMapping Name="User1DoNationRecord" TypeName="SunShine.User1DoNationRecord" StoreEntitySet="DoNationRecordSet">
+      <EndProperty Name="User1">
+        <ScalarProperty Name="ID" ColumnName="User1_ID" />
+      </EndProperty>
+      <EndProperty Name="DoNationRecord">
+        <ScalarProperty Name="ID" ColumnName="ID" />
+      </EndProperty>
+    </AssociationSetMapping>
+    <AssociationSetMapping Name="ProjectDoNationRecord" TypeName="SunShine.ProjectDoNationRecord" StoreEntitySet="DoNationRecordSet">
       <EndProperty Name="Project">
         <ScalarProperty Name="ID" ColumnName="Project_ID" />
       </EndProperty>
-      <EndProperty Name="User1">
-        <ScalarProperty Name="ID" ColumnName="ID" />
-      </EndProperty>
-      <Condition ColumnName="Project_ID" IsNull="false" />
-    </AssociationSetMapping>
-    <AssociationSetMapping Name="ProjectRecordProject" TypeName="SunShine.ProjectRecordProject" StoreEntitySet="ProjectSet">
-      <EndProperty Name="ProjectRecord">
-        <ScalarProperty Name="ID" ColumnName="ProjectRecord_ID" />
-      </EndProperty>
-      <EndProperty Name="Project">
-        <ScalarProperty Name="ID" ColumnName="ID" />
-      </EndProperty>
-      <Condition ColumnName="ProjectRecord_ID" IsNull="false" />
-    </AssociationSetMapping>
-    <AssociationSetMapping Name="DoNationRecordUser1" TypeName="SunShine.DoNationRecordUser1" StoreEntitySet="User1Set">
       <EndProperty Name="DoNationRecord">
-        <ScalarProperty Name="ID" ColumnName="DoNationRecord_ID" />
-      </EndProperty>
-      <EndProperty Name="User1">
         <ScalarProperty Name="ID" ColumnName="ID" />
       </EndProperty>
-      <Condition ColumnName="DoNationRecord_ID" IsNull="false" />
     </AssociationSetMapping>
-    <AssociationSetMapping Name="PublicBenefitRecordUser1" TypeName="SunShine.PublicBenefitRecordUser1" StoreEntitySet="User1Set">
-      <EndProperty Name="PublicBenefitRecord">
-        <ScalarProperty Name="ID" ColumnName="PublicBenefitRecord_ID" />
-      </EndProperty>
-      <EndProperty Name="User1">
-        <ScalarProperty Name="ID" ColumnName="ID" />
-      </EndProperty>
-      <Condition ColumnName="PublicBenefitRecord_ID" IsNull="false" />
-    </AssociationSetMapping>
-    <AssociationSetMapping Name="PublicBenefitRecordPublicBenefit" TypeName="SunShine.PublicBenefitRecordPublicBenefit" StoreEntitySet="PublicBenefitSet">
-      <EndProperty Name="PublicBenefitRecord">
-        <ScalarProperty Name="ID" ColumnName="PublicBenefitRecord_ID" />
-      </EndProperty>
-      <EndProperty Name="PublicBenefit">
-        <ScalarProperty Name="ID" ColumnName="ID" />
-      </EndProperty>
-      <Condition ColumnName="PublicBenefitRecord_ID" IsNull="false" />
-    </AssociationSetMapping>
-    <AssociationSetMapping Name="FinanceProject" TypeName="SunShine.FinanceProject" StoreEntitySet="ProjectSet">
-      <EndProperty Name="Finance">
-        <ScalarProperty Name="ID" ColumnName="Finance_ID" />
-      </EndProperty>
+    <AssociationSetMapping Name="ProjectProjectRecord" TypeName="SunShine.ProjectProjectRecord" StoreEntitySet="ProjectRecordSet">
       <EndProperty Name="Project">
+        <ScalarProperty Name="ID" ColumnName="Project_ID" />
+      </EndProperty>
+      <EndProperty Name="ProjectRecord">
         <ScalarProperty Name="ID" ColumnName="ID" />
       </EndProperty>
-      <Condition ColumnName="Finance_ID" IsNull="false" />
     </AssociationSetMapping>
-    <AssociationSetMapping Name="PublicBenefitUser1" TypeName="SunShine.PublicBenefitUser1" StoreEntitySet="User1Set">
+    <AssociationSetMapping Name="ProjectFinance" TypeName="SunShine.ProjectFinance" StoreEntitySet="FinanceSet">
+      <EndProperty Name="Project">
+        <ScalarProperty Name="ID" ColumnName="Project_ID" />
+      </EndProperty>
+      <EndProperty Name="Finance">
+        <ScalarProperty Name="ID" ColumnName="ID" />
+      </EndProperty>
+    </AssociationSetMapping>
+    <AssociationSetMapping Name="PublicBenefitPublicBenefitRecord" TypeName="SunShine.PublicBenefitPublicBenefitRecord" StoreEntitySet="PublicBenefitRecordSet">
       <EndProperty Name="PublicBenefit">
         <ScalarProperty Name="ID" ColumnName="PublicBenefit_ID" />
       </EndProperty>
-      <EndProperty Name="User1">
+      <EndProperty Name="PublicBenefitRecord">
         <ScalarProperty Name="ID" ColumnName="ID" />
       </EndProperty>
-      <Condition ColumnName="PublicBenefit_ID" IsNull="false" />
-    </AssociationSetMapping>
-    <AssociationSetMapping Name="DoNationRecordProject" TypeName="SunShine.DoNationRecordProject" StoreEntitySet="ProjectSet">
-      <EndProperty Name="DoNationRecord">
-        <ScalarProperty Name="ID" ColumnName="DoNationRecord_ID" />
-      </EndProperty>
-      <EndProperty Name="Project">
-        <ScalarProperty Name="ID" ColumnName="ID" />
-      </EndProperty>
-      <Condition ColumnName="DoNationRecord_ID" IsNull="false" />
-    </AssociationSetMapping>
-    <AssociationSetMapping Name="UserApproveUser1" TypeName="SunShine.UserApproveUser1" StoreEntitySet="User1Set">
-      <EndProperty Name="UserApprove">
-        <ScalarProperty Name="ID" ColumnName="UserApprove_ID" />
-      </EndProperty>
-      <EndProperty Name="User1">
-        <ScalarProperty Name="ID" ColumnName="ID" />
-      </EndProperty>
-      <Condition ColumnName="UserApprove_ID" IsNull="false" />
     </AssociationSetMapping>
   </EntityContainerMapping>
 </Mapping></edmx:Mappings>

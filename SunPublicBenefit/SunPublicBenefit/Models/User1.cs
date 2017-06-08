@@ -17,19 +17,21 @@ namespace SunPublicBenefit.Models
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
         public User1()
         {
-            this.Role = new HashSet<Role>();
+            this.PublicBenefitRecord = new HashSet<PublicBenefitRecord>();
+            this.UserApprove = new HashSet<UserApprove>();
+            this.DoNationRecord = new HashSet<DoNationRecord>();
         }
     
         public string ID { get; set; }
         public string UserName { get; set; }
         public string UserPassword { get; set; }
     
+        public virtual Role Role { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<Role> Role { get; set; }
-        public virtual Project Project { get; set; }
-        public virtual DoNationRecord DoNationRecord { get; set; }
-        public virtual PublicBenefitRecord PublicBenefitRecord { get; set; }
-        public virtual PublicBenefit PublicBenefit { get; set; }
-        public virtual UserApprove UserApprove { get; set; }
+        public virtual ICollection<PublicBenefitRecord> PublicBenefitRecord { get; set; }
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<UserApprove> UserApprove { get; set; }
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<DoNationRecord> DoNationRecord { get; set; }
     }
 }

@@ -2,7 +2,7 @@
 -- --------------------------------------------------
 -- Entity Designer DDL Script for SQL Server 2005, 2008, 2012 and Azure
 -- --------------------------------------------------
--- Date Created: 06/08/2017 10:36:51
+-- Date Created: 06/08/2017 11:49:15
 -- Generated from EDMX file: C:\Users\zero\Source\Repos\SunPublicBenefit\SunPublicBenefit\SunPublicBenefit\Models\SunShine.edmx
 -- --------------------------------------------------
 
@@ -17,35 +17,29 @@ GO
 -- Dropping existing FOREIGN KEY constraints
 -- --------------------------------------------------
 
-IF OBJECT_ID(N'[dbo].[FK_User1Role]', 'F') IS NOT NULL
-    ALTER TABLE [dbo].[RoleSet] DROP CONSTRAINT [FK_User1Role];
+IF OBJECT_ID(N'[dbo].[FK_RoleUser1]', 'F') IS NOT NULL
+    ALTER TABLE [dbo].[User1Set] DROP CONSTRAINT [FK_RoleUser1];
 GO
-IF OBJECT_ID(N'[dbo].[FK_ProjectUser1]', 'F') IS NOT NULL
-    ALTER TABLE [dbo].[User1Set] DROP CONSTRAINT [FK_ProjectUser1];
+IF OBJECT_ID(N'[dbo].[FK_User1PublicBenefitRecord]', 'F') IS NOT NULL
+    ALTER TABLE [dbo].[PublicBenefitRecordSet] DROP CONSTRAINT [FK_User1PublicBenefitRecord];
 GO
-IF OBJECT_ID(N'[dbo].[FK_ProjectRecordProject]', 'F') IS NOT NULL
-    ALTER TABLE [dbo].[ProjectSet] DROP CONSTRAINT [FK_ProjectRecordProject];
+IF OBJECT_ID(N'[dbo].[FK_User1UserApprove]', 'F') IS NOT NULL
+    ALTER TABLE [dbo].[UserApproveSet] DROP CONSTRAINT [FK_User1UserApprove];
 GO
-IF OBJECT_ID(N'[dbo].[FK_DoNationRecordUser1]', 'F') IS NOT NULL
-    ALTER TABLE [dbo].[User1Set] DROP CONSTRAINT [FK_DoNationRecordUser1];
+IF OBJECT_ID(N'[dbo].[FK_User1DoNationRecord]', 'F') IS NOT NULL
+    ALTER TABLE [dbo].[DoNationRecordSet] DROP CONSTRAINT [FK_User1DoNationRecord];
 GO
-IF OBJECT_ID(N'[dbo].[FK_PublicBenefitRecordUser1]', 'F') IS NOT NULL
-    ALTER TABLE [dbo].[User1Set] DROP CONSTRAINT [FK_PublicBenefitRecordUser1];
+IF OBJECT_ID(N'[dbo].[FK_ProjectDoNationRecord]', 'F') IS NOT NULL
+    ALTER TABLE [dbo].[DoNationRecordSet] DROP CONSTRAINT [FK_ProjectDoNationRecord];
 GO
-IF OBJECT_ID(N'[dbo].[FK_PublicBenefitRecordPublicBenefit]', 'F') IS NOT NULL
-    ALTER TABLE [dbo].[PublicBenefitSet] DROP CONSTRAINT [FK_PublicBenefitRecordPublicBenefit];
+IF OBJECT_ID(N'[dbo].[FK_ProjectProjectRecord]', 'F') IS NOT NULL
+    ALTER TABLE [dbo].[ProjectRecordSet] DROP CONSTRAINT [FK_ProjectProjectRecord];
 GO
-IF OBJECT_ID(N'[dbo].[FK_FinanceProject]', 'F') IS NOT NULL
-    ALTER TABLE [dbo].[ProjectSet] DROP CONSTRAINT [FK_FinanceProject];
+IF OBJECT_ID(N'[dbo].[FK_ProjectFinance]', 'F') IS NOT NULL
+    ALTER TABLE [dbo].[FinanceSet] DROP CONSTRAINT [FK_ProjectFinance];
 GO
-IF OBJECT_ID(N'[dbo].[FK_PublicBenefitUser1]', 'F') IS NOT NULL
-    ALTER TABLE [dbo].[User1Set] DROP CONSTRAINT [FK_PublicBenefitUser1];
-GO
-IF OBJECT_ID(N'[dbo].[FK_DoNationRecordProject]', 'F') IS NOT NULL
-    ALTER TABLE [dbo].[ProjectSet] DROP CONSTRAINT [FK_DoNationRecordProject];
-GO
-IF OBJECT_ID(N'[dbo].[FK_UserApproveUser1]', 'F') IS NOT NULL
-    ALTER TABLE [dbo].[User1Set] DROP CONSTRAINT [FK_UserApproveUser1];
+IF OBJECT_ID(N'[dbo].[FK_PublicBenefitPublicBenefitRecord]', 'F') IS NOT NULL
+    ALTER TABLE [dbo].[PublicBenefitRecordSet] DROP CONSTRAINT [FK_PublicBenefitPublicBenefitRecord];
 GO
 
 -- --------------------------------------------------
@@ -89,11 +83,7 @@ CREATE TABLE [dbo].[User1Set] (
     [ID] nvarchar(20)  NOT NULL,
     [UserName] nvarchar(20)  NOT NULL,
     [UserPassword] nvarchar(20)  NOT NULL,
-    [Project_ID] nvarchar(20)  NULL,
-    [DoNationRecord_ID] nvarchar(20)  NULL,
-    [PublicBenefitRecord_ID] nvarchar(20)  NULL,
-    [PublicBenefit_ID] nvarchar(20)  NULL,
-    [UserApprove_ID] nvarchar(20)  NULL
+    [Role_ID] nvarchar(20)  NULL
 );
 GO
 
@@ -105,16 +95,14 @@ CREATE TABLE [dbo].[ProjectSet] (
     [EndProjectTime] datetime  NOT NULL,
     [Moneyd] decimal(11,2)  NOT NULL,
     [Isstatus] smallint  NOT NULL,
-    [UserNumber] int  NOT NULL,
-    [ProjectRecord_ID] nvarchar(20)  NULL,
-    [Finance_ID] nvarchar(20)  NULL,
-    [DoNationRecord_ID] nvarchar(20)  NULL
+    [UserNumber] int  NOT NULL
 );
 GO
 
 -- Creating table 'ProjectRecordSet'
 CREATE TABLE [dbo].[ProjectRecordSet] (
-    [ID] nvarchar(20)  NOT NULL
+    [ID] nvarchar(20)  NOT NULL,
+    [Project_ID] nvarchar(20)  NOT NULL
 );
 GO
 
@@ -125,13 +113,16 @@ CREATE TABLE [dbo].[FinanceSet] (
     [IsIn] bit  NOT NULL,
     [MoneyL] decimal(11,2)  NOT NULL,
     [OutMoney] decimal(11,2)  NOT NULL,
-    [LDateTime] datetime  NOT NULL
+    [LDateTime] datetime  NOT NULL,
+    [Project_ID] nvarchar(20)  NOT NULL
 );
 GO
 
 -- Creating table 'PublicBenefitRecordSet'
 CREATE TABLE [dbo].[PublicBenefitRecordSet] (
-    [ID] nvarchar(20)  NOT NULL
+    [ID] nvarchar(20)  NOT NULL,
+    [User1_ID] nvarchar(20)  NOT NULL,
+    [PublicBenefit_ID] nvarchar(20)  NOT NULL
 );
 GO
 
@@ -145,16 +136,14 @@ CREATE TABLE [dbo].[PublicBenefitSet] (
     [ApplyAbortDate] datetime  NOT NULL,
     [ApplyCount] int  NOT NULL,
     [ActivityProfile] nvarchar(200)  NULL,
-    [ConsentApply] bit  NOT NULL,
-    [PublicBenefitRecord_ID] nvarchar(20)  NULL
+    [ConsentApply] bit  NOT NULL
 );
 GO
 
 -- Creating table 'RoleSet'
 CREATE TABLE [dbo].[RoleSet] (
     [ID] nvarchar(20)  NOT NULL,
-    [RoleName] nvarchar(20)  NOT NULL,
-    [User1_ID] nvarchar(20)  NULL
+    [RoleName] nvarchar(20)  NOT NULL
 );
 GO
 
@@ -162,7 +151,9 @@ GO
 CREATE TABLE [dbo].[DoNationRecordSet] (
     [ID] nvarchar(20)  NOT NULL,
     [DonationDate] nvarchar(max)  NOT NULL,
-    [DonationAmout] nvarchar(max)  NOT NULL
+    [DonationAmout] nvarchar(max)  NOT NULL,
+    [User1_ID] nvarchar(20)  NOT NULL,
+    [Project_ID] nvarchar(20)  NOT NULL
 );
 GO
 
@@ -170,7 +161,8 @@ GO
 CREATE TABLE [dbo].[UserApproveSet] (
     [ID] nvarchar(20)  NOT NULL,
     [RealName] nvarchar(10)  NOT NULL,
-    [IdentityNumber] nchar(18)  NOT NULL
+    [IdentityNumber] nchar(18)  NOT NULL,
+    [User1_ID] nvarchar(20)  NOT NULL
 );
 GO
 
@@ -236,154 +228,124 @@ GO
 -- Creating all FOREIGN KEY constraints
 -- --------------------------------------------------
 
--- Creating foreign key on [User1_ID] in table 'RoleSet'
-ALTER TABLE [dbo].[RoleSet]
-ADD CONSTRAINT [FK_User1Role]
+-- Creating foreign key on [Role_ID] in table 'User1Set'
+ALTER TABLE [dbo].[User1Set]
+ADD CONSTRAINT [FK_RoleUser1]
+    FOREIGN KEY ([Role_ID])
+    REFERENCES [dbo].[RoleSet]
+        ([ID])
+    ON DELETE NO ACTION ON UPDATE NO ACTION;
+GO
+
+-- Creating non-clustered index for FOREIGN KEY 'FK_RoleUser1'
+CREATE INDEX [IX_FK_RoleUser1]
+ON [dbo].[User1Set]
+    ([Role_ID]);
+GO
+
+-- Creating foreign key on [User1_ID] in table 'PublicBenefitRecordSet'
+ALTER TABLE [dbo].[PublicBenefitRecordSet]
+ADD CONSTRAINT [FK_User1PublicBenefitRecord]
     FOREIGN KEY ([User1_ID])
     REFERENCES [dbo].[User1Set]
         ([ID])
     ON DELETE NO ACTION ON UPDATE NO ACTION;
 GO
 
--- Creating non-clustered index for FOREIGN KEY 'FK_User1Role'
-CREATE INDEX [IX_FK_User1Role]
-ON [dbo].[RoleSet]
+-- Creating non-clustered index for FOREIGN KEY 'FK_User1PublicBenefitRecord'
+CREATE INDEX [IX_FK_User1PublicBenefitRecord]
+ON [dbo].[PublicBenefitRecordSet]
     ([User1_ID]);
 GO
 
--- Creating foreign key on [Project_ID] in table 'User1Set'
-ALTER TABLE [dbo].[User1Set]
-ADD CONSTRAINT [FK_ProjectUser1]
+-- Creating foreign key on [User1_ID] in table 'UserApproveSet'
+ALTER TABLE [dbo].[UserApproveSet]
+ADD CONSTRAINT [FK_User1UserApprove]
+    FOREIGN KEY ([User1_ID])
+    REFERENCES [dbo].[User1Set]
+        ([ID])
+    ON DELETE NO ACTION ON UPDATE NO ACTION;
+GO
+
+-- Creating non-clustered index for FOREIGN KEY 'FK_User1UserApprove'
+CREATE INDEX [IX_FK_User1UserApprove]
+ON [dbo].[UserApproveSet]
+    ([User1_ID]);
+GO
+
+-- Creating foreign key on [User1_ID] in table 'DoNationRecordSet'
+ALTER TABLE [dbo].[DoNationRecordSet]
+ADD CONSTRAINT [FK_User1DoNationRecord]
+    FOREIGN KEY ([User1_ID])
+    REFERENCES [dbo].[User1Set]
+        ([ID])
+    ON DELETE NO ACTION ON UPDATE NO ACTION;
+GO
+
+-- Creating non-clustered index for FOREIGN KEY 'FK_User1DoNationRecord'
+CREATE INDEX [IX_FK_User1DoNationRecord]
+ON [dbo].[DoNationRecordSet]
+    ([User1_ID]);
+GO
+
+-- Creating foreign key on [Project_ID] in table 'DoNationRecordSet'
+ALTER TABLE [dbo].[DoNationRecordSet]
+ADD CONSTRAINT [FK_ProjectDoNationRecord]
     FOREIGN KEY ([Project_ID])
     REFERENCES [dbo].[ProjectSet]
         ([ID])
     ON DELETE NO ACTION ON UPDATE NO ACTION;
 GO
 
--- Creating non-clustered index for FOREIGN KEY 'FK_ProjectUser1'
-CREATE INDEX [IX_FK_ProjectUser1]
-ON [dbo].[User1Set]
+-- Creating non-clustered index for FOREIGN KEY 'FK_ProjectDoNationRecord'
+CREATE INDEX [IX_FK_ProjectDoNationRecord]
+ON [dbo].[DoNationRecordSet]
     ([Project_ID]);
 GO
 
--- Creating foreign key on [ProjectRecord_ID] in table 'ProjectSet'
-ALTER TABLE [dbo].[ProjectSet]
-ADD CONSTRAINT [FK_ProjectRecordProject]
-    FOREIGN KEY ([ProjectRecord_ID])
-    REFERENCES [dbo].[ProjectRecordSet]
+-- Creating foreign key on [Project_ID] in table 'ProjectRecordSet'
+ALTER TABLE [dbo].[ProjectRecordSet]
+ADD CONSTRAINT [FK_ProjectProjectRecord]
+    FOREIGN KEY ([Project_ID])
+    REFERENCES [dbo].[ProjectSet]
         ([ID])
     ON DELETE NO ACTION ON UPDATE NO ACTION;
 GO
 
--- Creating non-clustered index for FOREIGN KEY 'FK_ProjectRecordProject'
-CREATE INDEX [IX_FK_ProjectRecordProject]
-ON [dbo].[ProjectSet]
-    ([ProjectRecord_ID]);
+-- Creating non-clustered index for FOREIGN KEY 'FK_ProjectProjectRecord'
+CREATE INDEX [IX_FK_ProjectProjectRecord]
+ON [dbo].[ProjectRecordSet]
+    ([Project_ID]);
 GO
 
--- Creating foreign key on [DoNationRecord_ID] in table 'User1Set'
-ALTER TABLE [dbo].[User1Set]
-ADD CONSTRAINT [FK_DoNationRecordUser1]
-    FOREIGN KEY ([DoNationRecord_ID])
-    REFERENCES [dbo].[DoNationRecordSet]
+-- Creating foreign key on [Project_ID] in table 'FinanceSet'
+ALTER TABLE [dbo].[FinanceSet]
+ADD CONSTRAINT [FK_ProjectFinance]
+    FOREIGN KEY ([Project_ID])
+    REFERENCES [dbo].[ProjectSet]
         ([ID])
     ON DELETE NO ACTION ON UPDATE NO ACTION;
 GO
 
--- Creating non-clustered index for FOREIGN KEY 'FK_DoNationRecordUser1'
-CREATE INDEX [IX_FK_DoNationRecordUser1]
-ON [dbo].[User1Set]
-    ([DoNationRecord_ID]);
+-- Creating non-clustered index for FOREIGN KEY 'FK_ProjectFinance'
+CREATE INDEX [IX_FK_ProjectFinance]
+ON [dbo].[FinanceSet]
+    ([Project_ID]);
 GO
 
--- Creating foreign key on [PublicBenefitRecord_ID] in table 'User1Set'
-ALTER TABLE [dbo].[User1Set]
-ADD CONSTRAINT [FK_PublicBenefitRecordUser1]
-    FOREIGN KEY ([PublicBenefitRecord_ID])
-    REFERENCES [dbo].[PublicBenefitRecordSet]
-        ([ID])
-    ON DELETE NO ACTION ON UPDATE NO ACTION;
-GO
-
--- Creating non-clustered index for FOREIGN KEY 'FK_PublicBenefitRecordUser1'
-CREATE INDEX [IX_FK_PublicBenefitRecordUser1]
-ON [dbo].[User1Set]
-    ([PublicBenefitRecord_ID]);
-GO
-
--- Creating foreign key on [PublicBenefitRecord_ID] in table 'PublicBenefitSet'
-ALTER TABLE [dbo].[PublicBenefitSet]
-ADD CONSTRAINT [FK_PublicBenefitRecordPublicBenefit]
-    FOREIGN KEY ([PublicBenefitRecord_ID])
-    REFERENCES [dbo].[PublicBenefitRecordSet]
-        ([ID])
-    ON DELETE NO ACTION ON UPDATE NO ACTION;
-GO
-
--- Creating non-clustered index for FOREIGN KEY 'FK_PublicBenefitRecordPublicBenefit'
-CREATE INDEX [IX_FK_PublicBenefitRecordPublicBenefit]
-ON [dbo].[PublicBenefitSet]
-    ([PublicBenefitRecord_ID]);
-GO
-
--- Creating foreign key on [Finance_ID] in table 'ProjectSet'
-ALTER TABLE [dbo].[ProjectSet]
-ADD CONSTRAINT [FK_FinanceProject]
-    FOREIGN KEY ([Finance_ID])
-    REFERENCES [dbo].[FinanceSet]
-        ([ID])
-    ON DELETE NO ACTION ON UPDATE NO ACTION;
-GO
-
--- Creating non-clustered index for FOREIGN KEY 'FK_FinanceProject'
-CREATE INDEX [IX_FK_FinanceProject]
-ON [dbo].[ProjectSet]
-    ([Finance_ID]);
-GO
-
--- Creating foreign key on [PublicBenefit_ID] in table 'User1Set'
-ALTER TABLE [dbo].[User1Set]
-ADD CONSTRAINT [FK_PublicBenefitUser1]
+-- Creating foreign key on [PublicBenefit_ID] in table 'PublicBenefitRecordSet'
+ALTER TABLE [dbo].[PublicBenefitRecordSet]
+ADD CONSTRAINT [FK_PublicBenefitPublicBenefitRecord]
     FOREIGN KEY ([PublicBenefit_ID])
     REFERENCES [dbo].[PublicBenefitSet]
         ([ID])
     ON DELETE NO ACTION ON UPDATE NO ACTION;
 GO
 
--- Creating non-clustered index for FOREIGN KEY 'FK_PublicBenefitUser1'
-CREATE INDEX [IX_FK_PublicBenefitUser1]
-ON [dbo].[User1Set]
+-- Creating non-clustered index for FOREIGN KEY 'FK_PublicBenefitPublicBenefitRecord'
+CREATE INDEX [IX_FK_PublicBenefitPublicBenefitRecord]
+ON [dbo].[PublicBenefitRecordSet]
     ([PublicBenefit_ID]);
-GO
-
--- Creating foreign key on [DoNationRecord_ID] in table 'ProjectSet'
-ALTER TABLE [dbo].[ProjectSet]
-ADD CONSTRAINT [FK_DoNationRecordProject]
-    FOREIGN KEY ([DoNationRecord_ID])
-    REFERENCES [dbo].[DoNationRecordSet]
-        ([ID])
-    ON DELETE NO ACTION ON UPDATE NO ACTION;
-GO
-
--- Creating non-clustered index for FOREIGN KEY 'FK_DoNationRecordProject'
-CREATE INDEX [IX_FK_DoNationRecordProject]
-ON [dbo].[ProjectSet]
-    ([DoNationRecord_ID]);
-GO
-
--- Creating foreign key on [UserApprove_ID] in table 'User1Set'
-ALTER TABLE [dbo].[User1Set]
-ADD CONSTRAINT [FK_UserApproveUser1]
-    FOREIGN KEY ([UserApprove_ID])
-    REFERENCES [dbo].[UserApproveSet]
-        ([ID])
-    ON DELETE NO ACTION ON UPDATE NO ACTION;
-GO
-
--- Creating non-clustered index for FOREIGN KEY 'FK_UserApproveUser1'
-CREATE INDEX [IX_FK_UserApproveUser1]
-ON [dbo].[User1Set]
-    ([UserApprove_ID]);
 GO
 
 -- --------------------------------------------------

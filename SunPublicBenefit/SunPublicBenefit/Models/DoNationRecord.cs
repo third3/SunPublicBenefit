@@ -14,20 +14,11 @@ namespace SunPublicBenefit.Models
     
     public partial class DoNationRecord
     {
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
-        public DoNationRecord()
-        {
-            this.User1 = new HashSet<User1>();
-            this.Project = new HashSet<Project>();
-        }
-    
         public string ID { get; set; }
         public string DonationDate { get; set; }
         public string DonationAmout { get; set; }
     
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<User1> User1 { get; set; }
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<Project> Project { get; set; }
+        public virtual User1 User1 { get; set; }
+        public virtual Project Project { get; set; }
     }
 }

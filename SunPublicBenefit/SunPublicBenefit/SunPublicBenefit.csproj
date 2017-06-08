@@ -129,10 +129,16 @@
     <Content Include="Scripts\jquery.validate.unobtrusive.js" />
     <Content Include="Scripts\jquery.validate.unobtrusive.min.js" />
     <Content Include="Scripts\modernizr-2.6.2.js" />
+    <Content Include="fonts\log.PNG" />
+    <Content Include="fonts\mark.PNG" />
+    <Content Include="fonts\title.PNG" />
+    <Content Include="Views\Approve\PersonalAuthentication.html" />
     <Content Include="Web.config" />
     <Content Include="Views\Home\Index.cshtml" />
+    <Content Include="Views\Approve\AutoUserApprove.cshtml" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="App_Code\ValidateCode.cs" />
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="Controllers\ApproveController.cs" />
     <Compile Include="Controllers\ContextController.cs" />
@@ -206,7 +212,6 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
-    <Folder Include="Views\Approve\" />
     <Folder Include="Views\Context\" />
   </ItemGroup>
   <ItemGroup>
