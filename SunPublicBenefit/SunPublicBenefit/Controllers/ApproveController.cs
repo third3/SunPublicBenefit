@@ -34,13 +34,7 @@ namespace SunPublicBenefit.Controllers
                     approve.ID = Guid.NewGuid().ToString();
                     approve.RealName = realName;
                     approve.IdentityNumber = identityNumber;
-                    foreach (User1 item in approve.User1)
-                    {
-                        item.ID = user.ID;
-                        item.UserName = user.UserName;
-                        item.UserPassword = user.UserPassword;
-                        item.Role = user.Role;
-                    }
+                    approve.User1 = user;
                     sun.UserApproveSet.Add(approve);               
                     sun.Entry(user).State = EntityState.Modified;
                     sun.SaveChanges();
