@@ -21,7 +21,7 @@ namespace SunPublicBenefit.Models
             this.Project = new HashSet<Project>();
         }
     
-        public int ID { get; set; }
+        public string ID { get; set; }
         public string DonationDate { get; set; }
         public string DonationAmout { get; set; }
     

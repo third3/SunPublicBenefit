@@ -6,7 +6,7 @@ using System.Web.Mvc;
 
 namespace SunPublicBenefit.Controllers
 {
-    public class HomeController : Controller
+    public class HomeController : ContextController
     {
         // GET: Home
         public ActionResult Index()

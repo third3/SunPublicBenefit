@@ -14,7 +14,7 @@ namespace SunPublicBenefit.Models
     
     public partial class Role
     {
-        public int ID { get; set; }
+        public string ID { get; set; }
         public string RoleName { get; set; }
     
         public virtual User1 User1 { get; set; }

@@ -9,7 +9,7 @@
         <EntityTypeShape EntityType="SunShine.User1" Width="1.5" PointX="5.625" PointY="3" />
         <EntityTypeShape EntityType="SunShine.Project" Width="1.5" PointX="8.125" PointY="3.125" />
         <EntityTypeShape EntityType="SunShine.ProjectRecord" Width="1.5" PointX="11.75" PointY="5.625" />
-        <EntityTypeShape EntityType="SunShine.Finance" Width="1.5" PointX="5.375" PointY="6.25" />
+        <EntityTypeShape EntityType="SunShine.Finance" Width="1.5" PointX="8.125" PointY="7.125" />
         <EntityTypeShape EntityType="SunShine.PublicBenefitRecord" Width="1.5" PointX="3.375" PointY="3.625" />
         <EntityTypeShape EntityType="SunShine.PublicBenefit" Width="1.5" PointX="1.125" PointY="3.75" />
         <EntityTypeShape EntityType="SunShine.DoNationRecord" Width="1.875" PointX="8.375" PointY="0.625" />
@@ -22,7 +22,8 @@
         <AssociationConnector Association="SunShine.FinanceProject" />
         <AssociationConnector Association="SunShine.PublicBenefitUser1" />
         <AssociationConnector Association="SunShine.DoNationRecordProject" />
-        <EntityTypeShape EntityType="SunShine.UserApprove" Width="1.5" PointX="9.25" PointY="7.75" />
+        <EntityTypeShape EntityType="SunShine.UserApprove" Width="1.5" PointX="5.625" PointY="6.875" />
+        <AssociationConnector Association="SunShine.UserApproveUser1" />
       </Diagram>
     </edmx:Diagrams>
   </edmx:Designer>

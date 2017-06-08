@@ -2,7 +2,7 @@
 -- --------------------------------------------------
 -- Entity Designer DDL Script for SQL Server 2005, 2008, 2012 and Azure
 -- --------------------------------------------------
--- Date Created: 06/08/2017 09:07:41
+-- Date Created: 06/08/2017 10:36:51
 -- Generated from EDMX file: C:\Users\zero\Source\Repos\SunPublicBenefit\SunPublicBenefit\SunPublicBenefit\Models\SunShine.edmx
 -- --------------------------------------------------
 
@@ -44,6 +44,9 @@ GO
 IF OBJECT_ID(N'[dbo].[FK_DoNationRecordProject]', 'F') IS NOT NULL
     ALTER TABLE [dbo].[ProjectSet] DROP CONSTRAINT [FK_DoNationRecordProject];
 GO
+IF OBJECT_ID(N'[dbo].[FK_UserApproveUser1]', 'F') IS NOT NULL
+    ALTER TABLE [dbo].[User1Set] DROP CONSTRAINT [FK_UserApproveUser1];
+GO
 
 -- --------------------------------------------------
 -- Dropping existing tables
@@ -73,6 +76,9 @@ GO
 IF OBJECT_ID(N'[dbo].[DoNationRecordSet]', 'U') IS NOT NULL
     DROP TABLE [dbo].[DoNationRecordSet];
 GO
+IF OBJECT_ID(N'[dbo].[UserApproveSet]', 'U') IS NOT NULL
+    DROP TABLE [dbo].[UserApproveSet];
+GO
 
 -- --------------------------------------------------
 -- Creating all tables
@@ -80,40 +86,41 @@ GO
 
 -- Creating table 'User1Set'
 CREATE TABLE [dbo].[User1Set] (
-    [ID] int IDENTITY(1,1) NOT NULL,
+    [ID] nvarchar(20)  NOT NULL,
     [UserName] nvarchar(20)  NOT NULL,
     [UserPassword] nvarchar(20)  NOT NULL,
-    [Project_ID] int  NOT NULL,
-    [DoNationRecord_ID] int  NOT NULL,
-    [PublicBenefitRecord_ID] int  NOT NULL,
-    [PublicBenefit_ID] int  NOT NULL
+    [Project_ID] nvarchar(20)  NULL,
+    [DoNationRecord_ID] nvarchar(20)  NULL,
+    [PublicBenefitRecord_ID] nvarchar(20)  NULL,
+    [PublicBenefit_ID] nvarchar(20)  NULL,
+    [UserApprove_ID] nvarchar(20)  NULL
 );
 GO
 
 -- Creating table 'ProjectSet'
 CREATE TABLE [dbo].[ProjectSet] (
-    [ID] int IDENTITY(1,1) NOT NULL,
+    [ID] nvarchar(20)  NOT NULL,
     [ProjectName] nvarchar(50)  NOT NULL,
     [StartProjectTime] datetime  NOT NULL,
     [EndProjectTime] datetime  NOT NULL,
     [Moneyd] decimal(11,2)  NOT NULL,
     [Isstatus] smallint  NOT NULL,
     [UserNumber] int  NOT NULL,
-    [ProjectRecord_ID] int  NOT NULL,
-    [Finance_ID] int  NOT NULL,
-    [DoNationRecord_ID] int  NOT NULL
+    [ProjectRecord_ID] nvarchar(20)  NULL,
+    [Finance_ID] nvarchar(20)  NULL,
+    [DoNationRecord_ID] nvarchar(20)  NULL
 );
 GO
 
 -- Creating table 'ProjectRecordSet'
 CREATE TABLE [dbo].[ProjectRecordSet] (
-    [ID] int IDENTITY(1,1) NOT NULL
+    [ID] nvarchar(20)  NOT NULL
 );
 GO
 
 -- Creating table 'FinanceSet'
 CREATE TABLE [dbo].[FinanceSet] (
-    [ID] int IDENTITY(1,1) NOT NULL,
+    [ID] nvarchar(20)  NOT NULL,
     [PreMoney] decimal(11,2)  NOT NULL,
     [IsIn] bit  NOT NULL,
     [MoneyL] decimal(11,2)  NOT NULL,
@@ -124,13 +131,13 @@ GO
 
 -- Creating table 'PublicBenefitRecordSet'
 CREATE TABLE [dbo].[PublicBenefitRecordSet] (
-    [ID] int IDENTITY(1,1) NOT NULL
+    [ID] nvarchar(20)  NOT NULL
 );
 GO
 
 -- Creating table 'PublicBenefitSet'
 CREATE TABLE [dbo].[PublicBenefitSet] (
-    [ID] int IDENTITY(1,1) NOT NULL,
+    [ID] nvarchar(20)  NOT NULL,
     [BenefitName] nvarchar(50)  NOT NULL,
     [IsOnLine] bit  NOT NULL,
     [ApplyStartDate] datetime  NULL,
@@ -139,21 +146,21 @@ CREATE TABLE [dbo].[PublicBenefitSet] (
     [ApplyCount] int  NOT NULL,
     [ActivityProfile] nvarchar(200)  NULL,
     [ConsentApply] bit  NOT NULL,
-    [PublicBenefitRecord_ID] int  NOT NULL
+    [PublicBenefitRecord_ID] nvarchar(20)  NULL
 );
 GO
 
 -- Creating table 'RoleSet'
 CREATE TABLE [dbo].[RoleSet] (
-    [ID] int IDENTITY(1,1) NOT NULL,
+    [ID] nvarchar(20)  NOT NULL,
     [RoleName] nvarchar(20)  NOT NULL,
-    [User1_ID] int  NOT NULL
+    [User1_ID] nvarchar(20)  NULL
 );
 GO
 
 -- Creating table 'DoNationRecordSet'
 CREATE TABLE [dbo].[DoNationRecordSet] (
-    [ID] int IDENTITY(1,1) NOT NULL,
+    [ID] nvarchar(20)  NOT NULL,
     [DonationDate] nvarchar(max)  NOT NULL,
     [DonationAmout] nvarchar(max)  NOT NULL
 );
@@ -161,7 +168,7 @@ GO
 
 -- Creating table 'UserApproveSet'
 CREATE TABLE [dbo].[UserApproveSet] (
-    [ID] int IDENTITY(1,1) NOT NULL,
+    [ID] nvarchar(20)  NOT NULL,
     [RealName] nvarchar(10)  NOT NULL,
     [IdentityNumber] nchar(18)  NOT NULL
 );
@@ -362,6 +369,21 @@ GO
 CREATE INDEX [IX_FK_DoNationRecordProject]
 ON [dbo].[ProjectSet]
     ([DoNationRecord_ID]);
+GO
+
+-- Creating foreign key on [UserApprove_ID] in table 'User1Set'
+ALTER TABLE [dbo].[User1Set]
+ADD CONSTRAINT [FK_UserApproveUser1]
+    FOREIGN KEY ([UserApprove_ID])
+    REFERENCES [dbo].[UserApproveSet]
+        ([ID])
+    ON DELETE NO ACTION ON UPDATE NO ACTION;
+GO
+
+-- Creating non-clustered index for FOREIGN KEY 'FK_UserApproveUser1'
+CREATE INDEX [IX_FK_UserApproveUser1]
+ON [dbo].[User1Set]
+    ([UserApprove_ID]);
 GO
 
 -- --------------------------------------------------

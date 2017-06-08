@@ -20,7 +20,7 @@ namespace SunPublicBenefit.Models
             this.Project = new HashSet<Project>();
         }
     
-        public int ID { get; set; }
+        public string ID { get; set; }
         public decimal PreMoney { get; set; }
         public bool IsIn { get; set; }
         public decimal MoneyL { get; set; }

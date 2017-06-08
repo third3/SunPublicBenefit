@@ -20,7 +20,7 @@ namespace SunPublicBenefit.Models
             this.User1 = new HashSet<User1>();
         }
     
-        public int ID { get; set; }
+        public string ID { get; set; }
         public string ProjectName { get; set; }
         public System.DateTime StartProjectTime { get; set; }
         public System.DateTime EndProjectTime { get; set; }

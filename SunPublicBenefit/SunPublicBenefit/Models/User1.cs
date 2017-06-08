@@ -20,7 +20,7 @@ namespace SunPublicBenefit.Models
             this.Role = new HashSet<Role>();
         }
     
-        public int ID { get; set; }
+        public string ID { get; set; }
         public string UserName { get; set; }
         public string UserPassword { get; set; }
     
@@ -30,5 +30,6 @@ namespace SunPublicBenefit.Models
         public virtual DoNationRecord DoNationRecord { get; set; }
         public virtual PublicBenefitRecord PublicBenefitRecord { get; set; }
         public virtual PublicBenefit PublicBenefit { get; set; }
+        public virtual UserApprove UserApprove { get; set; }
     }
 }

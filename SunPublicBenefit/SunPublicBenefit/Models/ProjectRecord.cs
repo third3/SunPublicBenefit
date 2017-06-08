@@ -20,7 +20,7 @@ namespace SunPublicBenefit.Models
             this.Project = new HashSet<Project>();
         }
     
-        public int ID { get; set; }
+        public string ID { get; set; }
     
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<Project> Project { get; set; }
