@@ -14,6 +14,7 @@
     <EntitySet Name="PublicBenefitSet" EntityType="SunShine.Store.PublicBenefitSet" store:Type="Tables" Schema="dbo" />
     <EntitySet Name="RoleSet" EntityType="SunShine.Store.RoleSet" store:Type="Tables" Schema="dbo" />
     <EntitySet Name="DoNationRecordSet" EntityType="SunShine.Store.DoNationRecordSet" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="UserApproveSet" EntityType="SunShine.Store.UserApproveSet" store:Type="Tables" Schema="dbo" />
     <AssociationSet Name="User1Role" Association="SunShine.Store.User1Role">
       <End Role="User1" EntitySet="User1Set" />
       <End Role="Role" EntitySet="RoleSet" />
@@ -131,6 +132,14 @@
     <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
     <Property Name="DonationDate" Type="nvarchar(max)" Nullable="false" />
     <Property Name="DonationAmout" Type="nvarchar(max)" Nullable="false" />
+  </EntityType>
+  <EntityType Name="UserApproveSet">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="RealName" Type="nvarchar" Nullable="false" MaxLength="10" />
+    <Property Name="IdentityNumber" Type="nchar" Nullable="false" MaxLength="18" />
   </EntityType>
   <Association Name="User1Role">
     <End Role="User1" Type="SunShine.Store.User1Set" Multiplicity="1" />
@@ -289,6 +298,7 @@
             <End Role="DoNationRecord" EntitySet="DoNationRecordSet" />
             <End Role="Project" EntitySet="ProjectSet" />
           </AssociationSet>
+          <EntitySet Name="UserApproveSet" EntityType="SunShine.UserApprove" />
         </EntityContainer>
         <EntityType Name="User1">
           <Key>
@@ -416,6 +426,14 @@
           <End Type="SunShine.DoNationRecord" Role="DoNationRecord" Multiplicity="1" />
           <End Type="SunShine.Project" Role="Project" Multiplicity="*" />
         </Association>
+        <EntityType Name="UserApprove">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="RealName" Type="String" Nullable="false" MaxLength="10" annotation:StoreGeneratedPattern="None" Unicode="true" />
+          <Property Name="IdentityNumber" Type="String" Nullable="false" MaxLength="18" Unicode="true" FixedLength="true" />
+        </EntityType>
       </Schema>
     </edmx:ConceptualModels>
     <!-- C-S mapping content -->
@@ -499,6 +517,15 @@
           <ScalarProperty Name="ID" ColumnName="ID" />
           <ScalarProperty Name="DonationDate" ColumnName="DonationDate" />
           <ScalarProperty Name="DonationAmout" ColumnName="DonationAmout" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="UserApproveSet">
+      <EntityTypeMapping TypeName="IsTypeOf(SunShine.UserApprove)">
+        <MappingFragment StoreEntitySet="UserApproveSet">
+          <ScalarProperty Name="ID" ColumnName="ID" />
+          <ScalarProperty Name="RealName" ColumnName="RealName" />
+          <ScalarProperty Name="IdentityNumber" ColumnName="IdentityNumber" />
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>

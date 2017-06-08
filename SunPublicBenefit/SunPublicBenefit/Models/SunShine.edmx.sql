@@ -2,7 +2,7 @@
 -- --------------------------------------------------
 -- Entity Designer DDL Script for SQL Server 2005, 2008, 2012 and Azure
 -- --------------------------------------------------
--- Date Created: 06/07/2017 17:21:59
+-- Date Created: 06/08/2017 09:07:41
 -- Generated from EDMX file: C:\Users\zero\Source\Repos\SunPublicBenefit\SunPublicBenefit\SunPublicBenefit\Models\SunShine.edmx
 -- --------------------------------------------------
 
@@ -17,6 +17,33 @@ GO
 -- Dropping existing FOREIGN KEY constraints
 -- --------------------------------------------------
 
+IF OBJECT_ID(N'[dbo].[FK_User1Role]', 'F') IS NOT NULL
+    ALTER TABLE [dbo].[RoleSet] DROP CONSTRAINT [FK_User1Role];
+GO
+IF OBJECT_ID(N'[dbo].[FK_ProjectUser1]', 'F') IS NOT NULL
+    ALTER TABLE [dbo].[User1Set] DROP CONSTRAINT [FK_ProjectUser1];
+GO
+IF OBJECT_ID(N'[dbo].[FK_ProjectRecordProject]', 'F') IS NOT NULL
+    ALTER TABLE [dbo].[ProjectSet] DROP CONSTRAINT [FK_ProjectRecordProject];
+GO
+IF OBJECT_ID(N'[dbo].[FK_DoNationRecordUser1]', 'F') IS NOT NULL
+    ALTER TABLE [dbo].[User1Set] DROP CONSTRAINT [FK_DoNationRecordUser1];
+GO
+IF OBJECT_ID(N'[dbo].[FK_PublicBenefitRecordUser1]', 'F') IS NOT NULL
+    ALTER TABLE [dbo].[User1Set] DROP CONSTRAINT [FK_PublicBenefitRecordUser1];
+GO
+IF OBJECT_ID(N'[dbo].[FK_PublicBenefitRecordPublicBenefit]', 'F') IS NOT NULL
+    ALTER TABLE [dbo].[PublicBenefitSet] DROP CONSTRAINT [FK_PublicBenefitRecordPublicBenefit];
+GO
+IF OBJECT_ID(N'[dbo].[FK_FinanceProject]', 'F') IS NOT NULL
+    ALTER TABLE [dbo].[ProjectSet] DROP CONSTRAINT [FK_FinanceProject];
+GO
+IF OBJECT_ID(N'[dbo].[FK_PublicBenefitUser1]', 'F') IS NOT NULL
+    ALTER TABLE [dbo].[User1Set] DROP CONSTRAINT [FK_PublicBenefitUser1];
+GO
+IF OBJECT_ID(N'[dbo].[FK_DoNationRecordProject]', 'F') IS NOT NULL
+    ALTER TABLE [dbo].[ProjectSet] DROP CONSTRAINT [FK_DoNationRecordProject];
+GO
 
 -- --------------------------------------------------
 -- Dropping existing tables
@@ -39,6 +66,12 @@ IF OBJECT_ID(N'[dbo].[PublicBenefitRecordSet]', 'U') IS NOT NULL
 GO
 IF OBJECT_ID(N'[dbo].[PublicBenefitSet]', 'U') IS NOT NULL
     DROP TABLE [dbo].[PublicBenefitSet];
+GO
+IF OBJECT_ID(N'[dbo].[RoleSet]', 'U') IS NOT NULL
+    DROP TABLE [dbo].[RoleSet];
+GO
+IF OBJECT_ID(N'[dbo].[DoNationRecordSet]', 'U') IS NOT NULL
+    DROP TABLE [dbo].[DoNationRecordSet];
 GO
 
 -- --------------------------------------------------
@@ -126,6 +159,14 @@ CREATE TABLE [dbo].[DoNationRecordSet] (
 );
 GO
 
+-- Creating table 'UserApproveSet'
+CREATE TABLE [dbo].[UserApproveSet] (
+    [ID] int IDENTITY(1,1) NOT NULL,
+    [RealName] nvarchar(10)  NOT NULL,
+    [IdentityNumber] nchar(18)  NOT NULL
+);
+GO
+
 -- --------------------------------------------------
 -- Creating all PRIMARY KEY constraints
 -- --------------------------------------------------
@@ -175,6 +216,12 @@ GO
 -- Creating primary key on [ID] in table 'DoNationRecordSet'
 ALTER TABLE [dbo].[DoNationRecordSet]
 ADD CONSTRAINT [PK_DoNationRecordSet]
+    PRIMARY KEY CLUSTERED ([ID] ASC);
+GO
+
+-- Creating primary key on [ID] in table 'UserApproveSet'
+ALTER TABLE [dbo].[UserApproveSet]
+ADD CONSTRAINT [PK_UserApproveSet]
     PRIMARY KEY CLUSTERED ([ID] ASC);
 GO
 

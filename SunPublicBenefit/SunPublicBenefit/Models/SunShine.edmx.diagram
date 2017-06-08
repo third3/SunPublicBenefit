@@ -22,6 +22,7 @@
         <AssociationConnector Association="SunShine.FinanceProject" />
         <AssociationConnector Association="SunShine.PublicBenefitUser1" />
         <AssociationConnector Association="SunShine.DoNationRecordProject" />
+        <EntityTypeShape EntityType="SunShine.UserApprove" Width="1.5" PointX="9.25" PointY="7.75" />
       </Diagram>
     </edmx:Diagrams>
   </edmx:Designer>

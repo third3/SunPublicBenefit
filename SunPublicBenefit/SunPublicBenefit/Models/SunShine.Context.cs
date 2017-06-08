@@ -33,5 +33,6 @@ namespace SunPublicBenefit.Models
         public virtual DbSet<PublicBenefit> PublicBenefitSet { get; set; }
         public virtual DbSet<Role> RoleSet { get; set; }
         public virtual DbSet<DoNationRecord> DoNationRecordSet { get; set; }
+        public virtual DbSet<UserApprove> UserApproveSet { get; set; }
     }
 }
