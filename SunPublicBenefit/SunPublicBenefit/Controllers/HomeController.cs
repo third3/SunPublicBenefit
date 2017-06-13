@@ -19,5 +19,9 @@ namespace SunPublicBenefit.Controllers
         {
             return View();
         }
+        public ActionResult PersonalCenter()
+        {
+            return View();
+        }
     }
 }
