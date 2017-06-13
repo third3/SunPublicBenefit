@@ -1,0 +1,87 @@
+@media screen and (min-width: 1300px){
+            /*置顶按钮*/
+            .stick{display: none;width:40px;height:40px;position: fixed;right:2%;bottom:10%;background: url("../images/nav/up.png");background-size: 40px 40px;cursor: pointer;z-index: 999;}
+
+            /*清除响应式部分*/
+            .nav_menu_sl_ap{display: none;}
+
+            /*导航部分*/
+            .nav {width:auto;height:80px;;}
+            .nav .nav_menu{width:1200px;height:80px;margin:0 auto;}
+            .nav .nav_menu .nav_lf_title{float:left;position: relative;width:320px;}
+            .nav .nav_menu .nav_lf_title .nav_lf_tllg{float:left;width:256px;height:80px;background: url("../images/1.png");background-size: 256px 80px;}
+            /*.nav .nav_menu .nav_lf_title .nav_lf_tlsp{line-height: 30px;float: right;}*/
+            .nav .nav_menu .nav_lf_title .nav_lf_tlsp .nav_lf_tl{font:25px/80px '微软雅黑';color:#5a5a5a;}
+            .nav .nav_menu .cp_ul{float: right;}
+            .nav .nav_menu .cp_ul li{float: left;}
+            .nav .nav_menu .cp_ul li a{display: block;line-height: 60px;width: 100px;text-align: center;margin: 10px 0;font-size: 15px;}
+            .nav .nav_menu .cp_ul li a.active{background: rgba(255,0,0,.5);color:#fff;}
+
+            /*轮播图部分*/
+            .slider{width:auto;height:600px;position: relative;}
+            .slider ul li{display: none;position: absolute;left: 0;top: 0px;}
+
+            /*轮播图中的登陆部分*/
+            .slider .donation{width:400px;height: 300px;position: absolute;right: 250px;top:50%;transform: translate(0,-50%);}
+            .slider .donation div{height:100px;position: relative;}
+            .slider .donation div input{border:1px dashed #fff;height:35px;width:342px;color:#fff;font-size: 15px;outline:none;}
+            .slider .donation div input.dt_txt{background: rgba(0,0,0,0);position: absolute;left: 7%;top:31%;}
+            .slider .donation div input.dt_txt:focus{border-style: solid;background: #fff;color:#000;}
+            .slider .donation div.dt_bt input{background:rgba(255,255,255,.1);cursor: pointer;transition:.5s;width:143px;margin: 30px 27px;}
+            .slider .donation div.dt_bt input:hover{background:rgba(255,255,255,.4);color:#fff;}
+            .slider .user_ms{width: auto;height:auto;}
+
+            /*公益动态标题部分*/
+            .news_title{width: auto;height:80px;text-align: center;padding:20px 0 10px 0;background:rgba(255,0,0,0.5);}
+            .news_title span:nth-of-type(1){font:40px/50px '微软雅黑';}
+            .news_title span:nth-of-type(2){font-size:14px;color: #fff;}
+
+            /*公益动态内容部分*/
+            .new_theme{background:rgba(255,0,0,0.5);padding:10px 0 20px 0;}
+            .new_theme_ct{-webkit-display:flex;display: flex;width:1300px;margin:0 auto;}
+            .new_theme_ct div.new_theme_ls{flex:1;-webkit-flex:1;float:left;margin:0 10px;box-shadow: 0 0 10px 1px rgba(44,83,83,.8);padding:0px 0px 10px 0;background:#fff;}
+            .new_theme_ct div.new_theme_img {position: relative;cursor: pointer;}
+            .new_theme_ct div.new_theme_img img{width:305px;height:150px;}
+            .new_theme_ct div .make{width:305px;height:150px;background:rgba(0,0,0,0);position: absolute;left: 0;top: 0;transition:.5s;}
+            .new_theme_ct div .make:hover{background:rgba(0,0,0,0.3);}
+            .new_theme_activity{margin: 0 20px;}
+            .new_theme_activity span{display:block;font-size: 20px;line-height: 50px;color:rgb(255,152,0);border-bottom:1px dashed rgba(255,0,0,.5);}
+            .new_theme_ms{margin: 10px 20px;}
+            .new_theme_ms span{display:block;font-size:13px;color:#5a5a5a;}
+
+            /*查看更多按钮部分*/
+            .more{width:auto;height:30px;margin:40px 0;}
+            .more div a{display:block;width:100px;height:28px;border:1px solid green;margin:0 auto;cursor: pointer;font:12px/28px '微软雅黑';text-align: center;color:green;transition:.5s;}
+            .more div a:hover{background:green;color:#fff;}
+
+            /*公益人物标题部分*/
+            .persons_title{width: auto;height:80px;text-align: center;padding-top:20px;}
+            .persons_title span:nth-of-type(1){font:40px/50px '微软雅黑';}
+            .persons_title span:nth-of-type(2){font-size:14px;color:#999;}
+
+            /*公益人物展示部分*/
+            .persons_ms .persons_ms_ct{width: 1300px;height:451px;margin:0 auto;display: -webkit-flex;display: flex;}
+		.persons_ms .persons_ms_ct .persons_ms_zl{flex:1;-webkit-flex:1;padding:20px;overflow: auto;text-align: center;border:1px dashed green}
+		.persons_ms .persons_ms_ct .persons_ms_zl .persons_ms_zl_tl{padding:20px 0;}
+		.persons_ms .persons_ms_ct .persons_ms_zl .persons_ms_zl_tl span{font:30px/28px '微软雅黑';color:#000;}
+		.persons_ms .persons_ms_ct .persons_ms_zl .persons_ms_zl_ms{margin:0 40px;text-align: left;}
+            .persons_ms .persons_ms_ct .persons_ms_zl .persons_ms_zl_ms span{font:15px/32px '微软雅黑';transition:1s;}
+		.persons_ms .persons_ms_ct .persons_ms_tp{flex:1;-webkit-flex:1;position: relative;position: relative;}
+		.persons_ms .persons_ms_ct .persons_ms_tp ul li{float: left;margin:0 0px 9px 10px;height:106px}
+		.persons_ms .persons_ms_ct .persons_ms_tp ul li img{width:145px;height:106px;cursor: pointer;transition:.4s;z-index: 999}
+		.persons_ms .persons_ms_ct .persons_ms_tp ul li img:hover{transform:scale(1.1);}
+
+            /*底部服务反馈信息部分*/
+            .survey{width:auto;height:300px;background:rgb(67, 67, 67);}
+            .survey .survey_ct{width:1300px;height:300px;margin:0 auto;display: -webkit-flex;display: flex;}
+            .survey .survey_ct .survey_lf{flex:1;-webkit-flex:1;}
+            .survey .survey_ct .survey_lf div{width:550px;height:220px;margin:40px auto;}
+            .survey .survey_ct .survey_lf div p{font:15px/44px '微软雅黑';color:#fff;}
+            .survey .survey_ct .survey_lf div p span{font:15px/44px '微软雅黑';color:#fff;}
+            .survey .survey_ct .survey_rg{flex:1;-webkit-flex:1;}
+            .survey .survey_ct .survey_rg div{width:600px;height:300px;margin:0 auto;}
+            .survey .survey_ct .survey_rg div input{background:rgba(255,255,255,0);border:1px dashed #fff;outline: none;width: 400px;height:35px;margin:14px 40px 14px 170px;color:#fff;}
+            .survey .survey_ct .survey_rg div textarea{background:rgba(255,255,255,0);border:1px dashed #fff;outline: none;width: 400px;height:81px;margin:10px 40px 10px 170px;color:#fff;}
+            .survey .survey_ct .survey_rg div input:focus{background:#fff;color:#000;}
+            .survey .survey_ct .survey_rg div textarea:focus{background:#fff;color:#000;}
+        }

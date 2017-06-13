@@ -1,0 +1,11 @@
+@media screen and (max-width: 1300px) {
+            .ap_id{position:relative;top: 0;display: block;}
+            .pc_id{display: none;}
+            /*侧边导航部分代码*/
+            .nav_menu_sl_ap{position: fixed;top:0;overflow: auto;transiton:.5s;background:rgba(255,0,0,.5)}
+            .nav_menu_sl_ap ul li.treeview a{height:52px;display: block;color:#fff;line-height: 52px;font-size:15px;cursor: pointer;}
+            .nav_menu_sl_ap ul li i.tv_lg{width:20px;height:20px;display:block;float: left;margin:16px 10px;}
+            .nav_menu_sl_ap ul li i.tv_jt{width: 16px;height:16px;display: block;float: right;margin:18px 18px;background:url('../images/nav/arrow.png');background-size:16px 16px;}
+            .nav_menu_sl_ap ul li.treeview ul.treeview_sl li{padding:10px 50px;color:#fff;font-size: 14px;cursor: pointer;background:rgba(255,0,0,.2)}
+            .nav_menu_sl_ap ul li.treeview ul.treeview_sl li:hover{background:rgba(255,0,0,.7);}
+        } 

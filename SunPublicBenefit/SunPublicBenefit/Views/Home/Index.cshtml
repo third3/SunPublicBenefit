@@ -3,16 +3,243 @@
     Layout = null;
 }
 
-<!DOCTYPE html>
-
-<html>
+<!doctype html>
+<!--[if lt IE 9]><html class="ie6-8"><![endif]-->
+<html lang="en">
 <head>
-    <meta name="viewport" content="width=device-width" />
-    <title>Index</title>
+    <meta charset="UTF-8">
+    <link rel="shortcut icon" href="~/images/logo.ico">
+    <title>阳光公益|让爱传递下去</title>
+    <link href="~/css/public.css" rel="stylesheet" />
+    <link href="~/css/index-pc.css" rel="stylesheet" />
+    <link href="~/css/index-pa.css" rel="stylesheet" />
+    
+    <script src="~/Scripts/js/jquery-1.11.3.min.js"></script>
+    <script src="~/Scripts/js/index.js"></script>
+    <script src="~/Scripts/js/jquery.lazyload.min.js"></script>
 </head>
 <body>
-    <div> 
-       
+    <!-- **************pc端界面代码************** -->
+    <!-- **************导航栏************** -->
+    <div class="pc_id">
+        <div class="nav">
+            <div class="nav_menu">
+                <div class="nav_lf_title">
+                    <div class="nav_lf_tllg"></div>
+                    <!--                 <div class="nav_lf_tlsp">
+                                        <div class="nav_lf_tl">
+                                            <span>阳光公益|让爱传递</span>
+                                        </div>
+                                    </div> -->
+                </div>
+                <ul class="cp_ul">
+                    <li class="current"><a class="active" href="#">@Html.ActionLink("官网首页", "Index")</a></li>
+                    <li><a href="#">基金会</a></li>
+                    <li><a href="#">公益活动</a></li>
+                    <li><a href="#">捐款</a></li>
+                    <li><a href="psct.html">个人中心</a></li>
+                </ul>
+            </div>
+        </div>
+        <!-- **************轮播图************** -->
+        <div class="slider">
+            <ul>
+                <li style="display:block"><img src="~/images/cy_ytuz.jpg" alt="留守儿童"></li>
+                <li><img src="~/images/cy_dwdw.jpg" alt=""></li>
+                <li><img src="~/images/cy_uens.jpg" alt=""></li>
+                <li><img src="~/images/cy_yser.jpg" alt=""></li>
+            </ul>
+            <div class="donation">
+                <form action="">
+                    <div>
+                        <input type="text" class="dt_txt" placeholder="用户名/邮箱/账号" />
+                    </div>
+                    <div><input type="password" class="dt_txt" placeholder="密码" /></div>
+                    <div class="dt_bt">
+                        <input type="button" value="登 陆" />
+                        <input type="button" class="dt_zc" value="注 册" />
+                    </div>
+                </form>
+                <div class="user_ms">
+
+                </div>
+            </div>
+        </div>
+
+        <!-- **************公益动态部分************** -->
+        <div class="news">
+            <div class="news_title">
+                <div>
+                    <span><b style="color:#fff;">公益动态</b></span>
+                    <br />
+                    <span>News and Trends</span>
+                </div>
+            </div>
+            <div class="new_theme">
+                <div class="new_theme_ct">
+                    <div class="new_theme_ls">
+                        <div class="new_theme_img" style="display:block"><img src="~/images/loading.gif" data-original="../images/qjjh.jpg" alt=""><div class="make"></div></div>
+                        <div class="new_ms" style="display:block">
+                            <div class="new_theme_activity"><span></span></div>
+                            <div class="new_theme_ms"><span></span></div>
+                        </div>
+                    </div>
+                    <div class="new_theme_ls">
+                        <div class="new_theme_img"><img src="~/images/loading.gif" data-original="../images/hbz.jpg" alt=""><div class="make"></div></div>
+                        <div class="new_ms">
+                            <div class="new_theme_activity"><span></span></div>
+                            <div class="new_theme_ms"><span></span></div>
+                        </div>
+                    </div>
+                    <div class="new_theme_ls">
+                        <div class="new_theme_img"><img src="~/images/loading.gif" data-original="../images/qsgy.png" alt=""><div class="make"></div></div>
+                        <div class="new_ms">
+                            <div class="new_theme_activity"><span></span></div>
+                            <div class="new_theme_ms"><span></span></div>
+                        </div>
+                    </div>
+                    <div class="new_theme_ls">
+                        <div class="new_theme_img"><img src="~/images/loading.gif" data-original="../images/99gyr.jpg" alt=""><div class="make"></div></div>
+                        <div class="new_ms">
+                            <div class="new_theme_activity"><span></span></div>
+                            <div class="new_theme_ms"><span></span></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- **************公益人物信息部分************** -->
+        <div>
+            <div class="persons_title">
+                <div>
+                    <span><b style="color:green;">公益人物</b></span>
+                    <br />
+                    <span>News and Trends</span>
+                </div>
+            </div>
+            <div class="persons_ms">
+                <div class="persons_ms_ct">
+                    <div class="persons_ms_zl">
+                        <div class="persons_ms_zl_tl">
+                            <span>曹明秀：博士后的保姆事业</span>
+                        </div>
+                        <div class="persons_ms_zl_ms">
+                            <span></span>
+                        </div>
+                    </div>
+                    <div class="persons_ms_tp">
+                        <ul></ul>
+                    </div>
+                </div>
+            </div>
+            <div class="more">
+                <div><a href="">查看更多＞</a></div>
+            </div>
+        </div>
+
+        <!-- **************网站底部信息反馈部分************** -->
+        <div class="survey">
+            <div class="survey_ct">
+                <div class="survey_lf">
+                    <div>
+                        <p><span>阳光公益有限公司</span></p>
+                        <p>
+                            <span style="color:rgb(255, 232, 133)">电话：</span>
+                            <span>400-xxx-1080</span>
+                            <span>Email：kefu@xxxx.com</span>
+                            <span>网址： http://www.xxxxxx.com</span>
+                        </p>
+                        <p><span style="color:rgb(255, 232, 133)">总部地址：</span><span>柳州职业技术学院</span></p>
+                        <p>Copyright © 2009 - 2014 Cld , All Rights Reserved 阳光公益有限公司  版权所有 </p>
+                        <p><span>陕ICP备1xxxxx17号</span></p>
+                    </div>
+                </div>
+                <div class="survey_rg">
+                    <div>
+                        <form action="">
+                            <input type="text" placeholder="您的姓名" />
+                            <input type="text" placeholder="联系方式" />
+                            <textarea placeholder="反馈的意见"></textarea>
+                            <input type="button" value="反馈信息" style="background:#fff;cursor: pointer;color:#000" />
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- **************置顶按钮************** -->
+        <a class="stick"></a>
     </div>
+
+    <!-- **************响应式代码************** -->
+    <!-- **************左侧导航栏************** -->
+    <div class="nav_menu_sl_ap">
+        <ul>
+            <li class="treeview">
+                <a>
+                    <i class="tv_lg" style="background:url(images/nav/user.png);background-size:20px 20px;"></i>
+                    <span>用户管理</span>
+                    <i class="tv_jt"></i>
+                </a>
+                <ul class="treeview_sl" style="display:none">
+                    <li><i></i>个人中心</li>
+                    <li><i></i>登陆</li>
+                    <li class="dt_zc"><i></i>注册</li>
+                    <li><i></i>修改密码</li>
+                </ul>
+            </li>
+            <li class="treeview">
+                <a>
+                    <i class="tv_lg" style="background:url(images/nav/gyhd.png);background-size:20px 20px;"></i>
+                    <span>公益活动</span>
+                    <i class="tv_jt"></i>
+                </a>
+                <ul class="treeview_sl" style="display:none">
+                    <li><i></i>月捐</li>
+                    <li><i></i>乐捐</li>
+                </ul>
+            </li>
+            <li class="treeview">
+                <a>
+                    <i class="tv_lg" style="background:url(images/nav/money.png);background-size:20px 20px"></i>
+                    <span>基金会</span>
+                    <i class="tv_jt"></i>
+                </a>
+            </li>
+            <li class="treeview">
+                <a>
+                    <i class="tv_lg" style="background:url(images/nav/care.png);background-size:20px 20px"></i>
+                    <span>捐款</span>
+                    <i class="tv_jt"></i>
+                </a>
+                <ul class="treeview_sl" style="display:none">
+                    <li><i></i>我的捐款</li>
+                    <li><i></i>捐款设置</li>
+                </ul>
+            </li>
+        </ul>
+    </div>
+
+    <!-- **************注册弹窗部分************** -->
+    <div class="zc_mack">
+        <div class="zc_ct">
+            <div class="zx_cs"></div>
+            <div class="zc_ip">
+                <h2 style="text-align:center;color:rgb(244,67,54);margin-bottom: 35px;">注册账户</h2>
+                <form action="">
+                    <input class="zc_txt" type="text" placeholder="账户名" />
+                    <p>＊请输入用户名</p>
+                    <input class="zc_txt" type="password" placeholder="密码" />
+                    <p>＊请输入用户名</p>
+                    <input class="zc_txt" type="password" placeholder="确认密码" />
+                    <p>＊请输入用户名</p>
+                    <input type="button" value="注 册" style="background:rgb(244,67,54);color:#fff;cursor:pointer;margin-top:10px;" />
+                </form>
+            </div>
+        </div>
+    </div>
+
+
 </body>
 </html>

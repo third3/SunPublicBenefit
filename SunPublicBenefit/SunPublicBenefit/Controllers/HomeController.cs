@@ -15,5 +15,9 @@ namespace SunPublicBenefit.Controllers
         {
             return View(db.Roles.ToList());
         }
+        public ActionResult Home()
+        {
+            return View();
+        }
     }
 }
