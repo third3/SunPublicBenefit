@@ -68,6 +68,7 @@
     <Property Name="Moneyd" Type="decimal" Nullable="false" Precision="11" Scale="2" />
     <Property Name="Isstatus" Type="smallint" Nullable="false" />
     <Property Name="UserNumber" Type="int" Nullable="false" />
+    <Property Name="Details" Type="nvarchar(max)" Nullable="false" />
   </EntityType>
   <EntityType Name="ProjectRecordSet">
     <Key>
@@ -305,6 +306,7 @@
           <NavigationProperty Name="DoNationRecord" Relationship="SunShine.ProjectDoNationRecord" FromRole="Project" ToRole="DoNationRecord" />
           <NavigationProperty Name="ProjectRecord" Relationship="SunShine.ProjectProjectRecord" FromRole="Project" ToRole="ProjectRecord" />
           <NavigationProperty Name="Finance" Relationship="SunShine.ProjectFinance" FromRole="Project" ToRole="Finance" />
+          <Property Name="Details" Type="String" Nullable="false" Unicode="true" MaxLength="Max" />
         </EntityType>
         <EntityType Name="ProjectRecord">
           <Key>
@@ -432,6 +434,7 @@
           <ScalarProperty Name="Moneyd" ColumnName="Moneyd" />
           <ScalarProperty Name="Isstatus" ColumnName="Isstatus" />
           <ScalarProperty Name="UserNumber" ColumnName="UserNumber" />
+          <ScalarProperty Name="Details" ColumnName="Details" />
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>

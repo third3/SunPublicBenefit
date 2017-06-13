@@ -1,0 +1,52 @@
+/*导航部分*/
+        .ur{width:auto;background:#fff;box-shadow: 0 0 5px 0 #dbd3d3;}
+        .ur .ur_ct{width:1300px;margin:0 auto;height:100px;}
+        .ur_lf{float: left;width:257px;height:80px;margin:10px 0;background: url("../images/1.png");background-size: 256px 80px;}
+        .ur .ur_ct .ur_rg{float: right;position: relative;}
+        .ur .ur_ct .ur_rg ul li.ur_cgps{float: left;font:15px/100px '微软雅黑';margin:0 20px;color:#655d5d;}
+        .ur .ur_ct .ur_rg ul li a{color:#655d5d;}
+        .ur .ur_ct .ur_rg ul li a:hover{color:#2090f9;}
+        .ur_ig{width:40px;height:40px;position: absolute;left: -40px;top:50%;transform:translate(0,-50%);background:url("../images/hbz.jpg");background-size: 40px 40px;border-radius: 50%;}
+
+        /*个人设置部分*/
+        .pt_ct {width:1300px;margin:0 auto;background:#fff;box-shadow: 0 0 5px 0 #dbd3d3;position: relative;}
+        .pt_ct{width:1300px;margin:30px auto;display: -webkit-flex;display: flex;}
+        .pt_ct .pt_mod_side{flex:1;-webkit-flex:1;border-right:1px dashed #dbd3d3;}
+        .pt_ct .pt_mod_side .pt_lf_nv{padding:10px 0;border-bottom:1px dashed #dbd3d3;}
+        .pt_ct .pt_mod_side .pt_lf_no{padding:10px 0;}
+        .pt_ct .pt_mod_side p{position: relative;display:block;height:50px;}
+        .pt_ct .pt_mod_side ul li{text-indent: 50px;line-height: 38px;}
+        .pt_ct .pt_mod_side ul li a{color:#4b4b4b;display: block;}
+        .pt_ct .pt_mod_side ul li a:hover{color:#fff;background:#44b549;}
+        .pt_ct .pt_mod_side p span{display:block;width:156px;height:43px;position: absolute;left: 20px;top: 50%;transform:translate(0,-50%);}
+        .pt_ct .pt_mod_side p span.m_donate{background-image: url("../images/nav/jk.png");background-size: 156px 43px;}
+        .pt_ct .pt_mod_side p span.m_activity{background-image: url("../images/nav/activity.png");background-size: 156px 43px;}
+        .pt_ct .pt_mod_side p span.m_item{background-image: url("../images/nav/gyhd.png");background-size: 156px 43px;}
+        
+        /*右侧信息部分*/
+        .pt_ct .pt_mod_plate{width:1039px;float: right;}
+
+        /*个人认证*/
+        .pt_individual_event{margin:15px;}
+        .main_title{height: 36px;padding: 30px 0 10px 0;border-bottom: 1px solid rgba(68,181,73,0.09);color: #4b4b4b;line-height: 36px;}
+        .form_group{margin:0 0 35px 0;}
+        .col_side,.col_main{float: left;}
+        .form_input{width: 300px;height:32px;border:1px solid #9b9b9b;}
+        .fg_col{margin:0 30px;}
+        .jg_col{margin:0 10px;line-height: 34px;}
+        .lh_col{margin:0 14px 0 30px;line-height:34px }
+        .fz_col{font-size: 12px;color:#9b9b9b;}
+        .form_errow{font-size: 13px;color:red;}
+        .form_captcha{width:80px;height:32px;margin:0 0 0 15px;border:1px solid #9b9b9b;}
+        .form_approve{width:80px;height:35px;border:1px solid #9b9b9b;cursor: pointer;margin-left: 30px;}
+        .form_auth_code{font:14px/30px '微软雅黑';color:green;cursor: pointer;margin:20px 0 0 110px;}
+        .form_auth_code:hover{color:red;}
+
+        /*非公募机构认证*/
+        .pt_donation_record{margin:15px;}
+        .content_head_sub{position: relative;height: 40px;background-color: #eee;border: 1px solid #e7e7e7;border-radius: 1px;margin: 40px 0 0 0;}
+        .content_title{height: 42px;border-left: 4px solid #83a90d;line-height: 42px;padding-left: 20px;margin: -1px 0 0 -1px;}
+        .form_widget{width:100%;padding:40px 0 0;}
+        .form_select{width: 160px;height:34px;border:1px solid #9b9b9b;}
+        .sp_indx{margin-left: 110px;}
+        .form_label{padding:10px 20px;margin:0 5px;line-height: 34px;border:1px solid #9b9b9b;cursor: pointer;}

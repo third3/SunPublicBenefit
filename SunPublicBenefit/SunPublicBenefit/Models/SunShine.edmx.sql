@@ -2,7 +2,7 @@
 -- --------------------------------------------------
 -- Entity Designer DDL Script for SQL Server 2005, 2008, 2012 and Azure
 -- --------------------------------------------------
--- Date Created: 06/08/2017 11:49:15
+-- Date Created: 06/12/2017 16:16:13
 -- Generated from EDMX file: C:\Users\zero\Source\Repos\SunPublicBenefit\SunPublicBenefit\SunPublicBenefit\Models\SunShine.edmx
 -- --------------------------------------------------
 
@@ -95,7 +95,8 @@ CREATE TABLE [dbo].[ProjectSet] (
     [EndProjectTime] datetime  NOT NULL,
     [Moneyd] decimal(11,2)  NOT NULL,
     [Isstatus] smallint  NOT NULL,
-    [UserNumber] int  NOT NULL
+    [UserNumber] int  NOT NULL,
+    [Details] nvarchar(max)  NOT NULL
 );
 GO
 
