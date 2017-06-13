@@ -58,6 +58,9 @@ namespace SunPublicBenefit.Controllers
                     user.UserName = "Super_Admin@163.com";
                     user.PassWord = "123456";
                     user.Role = role;
+                    db.Roles.Add(role);
+                    db.User.Add(user);
+                    db.SaveChanges();
                 }
                 if (item == false && i== 2)
                 {
@@ -66,6 +69,9 @@ namespace SunPublicBenefit.Controllers
                     user.UserName = "Backstage_Admin@163.com";
                     user.PassWord = "123456";
                     user.Role = role;
+                    db.Roles.Add(role);
+                    db.User.Add(user);
+                    db.SaveChanges();
                 }
                 if (item == false && i ==3)
                 {
@@ -74,10 +80,10 @@ namespace SunPublicBenefit.Controllers
                     user.UserName = "Money_Admin@163.com";
                     user.PassWord = "123456";
                     user.Role = role;
+                    db.Roles.Add(role);
+                    db.User.Add(user);
+                    db.SaveChanges();
                 }
-                db.Roles.Add(role);
-                db.User.Add(user);
-                db.SaveChanges();
                 i++;
             }
            

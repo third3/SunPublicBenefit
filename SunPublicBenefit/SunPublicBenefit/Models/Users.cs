@@ -21,6 +21,10 @@ namespace SunPublicBenefit.Models
         [Required(ErrorMessage = "请输入密码")]
         public string PassWord { get; set; }
 
+        [DisplayName("用户的是否通过认证")]
+        [Required(ErrorMessage = "用户是否通过认证")]
+        public int IsStatus { get; set; }
+
         [DisplayName("权限")]
         public virtual Roles Role { get; set; }
 
