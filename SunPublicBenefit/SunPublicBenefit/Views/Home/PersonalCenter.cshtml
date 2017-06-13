@@ -80,8 +80,16 @@
         //            break;
         //    }
         //}
+        
         function showMsApprove() {
-
+            $.post("IsApprove", { id: 123, name: "sssss" }, function (data) {
+                if (data="yes") {
+                    window.location.href = "个人项目界面";
+                }
+                else {
+                    window.location.href = "Approve/AutoUserApprove";
+                }
+            });
         }
 
     </script>

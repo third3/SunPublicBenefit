@@ -20,7 +20,10 @@ namespace SunPublicBenefit.Controllers
         {
             return View();
         }
-
+        public ActionResult PersonalCenter()
+        {
+            return View();
+        }
         //查询角色表中的数据，并且如果不存在的话，便是给创建出来这样的角色信息
         public void addRoles()
         {
@@ -80,6 +83,16 @@ namespace SunPublicBenefit.Controllers
            
         }
 
+        [HttpPost]
+        public ActionResult IsApprove()
+        {
+            if (Session["ActiveUser"]!=null)
+            {
+                Users user = Session["ActiveUser"] as Users;
+            }
+           
+            return View();
+        }
 
     }
 }
