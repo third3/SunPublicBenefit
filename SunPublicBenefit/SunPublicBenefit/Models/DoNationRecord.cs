@@ -20,7 +20,7 @@ namespace SunPublicBenefit.Models
         [DisplayName("捐款金额")]
         [Required(ErrorMessage = "捐款金额不能为空")]
         public double DonationAmout { get; set; }
-        public User User { get; set; }
+        public Users User { get; set; }
         public Project Project { get; set; }
     }
 }

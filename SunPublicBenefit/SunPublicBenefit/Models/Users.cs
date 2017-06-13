@@ -8,10 +8,10 @@ using System.ComponentModel.DataAnnotations.Schema;
 
 namespace SunPublicBenefit.Models
 {
-    public class User
+    public class Users
     {
         [Key]
-        public Guid RoleID { get; set; }
+        public Guid UserID { get; set; }
 
         [DisplayName("用户名")]
         [Required(ErrorMessage = "请输入用户名")]

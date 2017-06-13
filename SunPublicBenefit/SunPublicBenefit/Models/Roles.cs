@@ -21,6 +21,6 @@ namespace SunPublicBenefit.Models
         [Required(ErrorMessage = "请输入描述")]
         public string Description { get; set; }
 
-        public virtual ICollection<User> User { get; set; }
+        public virtual ICollection<Users> User { get; set; }
     }
 }

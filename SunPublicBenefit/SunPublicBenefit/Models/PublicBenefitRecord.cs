@@ -13,7 +13,7 @@ namespace SunPublicBenefit.Models
         [Key]
         public Guid BenefitRecordID { get; set; }
 
-        public User User { get; set; }
+        public Users User { get; set; }
         public PublicBenefit PublicBenefit { get; set; }
     }
 }
