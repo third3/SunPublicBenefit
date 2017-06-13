@@ -28,7 +28,7 @@ namespace SunPublicBenefit.Models
         [Required(ErrorMessage = "流动后的金额不能为空.")]
         public double OutMoney { get; set; }
 
-        public User User { get; set; }
+        public Users User { get; set; }
         public Project Project { get; set; }
 
 

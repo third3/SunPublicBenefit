@@ -37,7 +37,7 @@ namespace SunPublicBenefit.Models
         public int UserNumber { get; set; }
 
         [DisplayName("用户")]
-        public virtual User User { get; set; }
+        public virtual Users User { get; set; }
 
         [DisplayName("权限")]
         public virtual Roles Role { get; set; }
