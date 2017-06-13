@@ -1,0 +1,89 @@
+﻿
+@{
+    Layout = null;
+}
+
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>个人中心</title>
+    <link rel="shortcut icon" href="~/images/logo .ico">
+    <link href="~/css/public.css" rel="stylesheet" />
+    <link href="~/css/psct.css" rel="stylesheet" />
+    <script src="~/Scripts/js/jquery-1.11.3.min.js"></script>
+</head>
+<body style="background:#f3f3f5">
+    <!-- **************pc端界面代码************** -->
+    <!-- **************导航栏************** -->
+
+    <div class="ur">
+        <div class="ur_ct">
+            <div class="ur_lf"></div>
+            <div class="ur_rg">
+                <ul>
+                    <li class="ur_ig"></li>
+                    <li class="ur_cgps">俺的肚皮不能减</li>
+                    <li class="ur_cgps">|</li>
+                    <li class="ur_cgps"><a href="">修改密码</a></li>
+                    <li class="ur_cgps"><a href="">退出</a></li>
+                    <li class="ur_cgps"><a href="#">@Html.ActionLink("回到首页", "Index")</a></li>
+                </ul>
+            </div>
+        </div>
+    </div>
+    <div class="pt_tc">
+        <!-- **************左边导航菜单栏************ -->
+        <div class="pt_ct">
+            <div class="pt_mod_side">
+                <div class="pt_lf_nv">
+                    <p><span class="m_donate"></span></p>
+                    <ul>
+                        <li><a href="">我的捐款记录</a></li>
+                    </ul>
+                </div>
+                <div class="pt_lf_nv">
+                    <p><span class="m_activity"></span></p>
+                    <ul>
+                        <li><a href="">我参加的</a></li>
+                    </ul>
+                </div>
+                <div class="pt_lf_no">
+                    <p><span class="m_item" style="left:16px"></span></p>
+                    <ul>
+                        <li><a href="javascript:void(0)" onclick="showMsApprove('pt_individual_event','pt_mod_plate')">个人项目</a></li>
+                        <li><a href="javascript:void(0)" onclick="showMsApprove('pt_donation_record','pt_mod_plate')">非公募机构</a></li>
+                        <li><a href="">慈善机构(公募)</a></li>
+                    </ul>
+                </div>
+
+            </div>
+            <div class="pt_mod_plate">
+                <!-- **************捐款记录视图************ -->
+
+
+
+
+            </div>
+            <!-- **************我参加的活动视图************ -->
+            <!-- **************慈善机构注册视图************ -->
+        </div>
+    </div>
+    <script type="text/javascript">
+        //function showMsApprove(id,box){
+        //    switch(id){
+        //        case 'pt_individual_event':
+        //            $("." + box + "").load("~/Views/Approve/AutoUserApprove.cshtml");
+        //            break;
+        //        case 'pt_donation_record':
+        //            $("."+box+"").load("donation.html");
+        //            break;
+        //    }
+        //}
+        function showMsApprove() {
+
+        }
+
+    </script>
+</body>
+</html>
