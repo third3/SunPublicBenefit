@@ -69,7 +69,7 @@ $(function(){
         // ************AJAX提取公益动态据信息*************
         $.ajax({ 
             type:"GET", 
-            url: "../SunPublicBenefit/news.txt",
+            url: "/news.txt",
             dataType:"json", 
             success:function(data){ 
                 // console.log(data[0].newsTitle);
@@ -83,7 +83,7 @@ $(function(){
         // ************AJAX提取公益人物据信息*************
         $.ajax({ 
             type:"GET", 
-            url: "SunPublicBenefit/persons.txt",
+            url: "/persons.txt",
             dataType:"json", 
             success:function(data){ 
                 // for(var i=0;i<4;i++){
@@ -100,7 +100,7 @@ $(function(){
                 $(".persons_ms_tp ul li img").eq(i).click(function(){
                     $.ajax({ 
                         type:"GET", 
-                        url: "../SunPublicBenefit/persons.txt",
+                        url: "/persons.txt",
                         dataType:"json", 
                         success:function(data){ 
                             $(".persons_ms_zl_tl span").eq(0).text(data[i].personsTitle);
