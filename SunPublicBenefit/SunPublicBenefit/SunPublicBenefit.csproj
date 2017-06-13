@@ -104,17 +104,6 @@
     <Content Include="Content\Site.css" />
     <Content Include="fonts\glyphicons-halflings-regular.svg" />
     <Content Include="Global.asax" />
-    <Content Include="Models\SunShine.Context.tt">
-      <Generator>TextTemplatingFileGenerator</Generator>
-      <LastGenOutput>SunShine.Context.cs</LastGenOutput>
-      <DependentUpon>SunShine.edmx</DependentUpon>
-    </Content>
-    <Content Include="Models\SunShine.edmx.sql" />
-    <Content Include="Models\SunShine.tt">
-      <Generator>TextTemplatingFileGenerator</Generator>
-      <LastGenOutput>SunShine.cs</LastGenOutput>
-      <DependentUpon>SunShine.edmx</DependentUpon>
-    </Content>
     <Content Include="fonts\glyphicons-halflings-regular.woff" />
     <Content Include="fonts\glyphicons-halflings-regular.ttf" />
     <Content Include="fonts\glyphicons-halflings-regular.eot" />
@@ -146,60 +135,20 @@
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
-    <Compile Include="Models\DoNationRecord.cs">
-      <DependentUpon>SunShine.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Models\Finance.cs">
-      <DependentUpon>SunShine.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Models\Project.cs">
-      <DependentUpon>SunShine.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Models\ProjectRecord.cs">
-      <DependentUpon>SunShine.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Models\PublicBenefit.cs">
-      <DependentUpon>SunShine.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Models\PublicBenefitRecord.cs">
-      <DependentUpon>SunShine.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Models\Role.cs">
-      <DependentUpon>SunShine.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Models\SunShine.Context.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>SunShine.Context.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Models\SunShine.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>SunShine.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Models\SunShine.Designer.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>SunShine.edmx</DependentUpon>
-    </Compile>
-    <Compile Include="Models\User1.cs">
-      <DependentUpon>SunShine.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Models\UserApprove.cs">
-      <DependentUpon>SunShine.tt</DependentUpon>
-    </Compile>
+    <Compile Include="Models\DonationRecord.cs" />
+    <Compile Include="Models\Finance.cs" />
+    <Compile Include="Models\Project.cs" />
+    <Compile Include="Models\ProjectRecord.cs" />
+    <Compile Include="Models\PublicBenefit.cs" />
+    <Compile Include="Models\PublicBenefitRecord.cs" />
+    <Compile Include="Models\Roles.cs" />
+    <Compile Include="Models\SunPublicBenefitDBContextOne.cs" />
+    <Compile Include="Models\User.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="Views\web.config" />
     <Content Include="packages.config" />
-    <EntityDeploy Include="Models\SunShine.edmx">
-      <Generator>EntityModelCodeGenerator</Generator>
-      <LastGenOutput>SunShine.Designer.cs</LastGenOutput>
-    </EntityDeploy>
-    <Content Include="Models\SunShine.edmx.diagram">
-      <DependentUpon>SunShine.edmx</DependentUpon>
-    </Content>
     <Content Include="Views\_ViewStart.cshtml" />
     <Content Include="Views\Shared\_Layout.cshtml" />
     <Content Include="Scripts\jquery-1.10.2.min.map" />
