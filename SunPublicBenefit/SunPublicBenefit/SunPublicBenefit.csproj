@@ -201,6 +201,7 @@
     <Content Include="Views\Project\BeneficenceProject.cshtml" />
     <Content Include="Views\Approve\UnBeneficenceApprove.cshtml" />
     <Content Include="Views\Approve\BeneficenceApprove.cshtml" />
+    <Content Include="Views\Home\PersonalCenter1.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
