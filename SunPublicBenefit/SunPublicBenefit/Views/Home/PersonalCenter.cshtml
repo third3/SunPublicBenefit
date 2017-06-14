@@ -27,7 +27,7 @@
                     <li class="ur_cgps">|</li>
                     <li class="ur_cgps"><a href="">修改密码</a></li>
                     <li class="ur_cgps"><a href="">退出</a></li>
-                    <li class="ur_cgps"><a href="#">@Html.ActionLink("回到首页", "Index")</a></li>
+                    <li class="ur_cgps"><a href="index.html">回到首页</a></li>
                 </ul>
             </div>
         </div>
@@ -51,16 +51,28 @@
                 <div class="pt_lf_no">
                     <p><span class="m_item" style="left:16px"></span></p>
                     <ul>
-                        <li><a href="javascript:void(0)" onclick="showMsApprove('pt_individual_event','pt_mod_plate')">个人项目</a></li>
-                        <li><a href="javascript:void(0)" onclick="showMsApprove('pt_donation_record','pt_mod_plate')">非公募机构</a></li>
-                        <li><a href="">慈善机构(公募)</a></li>
+                        <li><a href="javascript:void(0)" onclick="showMsApprove('pt_myProject','pt_mod_plate')">我的项目</a></li>
                     </ul>
                 </div>
 
             </div>
             <div class="pt_mod_plate">
                 <!-- **************捐款记录视图************ -->
+                @*<div class="others_contributions">
+                    <div class="pub_stylemid">
+                        <div style="height:20px;"></div>
+                        <p>温馨提示</p>
+                        <p>
+                            <span></span>
+                            <span></span>
+                            <span></span>
+                            <span></span>
+                        </p>
+                    </div>
+                    <div class="detail">
 
+                    </div>
+                </div>*@
 
 
 
@@ -70,28 +82,27 @@
         </div>
     </div>
     <script type="text/javascript">
-        //function showMsApprove(id,box){
-        //    switch(id){
-        //        case 'pt_individual_event':
-        //            $("." + box + "").load("~/Views/Approve/AutoUserApprove.cshtml");
-        //            break;
-        //        case 'pt_donation_record':
-        //            $("."+box+"").load("donation.html");
-        //            break;
-        //    }
-        //}
-        
-        function showMsApprove() {
-            $.post("IsApprove", { id: 123, name: "sssss" }, function (data) {
-                if (data="yes") {
-                    window.location.href = "个人项目界面";
-                }
-                else {
-                    window.location.href = "Approve/AutoUserApprove";
+        function showMsApprove(id, box) {
+            $.post("IsApprove",function (data) {
+                if (data) {
+
                 }
             });
+            switch(id){
+                case 'pt_individual_event':
+                    $("." + box + "").load("/Approve/AutoUserApprove");
+                    break;
+                case 'pt_donation_record':
+                    $("." + box + "").load("/Approve/UnBeneficenceApprove");
+                    break;
+                case 'pt_contact':
+                    $("." + box + "").load("/Approve/BeneficenceApprove");
+                    break;
+                case 'pt_myProject':
+                    $("." + box + "").load("ApproveWayChoose");
+                    break;
+            }
         }
-
     </script>
 </body>
 </html>
