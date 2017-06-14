@@ -10,6 +10,6 @@ namespace SunPublicBenefit.Controllers
     public class ContextController : Controller
     {
         // GET: Context
-        public SunShineContainer sun = new SunShineContainer();
+        //public SunShineContainer sun = new SunShineContainer();
     }
 }

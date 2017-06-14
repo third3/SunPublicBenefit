@@ -50,3 +50,20 @@
         .form_select{width: 160px;height:34px;border:1px solid #9b9b9b;}
         .sp_indx{margin-left: 110px;}
         .form_label{padding:10px 20px;margin:0 5px;line-height: 34px;border:1px solid #9b9b9b;cursor: pointer;}
+
+        /*联系人信息部分视图*/
+        .pt_contact{margin:15px;}
+
+        /*我的项目视图*/
+        .pt_myProject{margin:15px;}
+        .pt_myProject .mp_box{width:1000px;height:320px;margin:0 auto;display: -webkit-flex;display: flex;}
+        .pt_myProject .mp_box div{background:#fff;flex:1;-webkit-flex:1;margin:10px;border:1px solid #c7c7c7;border-radius: 5px;cursor: pointer;}
+        .pt_myProject .mp_box div:hover{background:#f3eeee;}
+        .pt_myProject .mp_box div ul li.icon{width:102px;height:110px;margin:40px auto 20px;background:red;background:url("../images/icon_identity.png") no-repeat;}
+        .pt_myProject .mp_box div ul li.icon_tl{text-align: center;font-size: 22px;}
+        .pt_myProject .mp_box div ul li.icon_nr{text-align: center;font-size: 13px;padding-top:20px;}
+
+        /*我的捐款记录视图*/
+        .others_contributions{margin:15px;}
+        .others_contributions .pub_stylemid{height:200px;margin:20px;border:2px solid #a3cfa4;border-radius: 5px;}
+        

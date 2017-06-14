@@ -1,0 +1,39 @@
+﻿
+@{
+    Layout = null;
+}
+
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>我的项目</title>
+</head>
+<body>
+    <div class="pt_myProject" id="pt_myProject">
+        <div class="mp_box">
+            <div class="individual_event" onclick="showMsApprove('pt_individual_event','pt_mod_plate')">
+                <ul>
+                    <li class="icon" style="background-position:0 0;"></li>
+                    <li class="icon_tl"><p>个人用户</p></li>
+                    <li class="icon_nr"><p>适合以个人身份发起项目</p></li>
+                </ul>
+            </div>
+            <div class="donation_record" onclick="showMsApprove('pt_donation_record','pt_mod_plate')">
+                <ul>
+                    <li class="icon" style="background-position:0 -110px;"></li>
+                    <li class="icon_tl"><p>非公募机构</p></li>
+                    <li class="icon_nr"><p>适合慈善组织(无公开募捐资格证书)、民办非企业单位、社会团体、企业等，不具备直接面向公众募捐的资质</p></li>
+                </ul>
+            </div>
+            <div class="charitable_offer">
+                <ul>
+                    <li class="icon" style="background-position:0 -220px;"></li>
+                    <li class="icon_tl"><p>慈善组织(公募)</p></li>
+                    <li class="icon_nr"><p>适合民政部批准，持有法人登记证书、公开募捐资格证书，具备向公众募集资金资质的公募基金会</p></li>
+                </ul>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

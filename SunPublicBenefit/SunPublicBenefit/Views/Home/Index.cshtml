@@ -19,7 +19,6 @@
     <script src="~/Scripts/js/jquery.lazyload.min.js"></script>
 </head>
 <body>
-
     <!-- **************pc端界面代码************** -->
     <!-- **************导航栏************** -->
     <div class="pc_id">
@@ -34,11 +33,11 @@
                                     </div> -->
                 </div>
                 <ul class="cp_ul">
-                    <li class="current"><a class="active" href="index.html">官网首页</a></li>
+                    <li class="current"><a class="active" href="#">@Html.ActionLink("官网首页", "Index")</a></li>
                     <li><a href="#">基金会</a></li>
                     <li><a href="#">公益活动</a></li>
                     <li><a href="#">捐款</a></li>
-                    <li><a href="psct.html">个人中心</a></li>
+                    <li><a href="#">@Html.ActionLink("个人中心", "PersonalCenter")</a></li>
                 </ul>
             </div>
         </div>
@@ -51,14 +50,14 @@
                 <li><img src="~/images/cy_yser.jpg" alt=""></li>
             </ul>
             <div class="donation">
-                <form action="">
+                <form action=" ">
                     <div>
                         <input type="text" class="dt_txt" placeholder="用户名/邮箱/账号" />
                     </div>
                     <div><input type="password" class="dt_txt" placeholder="密码" /></div>
                     <div class="dt_bt">
-                        <input type="button" value="登 陆" />
-                        <input type="button" class="dt_zc" value="注 册" />
+                        <input type="submit" value="登 陆" />
+                        <input type="button" id="insert" class="dt_zc" value="注 册" />
                     </div>
                 </form>
                 <div class="user_ms">

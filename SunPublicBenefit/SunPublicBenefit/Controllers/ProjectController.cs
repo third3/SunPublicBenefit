@@ -22,14 +22,26 @@ namespace SunPublicBenefit.Controllers
         public ActionResult Create(Project project)
         {
             string msg = "no";
-            sun.ProjectSet.Add(project);
-            int result = sun.SaveChanges();
-            if (result > 1)
-            {
-                //msg = "ok";
-                Response.Redirect("Project/Create");
-            }
+           // sun.ProjectSet.Add(project);
+            //int result = sun.SaveChanges();
+            //if (result > 1)
+            //{
+            //    //msg = "ok";
+            //    Response.Redirect("Project/Create");
+            //}
             return Content(msg);
+        }
+        public ActionResult SingleProject()
+        {
+            return View();
+        }
+        public ActionResult UnBeneficenceProject()
+        {
+            return View();
+        }
+        public ActionResult BeneficenceProject()
+        {
+            return View();
         }
     }
 }

@@ -109,6 +109,9 @@
     <Content Include="css\public.css" />
     <Content Include="fonts\glyphicons-halflings-regular.svg" />
     <Content Include="Global.asax" />
+    <Content Include="fonts\glyphicons-halflings-regular.woff" />
+    <Content Include="fonts\glyphicons-halflings-regular.ttf" />
+    <Content Include="fonts\glyphicons-halflings-regular.eot" />
     <Content Include="images\1.png" />
     <Content Include="images\99gyr.jpg" />
     <Content Include="images\close.png" />
@@ -117,6 +120,7 @@
     <Content Include="images\cy_yser.jpg" />
     <Content Include="images\cy_ytuz.jpg" />
     <Content Include="images\hbz.jpg" />
+    <Content Include="images\icon_identity.png" />
     <Content Include="images\loading.gif" />
     <Content Include="images\logo .ico" />
     <Content Include="images\nav\activity.png" />
@@ -148,20 +152,8 @@
     <Content Include="images\person\9.jpg" />
     <Content Include="images\qjjh.jpg" />
     <Content Include="images\qsgy.png" />
-    <Content Include="Models\SunShine.Context.tt">
-      <Generator>TextTemplatingFileGenerator</Generator>
-      <LastGenOutput>SunShine.Context.cs</LastGenOutput>
-      <DependentUpon>SunShine.edmx</DependentUpon>
-    </Content>
-    <Content Include="Models\SunShine.edmx.sql" />
-    <Content Include="Models\SunShine.tt">
-      <Generator>TextTemplatingFileGenerator</Generator>
-      <LastGenOutput>SunShine.cs</LastGenOutput>
-      <DependentUpon>SunShine.edmx</DependentUpon>
-    </Content>
-    <Content Include="fonts\glyphicons-halflings-regular.woff" />
-    <Content Include="fonts\glyphicons-halflings-regular.ttf" />
-    <Content Include="fonts\glyphicons-halflings-regular.eot" />
+    <Content Include="news.txt" />
+    <Content Include="persons.txt" />
     <Content Include="Scripts\js\fragment.js" />
     <Content Include="Scripts\js\index.js" />
     <Content Include="Scripts\js\jquery-1.11.3.min.js" />
@@ -169,11 +161,8 @@
     <Content Include="fonts\log.PNG" />
     <Content Include="fonts\mark.PNG" />
     <Content Include="fonts\title.PNG" />
-    <Content Include="Views\Approve\PersonalAuthentication.html" />
-    <Content Include="news.txt" />
-    <Content Include="persons.txt" />
     <Content Include="Web.config" />
-    <Content Include="Views\Home\Home.cshtml" />
+    <Content Include="Views\Home\Index.cshtml" />
     <Content Include="Views\Approve\AutoUserApprove.cshtml" />
   </ItemGroup>
   <ItemGroup>
@@ -183,66 +172,35 @@
     <Compile Include="Controllers\ContextController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\ProjectController.cs" />
+    <Compile Include="Controllers\ProjectRecordController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
-    <Compile Include="Models\DoNationRecord.cs">
-      <DependentUpon>SunShine.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Models\Finance.cs">
-      <DependentUpon>SunShine.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Models\Project.cs">
-      <DependentUpon>SunShine.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Models\ProjectRecord.cs">
-      <DependentUpon>SunShine.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Models\PublicBenefit.cs">
-      <DependentUpon>SunShine.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Models\PublicBenefitRecord.cs">
-      <DependentUpon>SunShine.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Models\Role.cs">
-      <DependentUpon>SunShine.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Models\SunShine.Context.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>SunShine.Context.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Models\SunShine.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>SunShine.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Models\SunShine.Designer.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>SunShine.edmx</DependentUpon>
-    </Compile>
-    <Compile Include="Models\User1.cs">
-      <DependentUpon>SunShine.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Models\UserApprove.cs">
-      <DependentUpon>SunShine.tt</DependentUpon>
-    </Compile>
+    <Compile Include="Models\DonationRecord.cs" />
+    <Compile Include="Models\Finance.cs" />
+    <Compile Include="Models\Project.cs" />
+    <Compile Include="Models\ProjectRecord.cs" />
+    <Compile Include="Models\PublicBenefit.cs" />
+    <Compile Include="Models\PublicBenefitRecord.cs" />
+    <Compile Include="Models\Roles.cs" />
+    <Compile Include="Models\SunPublicBenefitDBContextOne.cs" />
+    <Compile Include="Models\Users.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="Views\web.config" />
     <Content Include="packages.config" />
-    <EntityDeploy Include="Models\SunShine.edmx">
-      <Generator>EntityModelCodeGenerator</Generator>
-      <LastGenOutput>SunShine.Designer.cs</LastGenOutput>
-    </EntityDeploy>
-    <Content Include="Models\SunShine.edmx.diagram">
-      <DependentUpon>SunShine.edmx</DependentUpon>
-    </Content>
     <Content Include="Views\_ViewStart.cshtml" />
     <Content Include="Views\Shared\_Layout.cshtml" />
-    <Content Include="Views\Home\Index.cshtml" />
+    <Content Include="Views\Home\Home.cshtml" />
+    <Content Include="Views\Home\PersonalCenter.cshtml" />
+    <Content Include="Views\Home\ApproveWayChoose.cshtml" />
+    <Content Include="Views\ProjectRecord\PersonalDonationRecord.cshtml" />
+    <Content Include="Views\Project\SingleProject.cshtml" />
+    <Content Include="Views\Project\UnBeneficenceProject.cshtml" />
+    <Content Include="Views\Project\BeneficenceProject.cshtml" />
+    <Content Include="Views\Approve\UnBeneficenceApprove.cshtml" />
+    <Content Include="Views\Approve\BeneficenceApprove.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
@@ -253,7 +211,6 @@
   <ItemGroup>
     <Folder Include="App_Data\" />
     <Folder Include="Views\Context\" />
-    <Folder Include="Views\Project\" />
   </ItemGroup>
   <ItemGroup>
     <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
