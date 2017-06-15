@@ -27,7 +27,7 @@
                     <li class="ur_cgps">|</li>
                     <li class="ur_cgps"><a href="">修改密码</a></li>
                     <li class="ur_cgps"><a href="">退出</a></li>
-                    <li class="ur_cgps"><a href="index.html">回到首页</a></li>
+                    <li class="ur_cgps"><a href="#">@Html.ActionLink("回到首页", "Index","Home")</a></li>
                 </ul>
             </div>
         </div>
@@ -82,6 +82,17 @@
         </div>
     </div>
     <script type="text/javascript">
+        //function GotoPartView(actionname, controllerName) {
+        //    var url = "../" + controllerName + "/" + actionname;
+        //    $.ajax({
+        //        type: "post",
+        //        url: url,
+        //        success: function (data) {
+        //            //获取到数据后在右侧Content下显示分部视图
+        //            $('.pt_mod_plate').html(data);
+        //        }
+        //    });
+        //}
         function showMsApprove(id, box) {
             $.post("IsApprove", function (data) {
                 if (data == "0") {
@@ -100,15 +111,16 @@
                             break;
                     }
                 }
-                if (data == "1") {
-
+                if (data == 1) {
+                    $("." + box + "").load("/Project/SingleProject");
                 }
-                if (data == "2") {
-
+                if (data == 2) {
+                    $("." + box + "").load("/Project/UnBeneficenceProject");
                 }
-                if (data == "3") {
-
+                if (data == 3) {
+                    $("." + box + "").load("/Project/BeneficenceProject");
                 }
+
             });
 
         }
