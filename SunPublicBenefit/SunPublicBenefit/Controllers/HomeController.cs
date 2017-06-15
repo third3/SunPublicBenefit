@@ -4,6 +4,7 @@ using System.Linq;
 using System.Web;
 using System.Web.Mvc;
 using SunPublicBenefit.Models;
+using System.IO;
 
 namespace SunPublicBenefit.Controllers
 {
@@ -20,7 +21,35 @@ namespace SunPublicBenefit.Controllers
         {
             return View();
         }
+        [HttpPost]
+        public int Verify(Users user)
+        {
+            string userName = user.UserName;
+            string passWord = user.PassWord;
+            List<Users> userList = db.User.OrderBy(m => m.UserName).ToList();
+            bool isname = false;            
+            foreach (var item in userList)
+            {
+                if (item.UserName == userName && item.PassWord == passWord)
+                {
+                    isname = true;
+                }
+            }
+            if(isname == false)
+            {
+                return 1;
+            }
+            else
+            {
+                return 0;
+            }
+           
+        }
 
+        public ActionResult Error()
+        {
+            return View();
+        }
         //查询角色表中的数据，并且如果不存在的话，便是给创建出来这样的角色信息
         public void addRoles()
         {
