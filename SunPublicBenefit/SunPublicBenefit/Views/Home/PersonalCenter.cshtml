@@ -57,8 +57,22 @@
 
             </div>
             <div class="pt_mod_plate">
-                
-                @RenderPage("~/Views/Approve/MyDonationApprove.cshtml")
+                <!-- **************捐款记录视图************ -->
+                @*<div class="others_contributions">
+                    <div class="pub_stylemid">
+                        <div style="height:20px;"></div>
+                        <p>温馨提示</p>
+                        <p>
+                            <span></span>
+                            <span></span>
+                            <span></span>
+                            <span></span>
+                        </p>
+                    </div>
+                    <div class="detail">
+
+                    </div>
+                </div>*@
 
 
             </div>
@@ -67,51 +81,26 @@
         </div>
     </div>
     <script type="text/javascript">
-        //function showMsApprove(id, box) {
-        //    $.post("IsApprove",function (data) {
-        //        if (data) {
+        function showMsApprove(id, box) {
+            $.post("IsApprove",function (data) {
+                if (data) {
 
-        //        }
-        //    });
-        //    switch(id){
-        //        case 'pt_individual_event':
-        //            $("." + box + "").load("/Approve/AutoUserApprove");
-        //            break;
-        //        case 'pt_donation_record':
-        //            $("." + box + "").load("/Approve/UnBeneficenceApprove");
-        //            break;
-        //        case 'pt_contact':
-        //            $("." + box + "").load("/Approve/BeneficenceApprove");
-        //            break;
-        //        case 'pt_myProject':
-        //            $("." + box + "").load("ApproveWayChoose");
-        //            break;
-        //    }
-        //}
-        //****************************点击导航条显示的选中效果********************
-        $(".active").eq(0).css({ "background": "#44b549", "color": "#fff" });
-        for (var i = 0; i < $(".active").length; i++) {
-            (function (i) {
-                $(".active").eq(i).click(function () {
-                    for(var j=0;j<$(".active").length;j++){
-                        $(".active").eq(j).css({"background":"#fff","color":"#4b4b4b"});
-                    }
-                    $(this).css({ "background": "#44b549", "color": "#fff" });
-                })
-            })(i)
-        }
-        //*********************跳转个人中心不同页面的链接代码**********************
-        function GotoPartView(actionname, controllerName) {
-            $(this).css("background", "#44b549");
-            var url = "../" + controllerName + "/" + actionname;
-            $.ajax({
-                type: "post",
-                url: url,
-                success: function (data) {
-                    //获取到数据后在右侧Content下显示分部视图
-                    $('.pt_mod_plate').html(data);
                 }
             });
+            switch(id){
+                case 'pt_individual_event':
+                    $("." + box + "").load("/Approve/AutoUserApprove");
+                    break;
+                case 'pt_donation_record':
+                    $("." + box + "").load("/Approve/UnBeneficenceApprove");
+                    break;
+                case 'pt_contact':
+                    $("." + box + "").load("/Approve/BeneficenceApprove");
+                    break;
+                case 'pt_myProject':
+                    $("." + box + "").load("ApproveWayChoose");
+                    break;
+            }
         }
     </script>
 </body>
