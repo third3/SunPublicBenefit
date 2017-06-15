@@ -11,8 +11,111 @@
     <title>UnBeneficenceApprove</title>
 </head>
 <body>
-    <div> 
-        非公募组织认证
+    <div class="pt_donation_record" id="pt_donation_record">
+        <div class="main_title">
+            <p style="font-size:20px">公益机构注册 <span style="font-size:13px"> (以下信息所有信息均为必填项)</span></p>
+        </div>
+        <div class="content_head_sub">
+            <h3 class="content_title">机构基本信息</h3>
+        </div>
+        <div class="form_widget">
+            <div class="form_group">
+                <div class="col_side fg_col">账户名:</div>
+                <div class="fg_col">俺的肚皮不能减</div>
+            </div>
+            <div class="form_group">
+                <div class="col_side lh_col">机构全称:</div>
+                <div>
+                    <input class="form_input" type="text" />
+                    <span class="fz_col">(请填写机构全称，例如：腾讯公益慈善基金会)</span>
+                </div>
+            </div>
+            <div class="form_group">
+                <div class="col_side lh_col">机构电话:</div>
+                <div>
+                    <input class="form_input" type="text" />
+                    <span class="fz_col">(请填写机构常用联系电话，例如：0755-83765566)</span>
+                </div>
+            </div>
+            <div class="form_group">
+                <div class="col_side lh_col">常驻地址:</div>
+                <div>
+                    <select name="" id="" class="form_select"></select>
+                    <span class="jg_col">省</span>
+                    <select name="" id="" class="form_select"></select>
+                    <span class="jg_col ">市</span>
+                    <input class="form_input" type="text" placeholder="详细地址" />
+                </div>
+            </div>
+        </div>
+        <div class="content_head_sub">
+            <h3 class="content_title">机构现状</h3>
+        </div>
+        <div class="form_widget">
+            <div class="form_group">
+                <div class="col_side lh_col">机构登记性质:</div>
+                <div>
+                    <select name="" id="" class="form_select"></select>
+                </div>
+            </div>
+            <div class="form_group">
+                <div class="col_side lh_col">主要领域:</div>
+                <div>
+                    <label for="" class="form_label">疾病救助</label>
+                    <label for="" class="form_label">扶贫/救灾</label>
+                    <label for="" class="form_label">教育/助学</label>
+                    <label for="" class="form_label">环境/动物保护</label>
+                    <label for="" class="form_label">其他</label>
+                </div>
+            </div>
+            <div class="form_group">
+                <div class="col_side lh_col">机构电话:</div>
+                <div>
+                    <select name="" id="" class="form_select"></select>
+                    <span class="fz_col">(请选择机构上一年的全年募款金额)</span>
+                </div>
+            </div>
+            <div class="form_group">
+                <div class="col_side lh_col">机构规模:</div>
+                <div>
+                    <span class="jg_col">全职人数:</span>
+                    <select name="" id="" class="form_select"></select>
+                    <span class="jg_col">兼职人数:</span>
+                    <select name="" id="" class="form_select"></select>
+                    <span class="jg_col">志愿者人数:</span>
+                    <select name="" id="" class="form_select"></select>
+                </div>
+            </div>
+            <div class="form_group">
+                <div class="col_side lh_col">成立日期:</div>
+                <div>
+                    <input class="form_input" type="text" style="width:782px" />
+                </div>
+            </div>
+            <div class="form_group">
+                <div class="col_side lh_col">官方主页:</div>
+                <div>
+                    <input class="form_input" type="text" style="width:782px" />
+                    <br />
+                    <span class="fz_col sp_indx">(请填写您的官网地址，或者机构新浪微博地址、没有设置访问权限的QQ空间、微信公众号推送文章链接 其中任意一个)</span>
+                </div>
+            </div>
+            <div class="form_group">
+                <div class="col_side lh_col">机构简介:</div>
+                <div>
+                    <textarea name="" id="" cols="30" rows="10" style="width:782px"></textarea>
+                    <br />
+                    <span class="fz_col sp_indx">机构简介建议保持在200~500字。</span>
+                </div>
+            </div>
+            <div class="form_group">
+                <div class="col_side lh_col">验证码:</div>
+                <div>
+                    <input class="form_captcha" type="text" />
+                    <input class="form_captcha" type="button" onclick="showMsApprove('pt_contact','pt_mod_plate')" style="cursor: pointer;" value="下一步" />
+                </div>
+            </div>
+        </div>
     </div>
 </body>
 </html>

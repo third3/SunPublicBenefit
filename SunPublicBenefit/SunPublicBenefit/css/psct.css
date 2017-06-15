@@ -1,6 +1,6 @@
 /*导航部分*/
-        .ur{width:auto;background:#fff;box-shadow: 0 0 5px 0 #dbd3d3;}
-        .ur .ur_ct{width:1300px;margin:0 auto;height:100px;}
+        .ur{width:auto;}
+        .ur .ur_ct{width:1349px;margin:0 auto;height:100px;background:#fff;box-shadow: 0 0 5px 0 #dbd3d3;}
         .ur_lf{float: left;width:257px;height:80px;margin:10px 0;background: url("../images/1.png");background-size: 256px 80px;}
         .ur .ur_ct .ur_rg{float: right;position: relative;}
         .ur .ur_ct .ur_rg ul li.ur_cgps{float: left;font:15px/100px '微软雅黑';margin:0 20px;color:#655d5d;}
@@ -9,15 +9,14 @@
         .ur_ig{width:40px;height:40px;position: absolute;left: -40px;top:50%;transform:translate(0,-50%);background:url("../images/hbz.jpg");background-size: 40px 40px;border-radius: 50%;}
 
         /*个人设置部分*/
-        .pt_ct {width:1300px;margin:0 auto;background:#fff;box-shadow: 0 0 5px 0 #dbd3d3;position: relative;}
-        .pt_ct{width:1300px;margin:30px auto;display: -webkit-flex;display: flex;}
+        .pt_ct {width:1349px;margin:0 auto;background:#fff;box-shadow: 0 0 5px 0 #dbd3d3;position: relative;}
+        .pt_ct{width:1349px;margin:30px auto;display: -webkit-flex;display: flex;}
         .pt_ct .pt_mod_side{flex:1;-webkit-flex:1;border-right:1px dashed #dbd3d3;}
         .pt_ct .pt_mod_side .pt_lf_nv{padding:10px 0;border-bottom:1px dashed #dbd3d3;}
         .pt_ct .pt_mod_side .pt_lf_no{padding:10px 0;}
         .pt_ct .pt_mod_side p{position: relative;display:block;height:50px;}
         .pt_ct .pt_mod_side ul li{text-indent: 50px;line-height: 38px;}
-        .pt_ct .pt_mod_side ul li a{color:#4b4b4b;display: block;}
-        .pt_ct .pt_mod_side ul li a:hover{color:#fff;background:#44b549;}
+        .pt_ct .pt_mod_side ul li a{color:#4b4b4b;display: block;background:#fff;}
         .pt_ct .pt_mod_side p span{display:block;width:156px;height:43px;position: absolute;left: 20px;top: 50%;transform:translate(0,-50%);}
         .pt_ct .pt_mod_side p span.m_donate{background-image: url("../images/nav/jk.png");background-size: 156px 43px;}
         .pt_ct .pt_mod_side p span.m_activity{background-image: url("../images/nav/activity.png");background-size: 156px 43px;}
@@ -66,4 +65,8 @@
         /*我的捐款记录视图*/
         .others_contributions{margin:15px;}
         .others_contributions .pub_stylemid{height:200px;margin:20px;border:2px solid #a3cfa4;border-radius: 5px;}
-        
+        table,th,td,caption{line-height:18px;font:13px/18px '微软雅黑';}
+        .mytable caption{font:20px/40px '微软雅黑';color:#2d2d2d;border-top: 1px solid #d2d2d2;}
+        .mytable td{padding:3px;  border-bottom:1px solid #d2d2d2;color:#2d2d2d;}
+        .mytable th{width:350px;padding:6px;border-top:1px solid #d2d2d2;color:#2d2d2d;text-align: center;border-bottom:1px solid #d2d2d2;background:#a3cfa4;}
+        .detail{margin:50px 20px 0 20px ;height:200px;border-radius: 5px;}

@@ -56,6 +56,9 @@ namespace SunPublicBenefit.Controllers
         {
             return View();
         }
-
+        public ActionResult MyDonationApprove()
+        {
+            return View();
+        }
     }
 }
