@@ -39,46 +39,31 @@
                 <div class="pt_lf_nv">
                     <p><span class="m_donate"></span></p>
                     <ul>
-                        <li><a href="javascript:void(0)" onclick="GotoPartView('MyDonationApprove', 'Approve')">我的捐款记录</a></li>
+                        <li><a href="javascript:void(0)" class="active" onclick="GotoPartView('MyDonationApprove', 'Approve')">我的捐款记录</a></li>
                     </ul>
                 </div>
                 <div class="pt_lf_nv">
                     <p><span class="m_activity"></span></p>
                     <ul>
-                        <li><a href="">我参加的</a></li>
+                        <li><a href="javascript:void(0)" class="active">我参加的</a></li>
                     </ul>
                 </div>
-                <div class="pt_lf_no">
+                <div class="pt_lf_nv">
                     <p><span class="m_item" style="left:16px"></span></p>
                     <ul>
-                        <li><a href="javascript:void(0)" onclick="GotoPartView('ApproveWayChoose', 'Home')">我的项目</a></li>
+                        <li><a href="javascript:void(0)" class="active" onclick="GotoPartView('ApproveWayChoose', 'Home')">我的项目</a></li>
                     </ul>
                 </div>
 
             </div>
             <div class="pt_mod_plate">
-                <!-- **************捐款记录视图************ -->
-                @*<div class="others_contributions">
-                    <div class="pub_stylemid">
-                        <div style="height:20px;"></div>
-                        <p>温馨提示</p>
-                        <p>
-                            <span></span>
-                            <span></span>
-                            <span></span>
-                            <span></span>
-                        </p>
-                    </div>
-                    <div class="detail">
-
-                    </div>
-                </div>*@
+                
                 @RenderPage("~/Views/Approve/MyDonationApprove.cshtml")
 
 
             </div>
             <!-- **************我参加的活动视图************ -->
-            <!-- **************慈善机构注册视图************ -->
+            
         </div>
     </div>
     <script type="text/javascript">
@@ -103,7 +88,21 @@
         //            break;
         //    }
         //}
+        //****************************点击导航条显示的选中效果********************
+        $(".active").eq(0).css({ "background": "#44b549", "color": "#fff" });
+        for (var i = 0; i < $(".active").length; i++) {
+            (function (i) {
+                $(".active").eq(i).click(function () {
+                    for(var j=0;j<$(".active").length;j++){
+                        $(".active").eq(j).css({"background":"#fff","color":"#4b4b4b"});
+                    }
+                    $(this).css({ "background": "#44b549", "color": "#fff" });
+                })
+            })(i)
+        }
+        //*********************跳转个人中心不同页面的链接代码**********************
         function GotoPartView(actionname, controllerName) {
+            $(this).css("background", "#44b549");
             var url = "../" + controllerName + "/" + actionname;
             $.ajax({
                 type: "post",
