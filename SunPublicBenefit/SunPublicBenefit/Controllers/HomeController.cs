@@ -4,7 +4,6 @@ using System.Linq;
 using System.Web;
 using System.Web.Mvc;
 using SunPublicBenefit.Models;
-using System.IO;
 
 namespace SunPublicBenefit.Controllers
 {
@@ -21,32 +20,7 @@ namespace SunPublicBenefit.Controllers
         {
             return View();
         }
-        [HttpPost]
-        public int Verify(Users user)
-        {
-            string userName = user.UserName;
-            string passWord = user.PassWord;
-            List<Users> userList = db.User.OrderBy(m => m.UserName).ToList();
-            bool isname = false;            
-            foreach (var item in userList)
-            {
-                if (item.UserName == userName && item.PassWord == passWord)
-                {
-                    isname = true;
-                }
-            }
-            if(isname == false)
-            {
-                return 1;
-            }
-            else
-            {
-                return 0;
-            }
-           
-        }
-
-        public ActionResult Error()
+        public ActionResult PersonalCenter()
         {
             return View();
         }
@@ -54,7 +28,7 @@ namespace SunPublicBenefit.Controllers
         public void addRoles()
         {
             List<Roles> chk_role = db.Roles.OrderBy(m => m.RoleID).ToList();
-            bool[] check = { false, false, false};
+            bool[] check = { false, false, false };
             foreach (var item in chk_role)
             {
                 if (item.Name == "Super_Admin")
@@ -77,7 +51,7 @@ namespace SunPublicBenefit.Controllers
                 role.RoleID = Guid.NewGuid();
                 Users user = new Users();
                 user.UserID = Guid.NewGuid();
-                if (item == false && i ==1)
+                if (item == false && i == 1)
                 {
                     role.Name = "Super_Admin";
                     role.Description = "超级管理员";
@@ -88,7 +62,7 @@ namespace SunPublicBenefit.Controllers
                     db.User.Add(user);
                     db.SaveChanges();
                 }
-                if (item == false && i== 2)
+                if (item == false && i == 2)
                 {
                     role.Name = "Backstage_Admin";
                     role.Description = "后台管理员";
@@ -99,7 +73,7 @@ namespace SunPublicBenefit.Controllers
                     db.User.Add(user);
                     db.SaveChanges();
                 }
-                if (item == false && i ==3)
+                if (item == false && i == 3)
                 {
                     role.Name = "Money_Admin";
                     role.Description = "资金管理员";
@@ -112,9 +86,41 @@ namespace SunPublicBenefit.Controllers
                 }
                 i++;
             }
-           
+
         }
 
+        [HttpPost]
+        public ActionResult IsApprove()
+        {
+            string data = "";
+            Session["ActiveUser"] = new Users { UserID = Guid.NewGuid(), UserName = "aa", IsStatus = 1 };
+            if (Session["ActiveUser"] != null)
+            {
 
+                Users user = Session["ActiveUser"] as Users;                            
+                if (user.IsStatus == 0)
+                {
+                    data = "0";
+                }
+                if (user.IsStatus == 1)
+                {
+                    data = "1";
+                }
+                if (user.IsStatus == 2)
+                {
+                    data = "2";
+                }
+                if (user.IsStatus == 3)
+                {
+                    data = "3";
+                }
+            }
+            
+            return Content(data);
+        }
+        public ActionResult ApproveWayChoose()
+        {
+            return View();
+        }
     }
 }

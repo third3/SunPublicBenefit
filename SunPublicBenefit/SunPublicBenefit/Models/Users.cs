@@ -21,6 +21,12 @@ namespace SunPublicBenefit.Models
         [Required(ErrorMessage = "请输入密码")]
         public string PassWord { get; set; }
 
+        [DisplayName("真实姓名")]
+        public string RealName { get; set; }
+
+        [DisplayName("身份证号码")]
+        public string Identity { get; set; }
+
         [DisplayName("用户的是否通过认证")]
         [Required(ErrorMessage = "用户是否通过认证")]
         public int IsStatus { get; set; }
