@@ -31,5 +31,17 @@ namespace SunPublicBenefit.Controllers
             //}
             return Content(msg);
         }
+        public ActionResult SingleProject()
+        {
+            return View();
+        }
+        public ActionResult UnBeneficenceProject()
+        {
+            return View();
+        }
+        public ActionResult BeneficenceProject()
+        {
+            return View();
+        }
     }
 }

@@ -120,6 +120,7 @@
     <Content Include="images\cy_yser.jpg" />
     <Content Include="images\cy_ytuz.jpg" />
     <Content Include="images\hbz.jpg" />
+    <Content Include="images\icon_identity.png" />
     <Content Include="images\loading.gif" />
     <Content Include="images\logo .ico" />
     <Content Include="images\nav\activity.png" />
@@ -171,6 +172,7 @@
     <Compile Include="Controllers\ContextController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\ProjectController.cs" />
+    <Compile Include="Controllers\ProjectRecordController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
@@ -192,7 +194,14 @@
     <Content Include="Views\Shared\_Layout.cshtml" />
     <Content Include="Views\Home\Home.cshtml" />
     <Content Include="Views\Home\PersonalCenter.cshtml" />
-    <Content Include="Views\Home\Error.cshtml" />
+    <Content Include="Views\Home\ApproveWayChoose.cshtml" />
+    <Content Include="Views\ProjectRecord\PersonalDonationRecord.cshtml" />
+    <Content Include="Views\Project\SingleProject.cshtml" />
+    <Content Include="Views\Project\UnBeneficenceProject.cshtml" />
+    <Content Include="Views\Project\BeneficenceProject.cshtml" />
+    <Content Include="Views\Approve\UnBeneficenceApprove.cshtml" />
+    <Content Include="Views\Approve\BeneficenceApprove.cshtml" />
+    <Content Include="Views\Home\PersonalCenterd.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
@@ -203,7 +212,6 @@
   <ItemGroup>
     <Folder Include="App_Data\" />
     <Folder Include="Views\Context\" />
-    <Folder Include="Views\Project\" />
   </ItemGroup>
   <ItemGroup>
     <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />

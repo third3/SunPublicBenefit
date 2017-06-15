@@ -12,7 +12,7 @@ namespace SunPublicBenefit.Controllers
         // GET: Approve
         public ActionResult AutoUserApprove()
         {
-            return View("PersonalAuthentication.html");
+            return View();
         }
        //[HttpPost]
        // public ActionResult AutoUserApprove(string identityNumber, string realName, UserApprove approve,User user)
@@ -59,5 +59,15 @@ namespace SunPublicBenefit.Controllers
             Regex reg = new Regex("^[\u4e00-\u9fa5]{2,10}$");
             return reg.IsMatch(realName);
         }
+
+        public ActionResult UnBeneficenceApprove()
+        {
+            return View();
+        }
+        public ActionResult BeneficenceApprove()
+        {
+            return View();
+        }
+
     }
 }
