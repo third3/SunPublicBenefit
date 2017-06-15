@@ -26,7 +26,7 @@
                     <div class="col_side lh_col">真实名称:</div>
                     <div>
                         <input class="form_input" id="realName" type="text" />
-                        <span class="form_errow">*请输入正确的姓名</span>
+                        <span class="form_errow"></span>
                         <div class="fg_col fz_col">
                             <span>( 请务必填写真实姓名，绑定认证后将无法修改)</span>
                         </div>
@@ -36,7 +36,7 @@
                     <div class="col_side lh_col">身份证号:</div>
                     <div>
                         <input type="text" id="identityNumber" class="form_input" />
-                        <span class="form_errow">*请输入正确的身份证号码</span>
+                        <span class="form_errow"></span>
                         <div class="fg_col fz_col">
                             <span>( 请填写匹配身份证号，绑定认证后将无法修改)</span>
                         </div>
@@ -44,10 +44,10 @@
                 </div>
                 <div class="form_group">
                     <div class="col_side lh_col">验证码:</div>
-                    <input type="text" id="vCode"class="form_captcha" />
+                    <a style="cursor:pointer"><img id="imgCode" src="~/VCode/Code.ashx" /></a>
+                    <input type="text" id="txtCode" width="50" />
                     <input type="button" id="btnAdd" value="点击认证" class="form_approve" />
                     <div class=""></div>
-                    <div class="form_auth_code">获取验证码</div>
                 </div>
             </div>
         </form>
@@ -55,13 +55,23 @@
     <script type="text/javascript">
         $(function () {
             $("#btnAdd").click(function () {
-                $.post({ realName: $("#realName").val(), identityNumber: $("#identityNumber").val(), vCode: $("#vCode").val() }, function (msg) {
-                    if (msg == "OK") {
-                        alert("nice");
+                $.post("/Approve/AutoUserApprove",{ realName: $("#realName").val(), identityNumber: $("#identityNumber").val(), txtCode: $("#txtCode").val() }, function (msg) {
+                    if (msg == "ok") {
+                        alert("ok");
                     }
                 });
             });
-        })
+        });
+        var captcha_img = $('#imgCode');
+        var verifyimg = captcha_img.attr("src");
+        captcha_img.attr('title', '点击刷新');
+        captcha_img.click(function () {
+            if (verifyimg.indexOf('?') > 0) {
+                $(this).attr("src", verifyimg + '&random=' + Math.random());
+            } else {
+                $(this).attr("src", verifyimg.replace(/\?.*$/, '') + '?' + Math.random());
+            }
+        });
     </script>
 </body>
 </html>

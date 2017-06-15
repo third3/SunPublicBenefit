@@ -15,8 +15,9 @@ namespace SunPublicBenefit.Controllers
             return View();
         }
         [HttpPost]
-        public ActionResult AutoUserApprove(string identityNumber, string realName,  Users user)
+        public ActionResult AutoUserApprove(string identityNumber, string realName, Users user)
         {
+            Session["Users"] = new Users { UserID = Guid.NewGuid(), UserName = "aalkjkh",PassWord="123",IsStatus=0};//测试用，使用时请注释
             string userValidateCode = Request["txtCode"];
             string seesionVCode = Session["VCode"] as string;
             Session["VCode"] = null;
@@ -27,9 +28,13 @@ namespace SunPublicBenefit.Controllers
             }
             if (IDVerify(identityNumber) && IsCN(realName))
             {
-                user = Session["userInfo"] as Users;
+                user = Session["Users"] as Users;
+                user.Identity = identityNumber;
+                user.RealName = realName;
+                sun.User.Add(user);
+                sun.SaveChanges();
+                return RedirectToAction("验证成功页面");
             }
-
             return View();
         }
         private bool IDVerify(string identityNumber)
