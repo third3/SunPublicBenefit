@@ -9,11 +9,11 @@ $(function(){
         var $lunbo_img_w=$(".slider").width();
         var $lunbo_img_h=$(".slider").height();
         $(".slider ul li img").css({"width":$lunbo_img_w,"height":$lunbo_img_h});
-        $(window).resize(function(){
-            var $lunbo_w=$(".slider").width();
-            var $lunbo_h=$(".slider").height();
-            $(".slider ul li img").css({"width":$lunbo_w,"height":$lunbo_h});
-        }) 
+        //$(window).resize(function(){
+        //    var $lunbo_w=$(".slider").width();
+        //    var $lunbo_h=$(".slider").height();
+        //    $(".slider ul li img").css({"width":$lunbo_w,"height":$lunbo_h});
+        //}) 
         var index=0;
         var i=setInterval(function(){
             index++;
