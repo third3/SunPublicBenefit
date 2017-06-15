@@ -1,6 +1,6 @@
 /*导航部分*/
-        .ur{width:auto;background:#fff;box-shadow: 0 0 5px 0 #dbd3d3;}
-        .ur .ur_ct{width:1300px;margin:0 auto;height:100px;}
+        .ur{width:auto;}
+        .ur .ur_ct{width:1349px;margin:0 auto;height:100px;background:#fff;box-shadow: 0 0 5px 0 #dbd3d3;}
         .ur_lf{float: left;width:257px;height:80px;margin:10px 0;background: url("../images/1.png");background-size: 256px 80px;}
         .ur .ur_ct .ur_rg{float: right;position: relative;}
         .ur .ur_ct .ur_rg ul li.ur_cgps{float: left;font:15px/100px '微软雅黑';margin:0 20px;color:#655d5d;}
@@ -9,8 +9,8 @@
         .ur_ig{width:40px;height:40px;position: absolute;left: -40px;top:50%;transform:translate(0,-50%);background:url("../images/hbz.jpg");background-size: 40px 40px;border-radius: 50%;}
 
         /*个人设置部分*/
-        .pt_ct {width:1300px;margin:0 auto;background:#fff;box-shadow: 0 0 5px 0 #dbd3d3;position: relative;}
-        .pt_ct{width:1300px;margin:30px auto;display: -webkit-flex;display: flex;}
+        .pt_ct {width:1349px;margin:0 auto;background:#fff;box-shadow: 0 0 5px 0 #dbd3d3;position: relative;}
+        .pt_ct{width:1349px;margin:30px auto;display: -webkit-flex;display: flex;}
         .pt_ct .pt_mod_side{flex:1;-webkit-flex:1;border-right:1px dashed #dbd3d3;}
         .pt_ct .pt_mod_side .pt_lf_nv{padding:10px 0;border-bottom:1px dashed #dbd3d3;}
         .pt_ct .pt_mod_side .pt_lf_no{padding:10px 0;}

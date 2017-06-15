@@ -51,7 +51,7 @@
                 <div class="pt_lf_nv">
                     <p><span class="m_item" style="left:16px"></span></p>
                     <ul>
-                        <li><a href="javascript:void(0)" class="active" onclick="GotoPartView('ApproveWayChoose', 'Home')">我的项目</a></li>
+                        <li><a href="javascript:void(0)" class="active" onclick="showMsApprove('pt_myProject', 'pt_mod_plate')">我的项目</a></li>
                     </ul>
                 </div>
 
@@ -82,11 +82,11 @@
     </div>
     <script type="text/javascript">
         function showMsApprove(id, box) {
-            $.post("IsApprove",function (data) {
-                if (data) {
+            //$.post("IsApprove",function (data) {
+            //    if (data) {
 
-                }
-            });
+            //    }
+            //});
             switch(id){
                 case 'pt_individual_event':
                     $("." + box + "").load("/Approve/AutoUserApprove");
