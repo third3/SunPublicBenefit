@@ -27,7 +27,7 @@
                     <li class="ur_cgps">|</li>
                     <li class="ur_cgps"><a href="">修改密码</a></li>
                     <li class="ur_cgps"><a href="">退出</a></li>
-                    <li class="ur_cgps"><a href="index.html">回到首页</a></li>
+                    <li class="ur_cgps">@Html.ActionLink("回到首页", "Index")</li>
                 </ul>
             </div>
         </div>
@@ -39,7 +39,7 @@
                 <div class="pt_lf_nv">
                     <p><span class="m_donate"></span></p>
                     <ul>
-                        <li><a href="">我的捐款记录</a></li>
+                        <li><a href="javascript:void(0)" onclick="GotoPartView('MyDonationApprove', 'Approve')">我的捐款记录</a></li>
                     </ul>
                 </div>
                 <div class="pt_lf_nv">
@@ -73,7 +73,7 @@
 
                     </div>
                 </div>*@
-
+                @RenderPage("~/Views/Approve/MyDonationApprove.cshtml")
 
 
             </div>
@@ -104,7 +104,7 @@
         //    }
         //}
         function GotoPartView(actionname, controllerName) {
-            var url = "/" + controllerName + "/" + actionname;
+            var url = "../" + controllerName + "/" + actionname;
             $.ajax({
                 type: "post",
                 url: url,

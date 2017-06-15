@@ -66,4 +66,8 @@
         /*我的捐款记录视图*/
         .others_contributions{margin:15px;}
         .others_contributions .pub_stylemid{height:200px;margin:20px;border:2px solid #a3cfa4;border-radius: 5px;}
-        
+        table,th,td,caption{line-height:18px;font:13px/18px '微软雅黑';}
+        .mytable caption{font:20px/40px '微软雅黑';color:#2d2d2d;border-top: 1px solid #d2d2d2;}
+        .mytable td{padding:3px;  border-bottom:1px solid #d2d2d2;color:#2d2d2d;}
+        .mytable th{width:350px;padding:6px;border-top:1px solid #d2d2d2;color:#2d2d2d;text-align: center;border-bottom:1px solid #d2d2d2;background:#a3cfa4;}
+        .detail{margin:50px 20px 0 20px ;height:200px;border-radius: 5px;}
