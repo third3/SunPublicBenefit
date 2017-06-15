@@ -83,5 +83,5 @@
             .survey .survey_ct .survey_rg div input{background:rgba(255,255,255,0);border:1px dashed #fff;outline: none;width: 400px;height:35px;margin:14px 40px 14px 170px;color:#fff;}
             .survey .survey_ct .survey_rg div textarea{background:rgba(255,255,255,0);border:1px dashed #fff;outline: none;width: 400px;height:81px;margin:10px 40px 10px 170px;color:#fff;}
             .survey .survey_ct .survey_rg div input:focus{background:#fff;color:#000;}
-            .survey .survey_ct .survey_rg div textarea:focus{background:#fff;color:#000;}
+            .survey .survey_ct .survey_rg div textarea:focus{background:#fff;color:#000;ss}
         }
