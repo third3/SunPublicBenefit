@@ -55,10 +55,8 @@
     <script type="text/javascript">
         $(function () {
             $("#btnAdd").click(function () {
-                $.post("/Approve/AutoUserApprove",{ realName: $("#realName").val(), identityNumber: $("#identityNumber").val(), txtCode: $("#txtCode").val() }, function (msg) {
-                    if (msg == "ok") {
-                        alert("ok");
-                    }
+                $.post("/Approve/AutoUserApprove", { realName: $("#realName").val(), identityNumber: $("#identityNumber").val(), txtCode: $("#txtCode").val() }, function (msg) {
+
                 });
             });
         });
