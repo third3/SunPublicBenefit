@@ -100,7 +100,7 @@ namespace SunPublicBenefit.Controllers
                 Users user = Session["ActiveUser"] as Users;                            
                 if (user.IsStatus == 0)
                 {
-                    data = "no";
+                    data = "0";
                 }
                 if (user.IsStatus == 1)
                 {

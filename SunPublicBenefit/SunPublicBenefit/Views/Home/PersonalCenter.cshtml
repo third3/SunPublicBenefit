@@ -59,20 +59,20 @@
             <div class="pt_mod_plate">
                 <!-- **************捐款记录视图************ -->
                 @*<div class="others_contributions">
-                    <div class="pub_stylemid">
-                        <div style="height:20px;"></div>
-                        <p>温馨提示</p>
-                        <p>
-                            <span></span>
-                            <span></span>
-                            <span></span>
-                            <span></span>
-                        </p>
-                    </div>
-                    <div class="detail">
+                        <div class="pub_stylemid">
+                            <div style="height:20px;"></div>
+                            <p>温馨提示</p>
+                            <p>
+                                <span></span>
+                                <span></span>
+                                <span></span>
+                                <span></span>
+                            </p>
+                        </div>
+                        <div class="detail">
 
-                    </div>
-                </div>*@
+                        </div>
+                    </div>*@
 
 
 
@@ -83,25 +83,34 @@
     </div>
     <script type="text/javascript">
         function showMsApprove(id, box) {
-            $.post("IsApprove",function (data) {
-                if (data) {
+            $.post("IsApprove", function (data) {
+                if (data == "0") {
+                    switch (id) {
+                        case 'pt_individual_event':
+                            $("." + box + "").load("/Approve/AutoUserApprove");
+                            break;
+                        case 'pt_donation_record':
+                            $("." + box + "").load("/Approve/UnBeneficenceApprove");
+                            break;
+                        case 'pt_contact':
+                            $("." + box + "").load("/Approve/BeneficenceApprove");
+                            break;
+                        case 'pt_myProject':
+                            $("." + box + "").load("ApproveWayChoose");
+                            break;
+                    }
+                }
+                if (data == "1") {
+
+                }
+                if (data == "2") {
+
+                }
+                if (data == "3") {
 
                 }
             });
-            switch(id){
-                case 'pt_individual_event':
-                    $("." + box + "").load("/Approve/AutoUserApprove");
-                    break;
-                case 'pt_donation_record':
-                    $("." + box + "").load("/Approve/UnBeneficenceApprove");
-                    break;
-                case 'pt_contact':
-                    $("." + box + "").load("/Approve/BeneficenceApprove");
-                    break;
-                case 'pt_myProject':
-                    $("." + box + "").load("ApproveWayChoose");
-                    break;
-            }
+
         }
     </script>
 </body>
