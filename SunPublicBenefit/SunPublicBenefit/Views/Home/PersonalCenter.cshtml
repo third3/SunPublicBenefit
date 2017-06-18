@@ -81,6 +81,7 @@
         </div>
     </div>
     <script type="text/javascript">
+        showMsApprove('others_contributions', 'pt_mod_plate');
         function showMsApprove(id, box) {
             $.post("IsApprove", function (data) {
                 if (data == "0") {
@@ -97,6 +98,8 @@
                         case 'pt_myProject':
                             $("." + box + "").load("ApproveWayChoose");
                             break;
+                        case 'others_contributions':
+                            $("." + box + "").load("/Approve/MyDonationApprove");
                     }
                 };
                 if (data == "1") {

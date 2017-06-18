@@ -6,8 +6,8 @@
             .nav_menu_sl_ap{display: none;}
 
             /*导航部分*/
-            .nav {width:auto;height:80px;;}
-            .nav .nav_menu{width:1349px;height:80px;margin:0 auto;}
+            .nav {width:auto;height:80px;}
+            .nav .nav_menu{width:1300px;height:80px;margin:0 auto;}
             .nav .nav_menu .nav_lf_title{float:left;position: relative;width:320px;}
             .nav .nav_menu .nav_lf_title .nav_lf_tllg{float:left;width:256px;height:80px;background: url("../images/1.png");background-size: 256px 80px;}
             /*.nav .nav_menu .nav_lf_title .nav_lf_tlsp{line-height: 30px;float: right;}*/
@@ -39,11 +39,10 @@
             /*公益动态内容部分*/
             .new_theme{background:rgba(255,0,0,0.5);padding:10px 0 20px 0;width: 1349px;margin:0 auto;}
             .new_theme_ct{-webkit-display:flex;display: flex;width:1300px;margin:0 auto;}
-            .new_theme_ct div.new_theme_ls{flex:1;-webkit-flex:1;float:left;margin:0 10px;box-shadow: 0 0 10px 1px rgba(44,83,83,.8);padding:0px 0px 10px 0;background:#fff;}
+            .new_theme_ct div.new_theme_ls{transition:.5s;cursor:pointer; flex:1;-webkit-flex:1;float:left;margin:0 10px;padding:0px 0px 10px 0;background:#fff;}
+            .new_theme_ct div.new_theme_ls:hover{box-shadow: 0 0 15px 1px rgba(44,83,83,.8);}
             .new_theme_ct div.new_theme_img {position: relative;cursor: pointer;}
             .new_theme_ct div.new_theme_img img{width:305px;height:150px;}
-            .new_theme_ct div .make{width:305px;height:150px;background:rgba(0,0,0,0);position: absolute;left: 0;top: 0;transition:.5s;}
-            .new_theme_ct div .make:hover{background:rgba(0,0,0,0.3);}
             .new_theme_activity{margin: 0 20px;}
             .new_theme_activity span{display:block;font-size: 20px;line-height: 50px;color:rgb(255,152,0);border-bottom:1px dashed rgba(255,0,0,.5);}
             .new_theme_ms{margin: 10px 20px;}
