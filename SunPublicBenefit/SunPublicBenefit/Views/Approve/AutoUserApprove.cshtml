@@ -25,38 +25,70 @@
                 <div class="form_group">
                     <div class="col_side lh_col">真实名称:</div>
                     <div>
-                        <input class="form_input" id="realName" type="text" />
-                        <span class="form_errow"></span>
+                        <input class="form_input" type="text" />
+                        <span class="form_errow">*请输入正确的姓名</span>
                         <div class="fg_col fz_col">
-                            <span>(请务必填写真实姓名，绑定认证后将无法修改)</span>
+                            <span>( 请务必填写真实姓名，绑定认证后将无法修改)</span>
                         </div>
                     </div>
                 </div>
                 <div class="form_group">
                     <div class="col_side lh_col">身份证号:</div>
-                    <div>
-                        <input type="text" id="identityNumber" class="form_input" />
+                    <div class="id_card">
+                        <input type="text" class="form_input" id="form_idCard" />
                         <span class="form_errow"></span>
                         <div class="fg_col fz_col">
-                            <span>(请填写匹配身份证号，绑定认证后将无法修改)</span>
+                            <span>( 请填写匹配身份证号，绑定认证后将无法修改)</span>
                         </div>
                     </div>
                 </div>
                 <div class="form_group">
                     <div class="col_side lh_col">验证码:</div>
-                    <a style="cursor:pointer"><img id="imgCode" src="~/VCode/Code.ashx" /></a>
-                    <input type="text" id="txtCode" width="50" />
-                    <input type="button" id="btnAdd" value="点击认证" class="form_approve" />
+                    <input type="text" class="form_captcha" />
+                    <input type="button" value="点击认证" class="form_approve" />
                     <div class=""></div>
+                    <div class="form_auth_code">获取验证码</div>
                 </div>
             </div>
         </form>
     </div>
+
     <script type="text/javascript">
+    // *******************身份证检验********************
+    // 身份证号码为15位或者18位，15位时全为数字，18位前17位为数字，最后一位是校验位，字或字符X
+    var reg = /^\d{6}(18|19|20)?\d{2}(0[1-9]|1[12])(0[1-9]|[12]\d|3[01])\d{3}(\d|X)$/i;
+    $("#form_idCard").blur(function(){
+        // console.log($(this).val().length);
+        if($(this).val().length==18||$(this).val().length==15){
+            if(!$(this).val()){
+                $(".id_card .form_errow").text("*请输入正确的身份证号码");
+            }else{
+                $(".id_card .form_errow").text("");
+            }
+        }else{
+            $(".id_card .form_errow").text("*请输入正确的身份证号码");
+        }
+    })
+        //******************点击认证做出判断当前的表单内容是否认证成功******************
+        $(".form_approve").click(function(){
+            // $(".zc_mack").animate({transform:"scale(1)"},1000);
+            // if(){
+                showCertification();
+
+            // }else{
+            //     $(".as_logo").css("background-position","-26px -95px");
+            //     $(".as_ch").text("认证失败");
+            //     showCertification();
+            // }
+            countDown();
+        })
+        function showCertification(){
+            $(".zc_mack").css("display","block");
+            $(".authentication_success").css("transform","translate(-50%,-50%) scale(1)");
+        }
         $(function () {
             $("#btnAdd").click(function () {
                 $.post("/Approve/AutoUserApprove", { realName: $("#realName").val(), identityNumber: $("#identityNumber").val(), txtCode: $("#txtCode").val() }, function (msg) {
-
                 });
             });
         });

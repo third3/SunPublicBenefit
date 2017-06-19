@@ -1,9 +1,23 @@
-html,body,a,span,ul,b,p,input,img,li,textarea,input,h2{margin:0;padding:0;color:#4b4b4b;font-family: "微软雅黑";text-decoration: none;}
+html,body,a,span,ul,b,p,input,img,li,textarea,input,h2，table,th,td,caption{margin:0;padding:0;color:#4b4b4b;font-family: "微软雅黑";text-decoration: none;}
 ul li{list-style: none;}
 /*注册的弹框部分*/
-.zc_mack{background:rgba(0,0,0,0.5);position: fixed;left: 0;top: 0;transition:.5s;display: none;}
+.zc_mack{background:rgba(0,0,0,0.5);position: fixed;left: 0;top: 0;display: none;}
 .zc_mack .zc_ct{width:300px;background:rgba(255, 255, 255, 0.9);position: fixed;left: 50%;top: 50%;transform:translate(-50%,-50%);border-radius:10px;}
 .zc_mack .zc_ct .zx_cs{border-radius:0 10px 0 0;width: 30px;height:30px;background:url("../images/close.png") 30px 30px;position: absolute;right: 0;top: 0;cursor: pointer;transition:.5s;}            
 .zc_mack .zc_ct .zc_ip{width:300px;height:265px;padding:25px 0;}
-.zc_mack .zc_ct .zc_ip form input{border:none;border-radius: 4px;width:202px;height:30px;margin: 0px 49px;}
-.zc_mack .zc_ct .zc_ip form p{font:12px/20px '微软雅黑';color:red;text-indent: 50px;opacity: 0;}
+.zc_mack .zc_ct .zc_ip form input{border:none;border-radius: 4px;width:202px;height:30px;margin: 12px 49px;}
+.zc_mack .zc_ct .zc_ip form p{font:12px/0px '微软雅黑';color:red;text-indent: 50px;opacity: 1;}
+
+/*底部服务反馈信息部分*/
+.survey{width:auto;height:300px;background:rgb(67, 67, 67);}
+.survey .survey_ct{width:1300px;height:300px;margin:0 auto;display: -webkit-flex;display: flex;}
+.survey .survey_ct .survey_lf{flex:1;-webkit-flex:1;}
+.survey .survey_ct .survey_lf div{width:550px;height:220px;margin:40px auto;}
+.survey .survey_ct .survey_lf div p{font:15px/44px '微软雅黑';color:#fff;}
+.survey .survey_ct .survey_lf div p span{font:15px/44px '微软雅黑';color:#fff;}
+.survey .survey_ct .survey_rg{flex:1;-webkit-flex:1;}
+.survey .survey_ct .survey_rg div{width:600px;height:300px;margin:0 auto;}
+.survey .survey_ct .survey_rg div input{background:rgba(255,255,255,0);border:1px dashed #fff;outline: none;width: 400px;height:35px;margin:14px 40px 14px 170px;color:#fff;}
+.survey .survey_ct .survey_rg div textarea{background:rgba(255,255,255,0);border:1px dashed #fff;outline: none;width: 400px;height:81px;margin:10px 40px 10px 170px;color:#fff;}
+.survey .survey_ct .survey_rg div input:focus{background:#fff;color:#000;}
+.survey .survey_ct .survey_rg div textarea:focus{background:#fff;color:#000;}

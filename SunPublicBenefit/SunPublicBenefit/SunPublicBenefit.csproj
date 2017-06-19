@@ -105,6 +105,7 @@
     <Content Include="css\home.css" />
     <Content Include="css\index-pa.css" />
     <Content Include="css\index-pc.css" />
+    <Content Include="css\itproject.css" />
     <Content Include="css\psct.css" />
     <Content Include="css\public.css" />
     <Content Include="fonts\glyphicons-halflings-regular.svg" />
@@ -114,6 +115,7 @@
     <Content Include="fonts\glyphicons-halflings-regular.eot" />
     <Content Include="images\1.png" />
     <Content Include="images\99gyr.jpg" />
+    <Content Include="images\cg.png" />
     <Content Include="images\close.png" />
     <Content Include="images\cy_dwdw.jpg" />
     <Content Include="images\cy_uens.jpg" />
@@ -206,6 +208,8 @@
     <Content Include="Views\Approve\BeneficenceApprove.cshtml" />
     <Content Include="VCode\Code.ashx" />
     <Content Include="Views\Approve\MyDonationApprove.cshtml" />
+    <Content Include="Views\Approve\PublicWelfareActivities.cshtml" />
+    <Content Include="Views\Approve\InitiatesProjects.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
