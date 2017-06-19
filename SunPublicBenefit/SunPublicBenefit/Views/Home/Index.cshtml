@@ -228,16 +228,34 @@
             <div class="zc_ip">
                 <h2 style="text-align:center;color:rgb(244,67,54);margin: 7px;">注册账户</h2>
                 <form action="">
-                    <input class="zc_txt" type="text" placeholder="账户名" />
+                    <input class="zc_txt" id="add_username" type="text" placeholder="账户名" />
                     <p>＊请输入用户名</p>
                     <input class="zc_txt" type="password" placeholder="密码" />
-                    <p>＊请输入密码</p>
+                    <p>＊请输入用户名</p>
                     <input class="zc_txt" type="password" placeholder="确认密码" />
-                    <p>＊请确认两次密码保持相同</p>
-                    <input type="button" value="注 册" style="background:rgb(244,67,54);color:#fff;cursor:pointer;margin-top:25px;" />
+                    <p>＊请输入用户名</p>
+                    <input type="button" value="注 册" style="background:rgb(244,67,54);color:#fff;cursor:pointer;margin-top:10px;" />
                 </form>
             </div>
         </div>
     </div>
+
+    <script>
+        $('#login').click(function () {
+            var username = $('#username').val();
+            var password = $('#password').val();
+            $.post('Verify', { 'username': username, 'password': password }, function (data) {
+                if(data ==1)
+                {
+                    alert('用户名或密码错误');
+                    return false;
+                }
+                else
+                {
+                    alert('登录成功');
+                }
+            })
+        });
+    </script>
 </body>
 </html>
