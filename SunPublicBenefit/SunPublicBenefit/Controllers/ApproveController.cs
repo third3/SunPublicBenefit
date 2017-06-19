@@ -33,7 +33,7 @@ namespace SunPublicBenefit.Controllers
                 user.RealName = realName;
                 sun.User.Add(user);
                 sun.SaveChanges();
-                return RedirectToAction("验证成功页面");
+                return Content("OK");
             }
             return View();
         }

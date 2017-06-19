@@ -5,6 +5,9 @@ using System.Web;
 using System.Web.Mvc;
 using SunPublicBenefit.Models;
 using System.IO;
+using System.Threading.Tasks;
+using System.Security.Cryptography;
+using System.Text;
 
 namespace SunPublicBenefit.Controllers
 {
@@ -21,7 +24,6 @@ namespace SunPublicBenefit.Controllers
         {
             return View();
         }
-        [HttpPost]
         public int Verify(Users user)
         {
             string userName = user.UserName;
@@ -41,11 +43,61 @@ namespace SunPublicBenefit.Controllers
             }
             else
             {
+                Session["Users"] = user;
                 return 0;
             }
            
         }
+        public static string GetMD5(string str)
+        {
+            //创建MD5对象;
+            MD5 md5 = MD5.Create();
+            //开始加密;
+            //需要将字符串转换为字节数组,二进制的;
+            byte[] buffer = Encoding.UTF8.GetBytes(str);
 
+            byte[] MD5buffer = md5.ComputeHash(buffer);
+            //将字节数组中每个元素按照编码格式解析成字符串;
+            //string str2 = Encoding.UTF8.GetString(MD5buffer);
+            //直接将数组ToString();
+            //将字节数组中的每个元素ToString();  
+            StringBuilder result = new StringBuilder();
+            for (int i = 0; i < MD5buffer.Length; i++)
+            {
+                result.Append(MD5buffer[i].ToString("x2"));
+            }
+
+            return result.ToString();
+
+        }
+        [HttpPost]
+        public int addUser(Users user)
+        {
+            string username = user.UserName;
+            string password = GetMD5(user.PassWord);
+            List<Users> userList = db.User.OrderBy(m => m.UserName).ToList();
+            bool bol = false;
+            foreach (var item in userList)
+            {
+                if(item.UserName == username)
+                {
+                    bol = true;
+                }
+            }
+            if(bol==false)
+            {
+                user.UserID = Guid.NewGuid();
+                user.IsStatus = 0;
+                db.User.Add(user);
+                db.SaveChanges();
+                return 0;
+            }
+            else
+            {
+                return 1;
+            }
+            
+        }
         public ActionResult Error()
         {
             return View();

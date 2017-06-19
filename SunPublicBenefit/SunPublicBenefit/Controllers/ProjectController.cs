@@ -43,5 +43,9 @@ namespace SunPublicBenefit.Controllers
         {
             return View();
         }
+        public ActionResult ProjectApplication()
+        {
+            return View();
+        }
     }
 }
