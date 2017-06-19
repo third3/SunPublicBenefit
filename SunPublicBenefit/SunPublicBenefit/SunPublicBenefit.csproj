@@ -152,6 +152,7 @@
     <Content Include="images\person\9.jpg" />
     <Content Include="images\qjjh.jpg" />
     <Content Include="images\qsgy.png" />
+    <Content Include="images\timg.jpg" />
     <Content Include="news.txt" />
     <Content Include="persons.txt" />
     <Content Include="Scripts\js\fragment.js" />
@@ -207,7 +208,6 @@
     <Content Include="Views\Approve\BeneficenceApprove.cshtml" />
     <Content Include="VCode\Code.ashx" />
     <Content Include="Views\Approve\MyDonationApprove.cshtml" />
-    <Content Include="Views\Project\ProjectApplication.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
