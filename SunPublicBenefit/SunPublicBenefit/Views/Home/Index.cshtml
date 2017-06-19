@@ -229,13 +229,13 @@
             <div class="zc_ip">
                 <h2 style="text-align:center;color:rgb(244,67,54);margin-bottom: 35px;">注册账户</h2>
                 <form action="">
-                    <input class="zc_txt" type="text" placeholder="账户名" />
+                    <input class="zc_txt" id="add_username" type="text" placeholder="账户名" />
                     <p>＊请输入用户名</p>
-                    <input class="zc_txt" type="password" placeholder="密码" />
+                    <input class="zc_txt" id="add_password" type="password" placeholder="密码" />
                     <p>＊请输入用户名</p>
-                    <input class="zc_txt" type="password" placeholder="确认密码" />
+                    <input class="zc_txt" id="add_true_password" type="password" placeholder="确认密码" />
                     <p>＊请输入用户名</p>
-                    <input type="button" value="注 册" style="background:rgb(244,67,54);color:#fff;cursor:pointer;margin-top:10px;" />
+                    <input type="button" id="add" value="注 册" style="background:rgb(244,67,54);color:#fff;cursor:pointer;margin-top:10px;" />
                 </form>
             </div>
         </div>
@@ -246,16 +246,40 @@
             var username = $('#username').val();
             var password = $('#password').val();
             $.post('Verify', { 'username': username, 'password': password }, function (data) {
-                if(data ==1)
-                {
+                if (data == 1) {
                     alert('用户名或密码错误');
+                    return false;
+                }
+                else {
+                    alert('登录成功');
+                }
+            });
+        });
+        $('#add').click(function () {
+            var add_username = $('#add_username').val();
+            var add_password = $('#add_password').val();
+            var add_true_password = $('#add_true_password').val();
+            if ($('.zc_mack input').val() == '')
+            {
+                alert('您的信息尚未录入完整');
+                return false;
+            }
+            if(add_password != add_true_password)
+            {
+                alert('两次密码不相等');
+            }
+            $.post('addUser', { 'username': add_username, 'password': add_password }, function (data) {
+                if(data == 1)
+                {
+                    alert('该账号已被注册');
                     return false;
                 }
                 else
                 {
-                    alert('登录成功');
+                    alert('注册成功');
+                    window.location.href = "Index";
                 }
-            })
+            });
         });
     </script>
 </body>

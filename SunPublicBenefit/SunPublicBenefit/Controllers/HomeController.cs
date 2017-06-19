@@ -41,11 +41,39 @@ namespace SunPublicBenefit.Controllers
             }
             else
             {
+                Session["Users"] = user;
                 return 0;
             }
            
         }
-
+        [HttpPost]
+        public int addUser(Users user)
+        {
+            string username = user.UserName;
+            string password = user.PassWord;
+            List<Users> userList = db.User.OrderBy(m => m.UserName).ToList();
+            bool bol = false;
+            foreach (var item in userList)
+            {
+                if(item.UserName == username)
+                {
+                    bol = true;
+                }
+            }
+            if(bol==false)
+            {
+                user.UserID = Guid.NewGuid();
+                user.IsStatus = 0;
+                db.User.Add(user);
+                db.SaveChanges();
+                return 0;
+            }
+            else
+            {
+                return 1;
+            }
+            
+        }
         public ActionResult Error()
         {
             return View();
