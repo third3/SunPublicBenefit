@@ -7,7 +7,7 @@ using System.IO;
 using System.Linq;
 using System.Web;
 
-namespace SunPublicBenefit.App_Code
+namespace SunPublicBenefit.VCode
 {
     public class ValidateCode
     {

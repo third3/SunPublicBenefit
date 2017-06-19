@@ -166,7 +166,6 @@
     <Content Include="Views\Approve\AutoUserApprove.cshtml" />
   </ItemGroup>
   <ItemGroup>
-    <Content Include="App_Code\ValidateCode.cs" />
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="Controllers\ApproveController.cs" />
     <Compile Include="Controllers\ContextController.cs" />
@@ -186,6 +185,10 @@
     <Compile Include="Models\SunPublicBenefitDBContextOne.cs" />
     <Compile Include="Models\Users.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="VCode\Code.ashx.cs">
+      <DependentUpon>Code.ashx</DependentUpon>
+    </Compile>
+    <Compile Include="VCode\ValidateCode.cs" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="Views\web.config" />
@@ -201,7 +204,8 @@
     <Content Include="Views\Project\BeneficenceProject.cshtml" />
     <Content Include="Views\Approve\UnBeneficenceApprove.cshtml" />
     <Content Include="Views\Approve\BeneficenceApprove.cshtml" />
-    <Content Include="Views\Home\PersonalCenterd.cshtml" />
+    <Content Include="VCode\Code.ashx" />
+    <Content Include="Views\Approve\MyDonationApprove.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
@@ -210,6 +214,7 @@
     </None>
   </ItemGroup>
   <ItemGroup>
+    <Folder Include="App_Code\" />
     <Folder Include="App_Data\" />
     <Folder Include="Views\Context\" />
   </ItemGroup>

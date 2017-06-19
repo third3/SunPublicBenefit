@@ -143,6 +143,42 @@ namespace SunPublicBenefit.Controllers
            
         }
 
+        [HttpPost]
+        public ActionResult IsApprove()
+        {
+            string data = "";
+            Session["ActiveUser"] = new Users { UserID = Guid.NewGuid(), UserName = "aa", IsStatus = 0 };
+            if (Session["ActiveUser"] != null)
+            {
 
+                Users user = Session["ActiveUser"] as Users;                            
+                if (user.IsStatus == 0)
+                {
+                    data = "0";
+                }
+                if (user.IsStatus == 1)
+                {
+                    data = "1";
+                }
+                if (user.IsStatus == 2)
+                {
+                    data = "2";
+                }
+                if (user.IsStatus == 3)
+                {
+                    data = "3";
+                }
+            }
+            
+            return Content(data);
+        }
+        public ActionResult ApproveWayChoose()
+        {
+            return View();
+        }
+        public ActionResult PersonalCenter()
+        {
+            return View();
+        }
     }
 }

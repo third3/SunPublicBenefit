@@ -14,41 +14,29 @@ namespace SunPublicBenefit.Controllers
         {
             return View();
         }
-       //[HttpPost]
-       // public ActionResult AutoUserApprove(string identityNumber, string realName, UserApprove approve,User user)
-       // {
-       //     string userValidateCode = Request["txtCode"];
-       //     string seesionVCode = Session["VCode"] as string;
-       //     Session["VCode"] = null;
-       //     if (string.IsNullOrEmpty(seesionVCode)||userValidateCode!=seesionVCode)
-       //     {
-       //         ViewBag.Message = "<script>alert('验证码错误！')</script>";
-       //         return View() ;
-       //     }
-       //     if (IDVerify(identityNumber) && IsCN(realName))
-       //     {
-       //         user = Session["userInfo"] as User1;
-       //         try
-       //         {
-       //             user.Role.RoleName = "Individual_User";
-       //             approve.ID = Guid.NewGuid().ToString();
-       //             approve.RealName = realName;
-       //             approve.IdentityNumber = identityNumber;
-       //             approve.User1 = user;
-       //             sun.UserApproveSet.Add(approve);               
-       //             sun.Entry(user).State = EntityState.Modified;
-       //             sun.SaveChanges();
-       //         }
-       //         catch (DbEntityValidationException dbEx)
-       //         {
-
-       //             throw dbEx;
-       //         }
-
-       //     }
-
-       //     return View();
-       // }
+        [HttpPost]
+        public ActionResult AutoUserApprove(string identityNumber, string realName, Users user)
+        {
+            Session["Users"] = new Users { UserID = Guid.NewGuid(), UserName = "aalkjkh",PassWord="123",IsStatus=0};//测试用，使用时请注释
+            string userValidateCode = Request["txtCode"];
+            string seesionVCode = Session["VCode"] as string;
+            Session["VCode"] = null;
+            if (string.IsNullOrEmpty(seesionVCode) || userValidateCode != seesionVCode)
+            {
+                ViewBag.Message = "<script>alert('验证码错误！')</script>";
+                return View();
+            }
+            if (IDVerify(identityNumber) && IsCN(realName))
+            {
+                user = Session["Users"] as Users;
+                user.Identity = identityNumber;
+                user.RealName = realName;
+                sun.User.Add(user);
+                sun.SaveChanges();
+                return RedirectToAction("验证成功页面");
+            }
+            return View();
+        }
         private bool IDVerify(string identityNumber)
         {
             return Regex.IsMatch(identityNumber, @"^(^\d{15}$|^\d{18}$|^\d{17}(\d|X|x))$", RegexOptions.IgnoreCase);
@@ -68,6 +56,9 @@ namespace SunPublicBenefit.Controllers
         {
             return View();
         }
-
+        public ActionResult MyDonationApprove()
+        {
+            return View();
+        }
     }
 }

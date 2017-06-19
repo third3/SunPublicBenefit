@@ -1,13 +1,13 @@
 @media screen and (min-width: 1300px){
             /*置顶按钮*/
-            .stick{display: none;width:40px;height:40px;position: fixed;right:2%;bottom:10%;background: url("../images/nav/up.png");background-size: 40px 40px;cursor: pointer;z-index: 999;}
+            .stick{display: none;width:40px;height:40px;position: fixed;right:15%;bottom:10%;background: url("../images/nav/up.png");background-size: 40px 40px;cursor: pointer;z-index: 999;}
 
             /*清除响应式部分*/
             .nav_menu_sl_ap{display: none;}
 
             /*导航部分*/
-            .nav {width:auto;height:80px;;}
-            .nav .nav_menu{width:1200px;height:80px;margin:0 auto;}
+            .nav {width:auto;height:80px;}
+            .nav .nav_menu{width:1300px;height:80px;margin:0 auto;}
             .nav .nav_menu .nav_lf_title{float:left;position: relative;width:320px;}
             .nav .nav_menu .nav_lf_title .nav_lf_tllg{float:left;width:256px;height:80px;background: url("../images/1.png");background-size: 256px 80px;}
             /*.nav .nav_menu .nav_lf_title .nav_lf_tlsp{line-height: 30px;float: right;}*/
@@ -18,7 +18,7 @@
             .nav .nav_menu .cp_ul li a.active{background: rgba(255,0,0,.5);color:#fff;}
 
             /*轮播图部分*/
-            .slider{width:auto;height:600px;position: relative;}
+            .slider{width:1349px;height:600px;position: relative;margin:0 auto;}
             .slider ul li{display: none;position: absolute;left: 0;top: 0px;}
 
             /*轮播图中的登陆部分*/
@@ -32,18 +32,17 @@
             .slider .user_ms{width: auto;height:auto;}
 
             /*公益动态标题部分*/
-            .news_title{width: auto;height:80px;text-align: center;padding:20px 0 10px 0;background:rgba(255,0,0,0.5);}
+            .news_title{width: 1349px;height:80px;margin:0 auto;text-align: center;padding:20px 0 10px 0;background:rgba(255,0,0,0.5);}
             .news_title span:nth-of-type(1){font:40px/50px '微软雅黑';}
             .news_title span:nth-of-type(2){font-size:14px;color: #fff;}
 
             /*公益动态内容部分*/
-            .new_theme{background:rgba(255,0,0,0.5);padding:10px 0 20px 0;}
+            .new_theme{background:rgba(255,0,0,0.5);padding:10px 0 20px 0;width: 1349px;margin:0 auto;}
             .new_theme_ct{-webkit-display:flex;display: flex;width:1300px;margin:0 auto;}
-            .new_theme_ct div.new_theme_ls{flex:1;-webkit-flex:1;float:left;margin:0 10px;box-shadow: 0 0 10px 1px rgba(44,83,83,.8);padding:0px 0px 10px 0;background:#fff;}
+            .new_theme_ct div.new_theme_ls{transition:.5s;cursor:pointer; flex:1;-webkit-flex:1;float:left;margin:0 10px;padding:0px 0px 10px 0;background:#fff;}
+            .new_theme_ct div.new_theme_ls:hover{box-shadow: 0 0 15px 1px rgba(44,83,83,.8);}
             .new_theme_ct div.new_theme_img {position: relative;cursor: pointer;}
             .new_theme_ct div.new_theme_img img{width:305px;height:150px;}
-            .new_theme_ct div .make{width:305px;height:150px;background:rgba(0,0,0,0);position: absolute;left: 0;top: 0;transition:.5s;}
-            .new_theme_ct div .make:hover{background:rgba(0,0,0,0.3);}
             .new_theme_activity{margin: 0 20px;}
             .new_theme_activity span{display:block;font-size: 20px;line-height: 50px;color:rgb(255,152,0);border-bottom:1px dashed rgba(255,0,0,.5);}
             .new_theme_ms{margin: 10px 20px;}
@@ -55,7 +54,7 @@
             .more div a:hover{background:green;color:#fff;}
 
             /*公益人物标题部分*/
-            .persons_title{width: auto;height:80px;text-align: center;padding-top:20px;}
+            .persons_title{width: 1349px;height:80px;text-align: center;padding-top:20px;margin:0 auto;}
             .persons_title span:nth-of-type(1){font:40px/50px '微软雅黑';}
             .persons_title span:nth-of-type(2){font-size:14px;color:#999;}
 
@@ -72,7 +71,7 @@
 		.persons_ms .persons_ms_ct .persons_ms_tp ul li img:hover{transform:scale(1.1);}
 
             /*底部服务反馈信息部分*/
-            .survey{width:auto;height:300px;background:rgb(67, 67, 67);}
+            .survey{width:1349px;height:300px;background:rgb(67, 67, 67);margin:0 auto;}
             .survey .survey_ct{width:1300px;height:300px;margin:0 auto;display: -webkit-flex;display: flex;}
             .survey .survey_ct .survey_lf{flex:1;-webkit-flex:1;}
             .survey .survey_ct .survey_lf div{width:550px;height:220px;margin:40px auto;}
@@ -83,5 +82,5 @@
             .survey .survey_ct .survey_rg div input{background:rgba(255,255,255,0);border:1px dashed #fff;outline: none;width: 400px;height:35px;margin:14px 40px 14px 170px;color:#fff;}
             .survey .survey_ct .survey_rg div textarea{background:rgba(255,255,255,0);border:1px dashed #fff;outline: none;width: 400px;height:81px;margin:10px 40px 10px 170px;color:#fff;}
             .survey .survey_ct .survey_rg div input:focus{background:#fff;color:#000;}
-            .survey .survey_ct .survey_rg div textarea:focus{background:#fff;color:#000;}
+            .survey .survey_ct .survey_rg div textarea:focus{background:#fff;color:#000;ss}
         }
