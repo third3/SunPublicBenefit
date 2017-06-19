@@ -21,7 +21,6 @@ namespace SunPublicBenefit.Controllers
         {
             return View();
         }
-        [HttpPost]
         public int Verify(Users user)
         {
             string userName = user.UserName;
