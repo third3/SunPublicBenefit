@@ -207,6 +207,7 @@
     <Content Include="Views\Approve\BeneficenceApprove.cshtml" />
     <Content Include="VCode\Code.ashx" />
     <Content Include="Views\Approve\MyDonationApprove.cshtml" />
+    <Content Include="Views\Project\ProjectApplication.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
