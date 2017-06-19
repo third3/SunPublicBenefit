@@ -246,12 +246,16 @@
             var username = $('#username').val();
             var password = $('#password').val();
             $.post('Verify', { 'username': username, 'password': password }, function (data) {
-                if (data == 1) {
-                    alert('用户名或密码错误');
-                    return false;
-                }
-                else {
+                if(parseInt(data) == 0)
+                {
                     alert('登录成功');
+                    var donation = document.getElementsByClassName('donation')[0];
+                    donation.style.display = "none";
+                }
+                else
+                {
+                    alert('用户名或者密码错误');
+                    return false;
                 }
             });
         });
