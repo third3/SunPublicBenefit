@@ -59,6 +59,32 @@ $(function () {
         })
     });
 
+    // ************注册验证*************
+    $('#add').click(function () {
+        var add_username = $('#add_username').val();
+        var add_password = $('#add_password').val();
+        var add_true_password = $('#add_true_password').val();
+        if ($('.zc_mack input').val() == '') {
+            alert('您的信息尚未录入完整');
+            return false;
+        }
+        if (add_password != add_true_password) {
+            alert('两次密码不相等');
+            return false;
+        }
+        $.post('addUser', { 'username': add_username, 'password': add_password }, function (data) {
+            if (data == 1) {
+                alert('该账号已被注册');
+                return false;
+            }
+            else {
+                alert('注册成功');
+                window.location.href = "Index";
+            }
+        });
+    });
+
+
     // ************加载图片*************
     for (var i = 1; i < 17; i++) {
         $(".persons_ms_tp ul").append("<li><img src='../images/loading.gif' data-original='../images/person/" + i + ".jpg'/></li>")
