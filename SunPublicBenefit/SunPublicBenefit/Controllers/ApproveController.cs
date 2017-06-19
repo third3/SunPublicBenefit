@@ -60,5 +60,13 @@ namespace SunPublicBenefit.Controllers
         {
             return View();
         }
+        public   ActionResult PublicWelfareActivities()
+        {
+            return View();
+        }
+        public ActionResult InitiatesProjects()
+        {
+            return View();
+        }
     }
 }

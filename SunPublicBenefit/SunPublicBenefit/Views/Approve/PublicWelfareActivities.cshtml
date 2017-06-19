@@ -1,0 +1,615 @@
+﻿
+@{
+    Layout = null;
+}
+
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>公益活动</title>
+    <style type="text/css"></style>
+    <link rel="stylesheet" type="text/css" href="~/css/public.css">
+    <link rel="shortcut icon" href="~/images/logo.ico">
+    <script src="js/jquery-1.11.3.min.js"></script>
+    <script type="text/javascript">
+        $.getScript('js/jquery.lazyload.min.js');
+        $.getScript('js/index.js');
+    </script>
+    <script type="text/javascript">
+		window.onload=function () {
+			var onLine=document.getElementById('onlineto');//更多的推荐活动
+			var offLine=document.getElementById('endoffline');//更多的线上活动
+			var oA=document.getElementById('A');
+			var oB=document.getElementById('B');
+			var oC=document.getElementById('C');
+			function tJ(){
+				oA.style.overflow='none';
+				oA.style.height='auto';
+				onLine.style.display='none';
+				offLine.innerHTML='';
+				onLine.innerHTML='';
+				oB.style.display='none';
+				oA.style.display='block';
+				oC.style.display='none';
+			}
+			function onlineto(){
+				oB.style.overflow='none';
+				oB.style.height='auto';
+				offLine.innerHTML='';
+				onLine.innerHTML='';
+				onLine.style.display='none';
+				oB.style.display='block';
+				oA.style.display='none';
+				oC.style.display='none';
+			}
+
+			onLine.onclick=function(){
+				tJ();
+			}
+			offLine.onclick=function(){
+				onlineto();
+			}
+
+			var aA=document.getElementById('menu').getElementsByTagName('a');
+			    var i=0;
+
+			    for(i=0;i<aA.length;i++)
+			    {
+			        aA[i].iTime=null;
+			        aA[i].iSpeed=6;
+			        aA[i].onmouseover=function ()
+			        {
+			            goTime(this,30,1);
+			        }
+			        aA[i].onmouseout=function ()
+			        {
+			            goTime(this,6,-1);
+			        }
+			    }
+			    aA[0].onclick=function(){
+			    	oB.style.display='block';
+					oA.style.display='block';
+					oC.style.display='block';
+					oA.style.overflow='hidden';
+					oB.style.overflow='hidden';
+					oC.style.overflow='hidden';
+					oA.style.height=425+'px';
+					oB.style.height=425+'px';
+					oC.style.height=550+'px';
+			    }
+			    aA[1].onclick=function(){
+			        	tJ();
+			    }
+			    aA[2].onclick=function(){
+			    	onlineto();
+			    }
+			    aA[3].onclick=function(){
+			    	offLine.innerHTML='';
+					onLine.innerHTML='';
+					oC.style.overflow='none';
+					oC.style.height='auto';
+					oB.style.display='none';
+					oA.style.display='none';
+					oC.style.display='block';
+			    }
+
+			function goTime(obj,iTarget,toggle){
+			    if(obj.iTime)
+			    {
+			        clearInterval(obj.iTime);
+			    }
+			    obj.iTime=setInterval(function()
+			    {
+			        if(obj.iSpeed===iTarget)
+			        {
+			            clearInterval(obj.iTime);
+			            obj.iTime=null;
+			        }
+			        else
+			        {
+			            obj.iSpeed+=2*toggle;
+			            obj.style.paddingLeft=obj.iSpeed+'px';
+			            obj.style.paddingRight=obj.iSpeed+'px';
+
+			        }
+
+			    },30);
+			}
+		}
+
+    </script>
+    <style type="text/css">
+        div, body, h3 {
+            margin: 0;
+            padding: 0;
+        }
+
+        a {
+            text-decoration: none;
+        }
+
+        ul, li {
+            margin: 0;
+            padding: 0;
+            list-style: none;
+        }
+
+        .nav_menu_sl_ap {
+            display: none;
+        }
+        /*导航部分*/
+        .nav {
+            width: auto;
+            height: 80px;
+            box-shadow: 0 0 5px 0 #dbd3d3;
+        }
+
+            .nav .nav_menu {
+                width: 1200px;
+                height: 80px;
+                margin: 0 auto;
+            }
+
+                .nav .nav_menu .nav_lf_title {
+                    float: left;
+                    position: relative;
+                    width: 320px;
+                }
+
+                    .nav .nav_menu .nav_lf_title .nav_lf_tllg {
+                        float: left;
+                        width: 256px;
+                        height: 80px;
+                        background: url("../images/1.png");
+                        background-size: 256px 80px;
+                    }
+
+                    .nav .nav_menu .nav_lf_title .nav_lf_tlsp {
+                        line-height: 30px;
+                        float: right;
+                    }
+
+                        .nav .nav_menu .nav_lf_title .nav_lf_tlsp .nav_lf_tl {
+                            font: 25px/80px '微软雅黑';
+                            color: #5a5a5a;
+                        }
+                /*.nav .nav_menu .ph_ul{display: none;}*/
+                /*.nav .nav_logo span{font: 20px/80px '';padding: 0 50px;}*/
+                .nav .nav_menu .cp_ul {
+                    float: right;
+                }
+
+                    .nav .nav_menu .cp_ul li {
+                        float: left;
+                    }
+
+                        .nav .nav_menu .cp_ul li a {
+                            display: block;
+                            line-height: 60px;
+                            width: 100px;
+                            text-align: center;
+                            margin: 10px 0;
+                            font-size: 15px;
+                            color: #000;
+                        }
+
+                            .nav .nav_menu .cp_ul li a.active {
+                                background: rgba(255,0,0,.5);
+                                color: #fff;
+                            }
+        /*.nav .nav_menu .cp_ul li a:hover{background: rgba(255,0,0,.5);color:#fff;}*/
+
+        /*首页*/
+        #centerBody {
+            width: 997px;
+            height: 1500px;
+            margin: auto;
+            border: 1px solid #d1cece;
+            /*border-top: 0;*/
+            float: right;
+            /*margin-left:20px;*/
+            margin-bottom: 50px;
+        }
+
+        #content {
+            margin: 0px auto;
+            padding: 20px;
+            width: 907px;
+            height: 1460px;
+        }
+
+        #centerBody .a, .b, .c {
+            border: 1px solid #d1cece;
+        }
+
+        #content .recommend {
+            float: left;
+            margin: auto;
+        }
+
+        #A, #B {
+            width: 905px;
+            height: 425px;
+            overflow: hidden;
+            margin: auto;
+        }
+
+        #C {
+            width: 905px;
+            height: 550px;
+            overflow: hidden;
+            margin: auto;
+        }
+
+        #content .recommend img {
+            width: 150px;
+            height: 150px;
+            float: left;
+            margin-right: 30px;
+            border: 1px solid #afa89f;
+        }
+
+        #content #recommend-a {
+            height: 550px;
+        }
+
+        #project {
+            width: 600px;
+            float: left;
+        }
+
+        #box-1 {
+            height: 190px;
+            margin-top: 10px;
+        }
+
+        #box-2 {
+            height: 250px;
+            margin-top: 10px;
+        }
+
+        #project_Detali li {
+            float: left;
+            margin-top: 10px;
+        }
+
+        #project_Detali .Detali_a, .Detali_c, .Detali_e, .Detali_j, .Detali_g {
+            width: 80px;
+            color: #afa89f;
+        }
+
+        #project_Detali .Detali_b, .Detali_f, .Detali_h, .Detali_k {
+            width: 520px;
+        }
+
+        #project a {
+            color: green;
+        }
+
+        #content a:hover {
+            text-decoration: underline;
+        }
+
+        #project span {
+            color: #afa89f;
+        }
+
+        #project_Detali .Detali_d {
+            width: 520px;
+        }
+
+        #onlineto, #endoffline {
+            float: left;
+            margin-top: -22px;
+            margin-left: 870px;
+        }
+
+        #menu li {
+            margin-bottom: 2px;
+            list-style: none;
+            float: left;
+            clear: left;
+            cursor: pointer-;
+        }
+
+        #menu a {
+            display: block;
+            width: 130px;
+            height: 30px;
+            line-height: 30px;
+            position: relative;
+            padding: 0 6px;
+            border: 1px solid #d6d6d6;
+            text-decoration: none;
+            font-size: 14px;
+            color: #eae0e0;
+            background-color: #6e7171;
+        }
+
+            #menu a:hover {
+                font-weight: bold;
+                border: 1px solid #b5b5b5;
+            }
+
+        #menu span {
+            display: block;
+            width: 9px;
+            height: 8px;
+            overflow: hidden;
+            position: absolute;
+            top: 8px;
+            right: 10px;
+        }
+
+        .nav_blank {
+            float: left;
+        }
+
+        .pw_box {
+            width: 1200px;
+            margin: 50px auto 0;
+        }
+    </style>
+</head>
+<body>
+    <div class="nav">
+        <div class="nav_menu">
+            <div class="nav_lf_title">
+                <div class="nav_lf_tllg"></div>
+                <div class="nav_lf_tlsp">
+                    <div class="nav_lf_tl">
+
+                    </div>
+                </div>
+            </div>
+            <ul class="cp_ul">
+                <li class="current">@Html.ActionLink("官网首页", "Index","Home")</li>
+                <li><a href="#">基金会</a></li>
+                <li><a class="active" href="#">公益活动</a></li>
+                <li><a href="#">捐款</a></li>
+                <li>@Html.ActionLink("个人中心", "PersonalCenter","Home")</li>
+            </ul>
+        </div>
+    </div>
+    <div class="pw_box">
+        <!-- 左侧导航栏 -->
+        <div class="nav_blank">
+            <ul id="menu">
+                <li><a href="##">公益活动首页<span></span></a></li>
+                <li><a href="##">推荐公益活动<span></span></a></li>
+                <li><a href="##">线上公益活动<span></span></a></li>
+                <li><a href="##">线下公益活动<span></span></a></li>
+                <li><a href="##">我的活动<span></span></a></li>
+                <li><a href="##">发起线上公益活动<span></span></a></li>
+                <li><a href="##">发起线下公益活动<span></span></a></li>
+            </ul>
+        </div>
+        <!-- 公益活动项目内容 -->
+        <div id="centerBody">
+            <div id="content">
+                <div id="A">
+                    <div id="huodong">推荐活动</div>
+                    <div id="border_A" class="a"></div>
+                    <div class="recommend" id="recommend-c">
+                        <div id="box-1">
+                            <img src="1.png" alt="">
+                            <div id="project">
+                                <h3>
+                                    <a href="##">三门都市网青年志愿者服务队是.....</a>
+                                    <span>(线上活动)活动报名中</span>
+                                </h3>
+                                <ul id="project_Detali">
+                                    <li class="Detali_a">报名截止</li>
+                                    <li class="Detali_b">2017年7月6日星期六</li>
+                                    <li class="Detali_c">活动简介：</li>
+                                    <li class="Detali_d">
+                                        旧衣物捐赠，帮扶贫困山区，将家中将要废弃过时，用不了，穿不着的春夏衣裤，鞋袜，棉被，教科书籍，书包文具等，捐赠到聚爱公益服	务平	台，我们将收集的物资统一清洗消毒后送往需要的贫困地区！……
+                                    </li>
+                                    <li class="Detali_e">活动发起：</li>
+                                    <li class="Detali_f">
+                                        <a href="##">阳光公益组织机构</a>
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+                        <div id="box-1">
+                            <img src="1.png" alt="">
+                            <div id="project">
+                                <h3>
+                                    <a href="##">三门都市网青年志愿者服务队是.....</a>
+                                    <span>(线上活动)活动报名中</span>
+                                </h3>
+                                <ul id="project_Detali">
+                                    <li class="Detali_a">报名截止</li>
+                                    <li class="Detali_b">2017年7月6日星期六</li>
+                                    <li class="Detali_c">活动简介：</li>
+                                    <li class="Detali_d">
+                                        旧衣物捐赠，帮扶贫困山区，将家中将要废弃过时，用不了，穿不着的春夏衣裤，鞋袜，棉被，教科书籍，书包文具等，捐赠到聚爱公益服	务平	台，我们将收集的物资统一清洗消毒后送往需要的贫困地区！……
+                                    </li>
+                                    <li class="Detali_e">活动发起：</li>
+                                    <li class="Detali_f">
+                                        <a href="##">阳光公益组织机构</a>
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+                        <div id="box-1">
+                            <img src="1.png" alt="">
+                            <div id="project">
+                                <h3>
+                                    <a href="##">三门都市网青年志愿者服务队是.....</a>
+                                    <span>(线上活动)活动报名中</span>
+                                </h3>
+                                <ul id="project_Detali">
+                                    <li class="Detali_a">报名截止</li>
+                                    <li class="Detali_b">2017年7月6日星期六</li>
+                                    <li class="Detali_c">活动简介：</li>
+                                    <li class="Detali_d">
+                                        旧衣物捐赠，帮扶贫困山区，将家中将要废弃过时，用不了，穿不着的春夏衣裤，鞋袜，棉被，教科书籍，书包文具等，捐赠到聚爱公益服	务平	台，我们将收集的物资统一清洗消毒后送往需要的贫困地区！……
+                                    </li>
+                                    <li class="Detali_e">活动发起：</li>
+                                    <li class="Detali_f">
+                                        <a href="##">阳光公益组织机构</a>
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+                        <div id="box-1">
+                            <img src="1.png" alt="">
+                            <div id="project">
+                                <h3>
+                                    <a href="##">三门都市网青年志愿者服务队是.....</a>
+                                    <span>(线上活动)活动报名中</span>
+                                </h3>
+                                <ul id="project_Detali">
+                                    <li class="Detali_a">报名截止</li>
+                                    <li class="Detali_b">2017年7月6日星期六</li>
+                                    <li class="Detali_c">活动简介：</li>
+                                    <li class="Detali_d">
+                                        旧衣物捐赠，帮扶贫困山区，将家中将要废弃过时，用不了，穿不着的春夏衣裤，鞋袜，棉被，教科书籍，书包文具等，捐赠到聚爱公益服	务平	台，我们将收集的物资统一清洗消毒后送往需要的贫困地区！……
+                                    </li>
+                                    <li class="Detali_e">活动发起：</li>
+                                    <li class="Detali_f">
+                                        <a href="##">阳光公益组织机构</a>
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div id="B">
+                    <div id="onlineto_a">线上活动</div>
+                    <a id="onlineto" class="gengduo">更多</a>
+                    <div id="border_B" class="a"></div>
+                    <div class="recommend" id="recommend-b">
+                        <div id="box-1">
+                            <img src="1.png" alt="">
+                            <div id="project">
+                                <h3>
+                                    <a href="##">三门都市网青年志愿者服务队是.....</a>
+                                    <span>(线上活动)活动报名中</span>
+                                </h3>
+                                <ul id="project_Detali">
+                                    <li class="Detali_a">报名截止</li>
+                                    <li class="Detali_b">2017年7月6日星期六</li>
+                                    <li class="Detali_c">活动简介：</li>
+                                    <li class="Detali_d">
+                                        旧衣物捐赠，帮扶贫困山区，将家中将要废弃过时，用不了，穿不着的春夏衣裤，鞋袜，棉被，教科书籍，书包文具等，捐赠到聚爱公益服	务平	台，我们将收集的物资统一清洗消毒后送往需要的贫困地区！……
+                                    </li>
+                                    <li class="Detali_e">活动发起：</li>
+                                    <li class="Detali_f">
+                                        <a href="##">阳光公益组织机构</a>
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+                        <div id="box-1">
+                            <img src="1.png" alt="">
+                            <div id="project">
+                                <h3>
+                                    <a href="##">三门都市网青年志愿者服务队是.....</a>
+                                    <span>(线上活动)活动报名中</span>
+                                </h3>
+                                <ul id="project_Detali">
+                                    <li class="Detali_a">报名截止</li>
+                                    <li class="Detali_b">2017年7月6日星期六</li>
+                                    <li class="Detali_c">活动简介：</li>
+                                    <li class="Detali_d">
+                                        旧衣物捐赠，帮扶贫困山区，将家中将要废弃过时，用不了，穿不着的春夏衣裤，鞋袜，棉被，教科书籍，书包文具等，捐赠到聚爱公益服	务平	台，我们将收集的物资统一清洗消毒后送往需要的贫困地区！……
+                                    </li>
+                                    <li class="Detali_e">活动发起：</li>
+                                    <li class="Detali_f">
+                                        <a href="##">阳光公益组织机构</a>
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+                        <div id="box-1">
+                            <img src="1.png" alt="">
+                            <div id="project">
+                                <h3>
+                                    <a href="##">三门都市网青年志愿者服务队是.....</a>
+                                    <span>(线上活动)活动报名中</span>
+                                </h3>
+                                <ul id="project_Detali">
+                                    <li class="Detali_a">报名截止</li>
+                                    <li class="Detali_b">2017年7月6日星期六</li>
+                                    <li class="Detali_c">活动简介：</li>
+                                    <li class="Detali_d">
+                                        旧衣物捐赠，帮扶贫困山区，将家中将要废弃过时，用不了，穿不着的春夏衣裤，鞋袜，棉被，教科书籍，书包文具等，捐赠到聚爱公益服	务平	台，我们将收集的物资统一清洗消毒后送往需要的贫困地区！……
+                                    </li>
+                                    <li class="Detali_e">活动发起：</li>
+                                    <li class="Detali_f">
+                                        <a href="##">阳光公益组织机构</a>
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div id="C">
+                    <div id="endoffline_a">线下活动</div>
+                    <a id="endoffline" class="gengduo">更多</a>
+                    <div id="border_C" class="a"></div>
+                    <div class="recommend" id="recommend-a">
+
+                        <div id="box-2">
+                            <img src="1.png">
+                            <div id="project">
+                                <h3>
+                                    <a href="##">三门都市网青年志愿者服务队是.....</a>
+                                    <span>(线上活动)活动报名中</span>
+                                </h3>
+                                <ul id="project_Detali">
+                                    <li class="Detali_a">活动时间：</li>
+                                    <li class="Detali_b">2017年7月6日星期六12:30至2022年7月6日星期六12:30</li>
+                                    <li class="Detali_c">活动简介：</li>
+                                    <li class="Detali_d">
+                                        旧衣物捐赠，帮扶贫困山区，将家中将要废弃过时，用不了，穿不着的春夏衣裤，鞋袜，棉被，教科书籍，书包文具等，捐赠到聚爱公益服	务平	台，我们将收集的物资统一清洗消毒后送往需要的贫困地区！……
+                                    </li>
+                                    <li class="Detali_e">活动发起：</li>
+                                    <li class="Detali_f">
+                                        <a href="##">阳光公益组织机构</a>
+                                    </li>
+                                    <li class="Detali_g">活动地点：</li>
+                                    <li class="Detali_h">广西柳州市</li>
+                                    <li class="Detali_j">报名截止：</li>
+                                    <li class="Detali_k">2019年10月17日 星期四 11:30</li>
+                                </ul>
+                            </div>
+                        </div>
+                        <div id="box-2">
+                            <img src="1.png">
+                            <div id="project">
+                                <h3>
+                                    <a href="##">三门都市网青年志愿者服务队是.....</a>
+                                    <span>(线上活动)活动报名中</span>
+                                </h3>
+                                <ul id="project_Detali">
+                                    <li class="Detali_a">活动时间：</li>
+                                    <li class="Detali_b">2017年7月6日星期六12:30至2022年7月6日星期六12:30</li>
+                                    <li class="Detali_c">活动简介：</li>
+                                    <li class="Detali_d">
+                                        旧衣物捐赠，帮扶贫困山区，将家中将要废弃过时，用不了，穿不着的春夏衣裤，鞋袜，棉被，教科书籍，书包文具等，捐赠到聚爱公益服	务平	台，我们将收集的物资统一清洗消毒后送往需要的贫困地区！……
+                                    </li>
+                                    <li class="Detali_e">活动发起：</li>
+                                    <li class="Detali_f">
+                                        <a href="##">阳光公益组织机构</a>
+                                    </li>
+                                    <li class="Detali_g">活动地点：</li>
+                                    <li class="Detali_h">广西柳州市</li>
+                                    <li class="Detali_j">报名截止：</li>
+                                    <li class="Detali_k">2019年10月17日 星期四 11:30</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+</body>
+</html>
