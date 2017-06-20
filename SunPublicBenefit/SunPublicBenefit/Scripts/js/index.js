@@ -44,6 +44,8 @@ $(function () {
         })(j)
     }
 
+    
+
     // ************登陆验证*************
     $('#login').click(function () {
         var username = $('#username').val();
@@ -59,7 +61,30 @@ $(function () {
         })
     });
 
+    //function myAddEvent(obj, sEv, fn) {
+    //    if (obj.attachEvent) {
+    //        obj.attachEvent('on' + sEv, fn);
+    //    }
+    //    else {
+    //        obj.addEventListener(sEv, fn, false);
+    //    }
+    //};
     // ************注册验证*************
+    var email = /^(\w-*\.*)+@(\w-?)+(\.\w{2,})+$/;
+    var passOne = /[A-Za-z].*[0-9]|[0-9].*[A-Za-z]/;
+    function formValidation(ipID, error, pClass, regular) {
+        $('#' + ipID + '').blur(function () {
+            if (!regular.test($('#' + ipID + '').val())) {
+                $("." + pClass + "").text("*" + error + "");
+            } else {
+                $("." + pClass + "").text("");
+            }
+        })
+    }
+    new formValidation("add_username", "请输入正确的邮箱", "form_userEmail", email);
+    new formValidation("add_password", "请输入正确的密码格式(至少要有一位字母)", "form_passOne", passOne);
+    
+    //**************表单提交判断文本框的信息是否完善***************
     $('#add').click(function () {
         var add_username = $('#add_username').val();
         var add_password = $('#add_password').val();
@@ -68,8 +93,9 @@ $(function () {
             alert('您的信息尚未录入完整');
             return false;
         }
+        
         if (add_password != add_true_password) {
-            alert('两次密码不相等');
+            $(".form_passTwo").text("*请输入两次相同的密码");
             return false;
         }
         $.post('addUser', { 'username': add_username, 'password': add_password }, function (data) {
@@ -150,9 +176,13 @@ $(function () {
     $(".zx_cs").click(function () {
         $(".zc_txt").val("");
         $(".zc_mack").css("display", "none");
+        $(".zc_ct").css("transform", "translate(-50%,-50%) scale(0)");
     })
     $(".dt_zc").click(function () {
         $(".zc_mack").css("display", "block");
+        
+        $(".zc_ct").css("transform", "translate(-50%,-50%) scale(1)");
+        console.log("sd");
     })
 
     // ************移动端界面的js代码*************
