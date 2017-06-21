@@ -171,11 +171,11 @@ namespace SunPublicBenefit.Controllers
         public ActionResult IsApprove()
         {
             string data = "";
-            Session["ActiveUser"] = new Users { UserID = Guid.NewGuid(), UserName = "aa", IsStatus = 0 };
-            if (Session["ActiveUser"] != null)
+            Session["Users"] = new Users { UserID = Guid.NewGuid(), UserName = "aa", IsStatus = 0 };
+            if (Session["Users"] != null)
             {
 
-                Users user = Session["ActiveUser"] as Users;                            
+                Users user = Session["Users"] as Users;                            
                 if (user.IsStatus == 0)
                 {
                     data = "0";
