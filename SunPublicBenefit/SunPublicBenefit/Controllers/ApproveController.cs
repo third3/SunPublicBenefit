@@ -3,12 +3,14 @@ using System;
 using System.Collections;
 using System.Data.Entity;
 using System.Data.Entity.Validation;
+using System.Text;
 using System.Text.RegularExpressions;
 using System.Web.Mvc;
 namespace SunPublicBenefit.Controllers
 {
     public class ApproveController : ContextController
     {
+        
         // GET: Approve
         public ActionResult AutoUserApprove()
         {
@@ -47,9 +49,21 @@ namespace SunPublicBenefit.Controllers
             Regex reg = new Regex("^[\u4e00-\u9fa5]{2,10}$");
             return reg.IsMatch(realName);
         }
-
+     
         public ActionResult UnBeneficenceApprove()
         {
+            return View();
+        }
+        [HttpPost]
+        public ActionResult UnBeneficenceApprove(string FullName,string telephone,string residentAddress,string provie, string city, UnBeneficenceApprove unben)
+        {
+            unben.FullName = FullName;
+            unben.telePhone = telephone;
+            unben.residentAddress = provie+"省"+city+"市"+residentAddress; //详细地址
+            //unben.nature = nature;
+            unben.estaBlishDate = DateTime.Now;
+            sun.UnBeneficenceApprove.Add(unben);
+            sun.SaveChanges();
             return View();
         }
         public ActionResult BeneficenceApprove()

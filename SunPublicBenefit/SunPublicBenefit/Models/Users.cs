@@ -39,5 +39,6 @@ namespace SunPublicBenefit.Models
         public virtual ICollection<Finance> Finance { get; set; }
         public virtual ICollection<PublicBenefit> PublicBenefit { get; set; }
         public virtual ICollection<PublicBenefitRecord> PublicBenefitRecord { get; set; }
+        public virtual ICollection<UnBeneficenceApprove> UnBeneficenceApprove { get; set; }
     }
 }
