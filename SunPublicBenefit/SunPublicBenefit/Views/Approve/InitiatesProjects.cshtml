@@ -8,11 +8,10 @@
 <head>
     <meta charset="UTF-8">
     <title>发起项目</title>
-    <link rel="shortcut icon" href="images/logo .ico">
-    <link rel="stylesheet" type="text/css" href="css/public.css">
+    <link rel="shortcut icon" href="~/images/logo .ico">
+    <link rel="stylesheet" type="text/css" href="~/css/public.css">
     <link href="~/css/itproject.css" rel="stylesheet" />
-    <script src="js/jquery-1.11.3.min.js"></script>
-
+    <script src="~/Scripts/js/jquery-1.11.3.min.js"></script>
 </head>
 <body>
     <div id="center">
@@ -106,7 +105,7 @@
         </div>
         <div id="finish">
             <div class="finish_submit">
-                <img src="timg.jpg" />
+                <img @*src="timg.jpg"*@ />
                 <h3>完成提交！</h3>
             </div>
             <p>审核结果将在10个工作日内发送到您的QQ邮箱，请注意查收!</p>
@@ -115,6 +114,47 @@
             </div>
         </div>
     </div>
+    <script type="text/javascript">
+        //***************切换到下一步的资料填写************
+            var oField=document.getElementById('p_Field');
+            var aField=oField.getElementsByTagName('a');
+            for (var i = 0; i < aField.length; i++) {
+                aField[i].onclick=function(){
+                    for (var i = 0; i < aField.length; i++) {
+                        aField[i].className='';
+                    }
+                    this.className='field';
+                }
+            }
+            var oBmi=document.getElementById('sbmit');
+            var oNext=oBmi.getElementsByTagName('a')[0];
+            var oh3=document.getElementsByClassName('h3')[0];
+            var oInf=document.getElementById('inf');
+            var aLis=oInf.getElementsByTagName('li');
+            var center=document.getElementById('p_Center');
+            var oDetails=document.getElementById('p_Details');
+
+            oNext.onclick=function(){//保存，下一步
+                center.style.display='none';
+                oDetails.style.display='block';
+                oh3.innerHTML='项目详情';
+
+                for (var i = 0; i < aLis.length; i++) {
+                    aLis[i].className='';
+                }
+
+                aLis[1].className='tab';
+            }
+            var objSubimt=document.getElementsByClassName('sbmit_a')[0];
+            var detaLis=document.getElementsByClassName('detailed')[0];
+            var dLed_Inf=document.getElementsByClassName('detailed_Inf')[0];
+            var finish_Submit=document.getElementById('finish');
+            objSubimt.onclick=function(){//提交按钮
+                oDetails.style.display='none';
+                finish_Submit.style.display='block';
+                detaLis.style.display='none';
+                dLed_Inf.style.display='none';
+            }
+    </script>
 </body>
 </html>
-<script src="~/Scripts/js/it-project.js"></script>

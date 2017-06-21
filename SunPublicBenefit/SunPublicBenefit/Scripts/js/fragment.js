@@ -6,7 +6,7 @@
 		width : $(window).width(),//显示容器的宽度
 		height:$(window).height(),//显示容器的高度
 		animeTime : 4000,//最长动画时间,图片的取值将在 animeTime*0.33 + animeTime*0.66之前取值 
-		img : 'images/cy_ytuz.jpg'//图片路径
+		img :"/images/cy_ytuz.jpg"//图片路径
 	};
 	$(".box").animate({
 		top:"50%"
