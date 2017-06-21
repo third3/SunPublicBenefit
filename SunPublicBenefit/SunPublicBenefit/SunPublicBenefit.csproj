@@ -158,6 +158,7 @@
     <Content Include="persons.txt" />
     <Content Include="Scripts\js\fragment.js" />
     <Content Include="Scripts\js\index.js" />
+    <Content Include="Scripts\js\it-project.js" />
     <Content Include="Scripts\js\jquery-1.11.3.min.js" />
     <Content Include="Scripts\js\jquery.lazyload.min.js" />
     <Content Include="fonts\log.PNG" />

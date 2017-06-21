@@ -135,7 +135,7 @@
             width: 140px;
             height: 40px;
             margin-left: 88px;
-            margin-top: 26px;
+            margin-top: 100px;
             background: #8cb10c;
             display: block;
             color: #fff;
@@ -187,13 +187,7 @@
             margin-right: 20px;
         }
 
-            #p_Details a:hover {
-                text-decoration: underline;
-            }
 
-        #sbmit_c a:hover {
-            text-decoration: underline;
-        }
 
         #p_Details {
             display: none;
@@ -242,6 +236,3 @@
             text-align: center;
         }
 
-        #sbmit a:hover {
-            text-decoration: underline;
-        }

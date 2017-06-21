@@ -27,7 +27,7 @@
                     <li class="ur_cgps">|</li>
                     <li class="ur_cgps"><a href="">修改密码</a></li>
                     <li class="ur_cgps"><a href="">退出</a></li>
-                    <li class="ur_cgps">@Html.ActionLink("回到首页","Index")</li>
+                    <li class="ur_cgps">@Html.ActionLink("回到首页", "Index")</li>
                 </ul>
             </div>
         </div>
@@ -51,7 +51,7 @@
                 <div class="pt_lf_no">
                     <p><span class="m_item" style="left:16px"></span></p>
                     <ul>
-                        <li><a href="javascript:void(0)" onclick="showMsApprove('ApproveWayChoose', 'Home')">我的项目</a></li>
+                        <li><a href="javascript:void(0)" onclick="showMsApprove('a', 'a')">我的项目</a></li>
                         <li><a href="javascript:void(0)" onclick="showMsApprove('InitiatesProjects', 'Approve')">发起新项目</a></li>
                         <!-- <li><a href="javascript:void(0)" onclick="showMsApprove('pt_individual_event','pt_mod_plate')">个人项目</a></li>
                         <li><a href="javascript:void(0)" onclick="showMsApprove('pt_donation_record','pt_mod_plate')">非公募机构</a></li>
@@ -111,32 +111,51 @@
     <script type="text/javascript">
         // 定时跳转页面
         // alert($(".zc_mack").css("transform"));
-        function countDown(){
-            var time=3;
+        function countDown() {
+            var time = 3;
             $(".as_time").text(time);
-            var asTime=setInterval(function(){
+            var asTime = setInterval(function () {
                 time--;
-                if(time==0){
+                if (time == 0) {
                     clearInterval(asTime);
-                    showMsApprove("myProject");
-                    $(".zc_mack").css("display","none");
-                    $(".authentication_success").css("transform","translate(-50%,-50%) scale(0)");
+                    showMsApprove("SingleProject", "Project");
+                    $(".zc_mack").css("display", "none");
+                    $(".authentication_success").css("transform", "translate(-50%,-50%) scale(0)");
                 }
                 $(".as_time").text(time);
-            },1000)
+            }, 1000)
         }
         // 默认显示的页面
         showMsApprove('MyDonationApprove', 'Approve');
         // 遮罩层代码
-        $(".zc_mack").css({"width":$(window).width(),"height":$(window).height()});
+        $(".zc_mack").css({ "width": $(window).width(), "height": $(window).height() });
 
         // 跳转链接代码
-        function showMsApprove(actionname,contorname){
-            $(".pt_mod_plate").load("/" + contorname + "/" + actionname + "");
+        function showMsApprove(actionname, contorname) {
+            $.post("IsApprove", function (msg) {
+                if (msg == "0") {
+                    actionname = "ApproveWayChoose";
+                    contorname = "Home";
+                }
+                if (msg == "1") {
+                    actionname = "SingleProject";
+                    contorname = "Project";
+                }
+                if (msg == "2") {
+                    actionname = "SingleProject";
+                    contorname = "Project";
+                }
+                if (msg == "3") {
+                    actionname = "SingleProject";
+                    contorname = "Project";
+                }
+                $(".pt_mod_plate").load("/" + contorname + "/" + actionname + "");
+            });
+
         }
 
-         $(window).resize(function(){
-            $(".zc_mack").css({"width":$(window).width(),"height":$(window).height()});
+        $(window).resize(function () {
+            $(".zc_mack").css({ "width": $(window).width(), "height": $(window).height() });
         })
     </script>
 </body>
