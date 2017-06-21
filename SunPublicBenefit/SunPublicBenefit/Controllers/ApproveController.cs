@@ -35,7 +35,7 @@ namespace SunPublicBenefit.Controllers
                 user.RealName = realName;
                 sun.User.Add(user);
                 sun.SaveChanges();
-                return RedirectToAction("验证成功页面");
+                return Content("OK");
             }
             return View();
         }
@@ -71,6 +71,14 @@ namespace SunPublicBenefit.Controllers
             return View();
         }
         public ActionResult MyDonationApprove()
+        {
+            return View();
+        }
+        public   ActionResult PublicWelfareActivities()
+        {
+            return View();
+        }
+        public ActionResult InitiatesProjects()
         {
             return View();
         }

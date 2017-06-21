@@ -39,81 +39,120 @@
                 <div class="pt_lf_nv">
                     <p><span class="m_donate"></span></p>
                     <ul>
-                        <li><a href="javascript:void(0)" class="active" onclick="showMsApprove('others_contributions', 'pt_mod_plate')">我的捐款记录</a></li>
+                        <li><a href="javascript:void(0)" onclick="showMsApprove('MyDonationApprove', 'Approve')">我的捐款记录</a></li>
                     </ul>
                 </div>
                 <div class="pt_lf_nv">
                     <p><span class="m_activity"></span></p>
                     <ul>
-                        <li><a href="javascript:void(0)" class="active">我参加的</a></li>
+                        <li><a href="">我参加的</a></li>
                     </ul>
                 </div>
-                <div class="pt_lf_nv">
+                <div class="pt_lf_no">
                     <p><span class="m_item" style="left:16px"></span></p>
                     <ul>
-                        <li><a href="javascript:void(0)" class="active" onclick="showMsApprove('pt_myProject', 'pt_mod_plate')">我的项目</a></li>
+                        <li><a href="javascript:void(0)" onclick="showMsApprove('a', 'a')">我的项目</a></li>
+                        <li><a href="javascript:void(0)" onclick="showMsApprove2('InitiatesProjects', 'Approve')">发起新项目</a></li>
+                        <!-- <li><a href="javascript:void(0)" onclick="showMsApprove('pt_individual_event','pt_mod_plate')">个人项目</a></li>
+                        <li><a href="javascript:void(0)" onclick="showMsApprove('pt_donation_record','pt_mod_plate')">非公募机构</a></li>
+                        <li><a href="">慈善机构(公募)</a></li> -->
                     </ul>
                 </div>
 
             </div>
             <div class="pt_mod_plate">
                 <!-- **************捐款记录视图************ -->
-                @*<div class="others_contributions">
-                        <div class="pub_stylemid">
-                            <div style="height:20px;"></div>
-                            <p>温馨提示</p>
-                            <p>
-                                <span></span>
-                                <span></span>
-                                <span></span>
-                                <span></span>
-                            </p>
-                        </div>
-                        <div class="detail">
 
-                        </div>
-                    </div>*@
+
 
 
             </div>
             <!-- **************我参加的活动视图************ -->
-
+            <!-- **************慈善机构注册视图************ -->
         </div>
     </div>
-    <script type="text/javascript">
-        showMsApprove('others_contributions', 'pt_mod_plate');
-        function showMsApprove(id, box) {
-            $.post("IsApprove", function (data) {
-                if (data == "0") {
-                    switch (id) {
-                        case 'pt_individual_event':
-                            $("." + box + "").load("/Approve/AutoUserApprove");
-                            break;
-                        case 'pt_donation_record':
-                            $("." + box + "").load("/Approve/UnBeneficenceApprove");
-                            break;
-                        case 'pt_contact':
-                            $("." + box + "").load("/Approve/BeneficenceApprove");
-                            break;
-                        case 'pt_myProject':
-                            $("." + box + "").load("ApproveWayChoose");
-                            break;
-                        case 'others_contributions':
-                            $("." + box + "").load("/Approve/MyDonationApprove");
-                    }
-                };
-                if (data == "1") {
-                    $("." + box + "").load("/Project/SingleProject");
-                };
-                if (data == "2") {
-                    $("." + box + "").load("/Project/UnBeneficenceProject");
-                };
-                if (data == "3") {
-                    $("." + box + "").load("/Project/BeneficenceProject");
-                };
-            });
+    <!-- **************网站底部信息反馈部分************** -->
+    <div class="footer">
+        <div class="inner">
+            <div class="concat_us">
+                <span class="title">联系我们</span>
+                <span>项目合作：XXXX.com</span>
+                <span>媒体合作：XXXX.com</span>
+                <div class="feedback">
+                    <a href="">意见反馈</a>|
+                    <a href="">网友投诉</a>
+                </div>
+            </div>
+            <div class="links">
+                <a href="">阳光公益慈善基金会</a>|
+                <a href="">关于阳光公益</a>|
+                <a href="">服务条款</a>|
+                <a href="">广告服务</a>|
+                <a href="">客服中心</a>|
+                <a href="">网站导航</a>
+            </div>
+            <p class="copyright">Copyright © 1998-2017 Tencent.All Rights Reserved 阳光公益有限公司 版权所有</p>
+        </div>
+    </div>
+    <div class="zc_mack"></div>
+    <div class="authentication_success">
+        <div class="as_logo"></div>
+        <div class="as_ch"><p>认证成功</p></div>
+        <div class="as_tz"><span class="as_time"></span><span>秒之后跳转页面</span>@Html.ActionLink("点击跳转", "PersonalCenter", "Home")</div>
+    </div>
 
+
+    <script type="text/javascript">
+        // 定时跳转页面
+        // alert($(".zc_mack").css("transform"));
+        function countDown() {
+            var time = 3;
+            $(".as_time").text(time);
+            var asTime = setInterval(function () {
+                time--;
+                if (time == 0) {
+                    clearInterval(asTime);
+                    showMsApprove("SingleProject", "Project");
+                    $(".zc_mack").css("display", "none");
+                    $(".authentication_success").css("transform", "translate(-50%,-50%) scale(0)");
+                }
+                $(".as_time").text(time);
+            }, 1000)
         }
+        // 默认显示的页面
+        showMsApprove('MyDonationApprove', 'Approve');
+        // 遮罩层代码
+        $(".zc_mack").css({ "width": $(window).width(), "height": $(window).height() });
+
+        // 跳转链接代码
+        function showMsApprove(actionname, contorname) {
+            $.post("IsApprove", function (msg) {
+                if (msg == "0") {
+                    actionname = "ApproveWayChoose";
+                    contorname = "Home";
+                }
+                if (msg == "1") {
+                    actionname = "SingleProject";
+                    contorname = "Project";
+                }
+                if (msg == "2") {
+                    actionname = "SingleProject";
+                    contorname = "Project";
+                }
+                if (msg == "3") {
+                    actionname = "SingleProject";
+                    contorname = "Project";
+                }
+                $(".pt_mod_plate").load("/" + contorname + "/" + actionname + "");
+            });
+        }
+        function showMsApprove2(actionname, contorname) {
+            $(".pt_mod_plate").load("/" + contorname + "/" + actionname + "");
+        }
+
+        $(window).resize(function () {
+            $(".zc_mack").css({ "width": $(window).width(), "height": $(window).height() });
+        })
     </script>
 </body>
 </html>

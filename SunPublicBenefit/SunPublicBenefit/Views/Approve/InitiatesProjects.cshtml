@@ -1,0 +1,160 @@
+﻿
+@{
+    Layout = null;
+}
+
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>发起项目</title>
+    <link rel="shortcut icon" href="~/images/logo .ico">
+    <link rel="stylesheet" type="text/css" href="~/css/public.css">
+    <link href="~/css/itproject.css" rel="stylesheet" />
+    <script src="~/Scripts/js/jquery-1.11.3.min.js"></script>
+</head>
+<body>
+    <div id="center">
+        <div id="title">
+            <h3>公益项目申请</h3>
+            <span>(以下所有信息均为必填)</span>
+        </div>
+        <div class="detailed">
+            <ul id="inf">
+                <li class="tab">1.项目基本信息</li>
+                <li style="border-left: 1px solid #a5a749;border-right: 1px solid #a5a749;">2.项目详情</li>
+                <li>3.完成提交</li>
+            </ul>
+        </div>
+        <div class="detailed_Inf">
+            <h3 class="h3">项目基本信息</h3>
+        </div>
+        <div id="p_Center">
+            <ul>
+                <li class="p_Name">
+                    项目名称
+                    <input type="text">
+                    <span>(不能超过8个字，列如‘为植物人撑起希望’)</span>
+                </li>
+                <li id="p_Field">
+                    捐助领域
+                    <input type="text">
+                    <span>(不能超过8个字，列如‘为植物人撑起希望’)</span>
+
+                </li>
+                <li>
+                    项目地点
+                    <select class="p_Province">
+                        <option>广西省</option>
+                        <option>广东省</option>
+                        <option>云南省</option>
+                    </select>
+                    省
+                    <select>
+                        <option>南宁</option>
+                        <option>柳州</option>
+                        <option>桂林</option>
+                    </select>
+
+                </li>
+                <li>
+                    筹款目标
+                    <input type="text">元
+                    <span>(请输入整数金额，列如 ：5000)</span>
+
+                </li>
+                <li>
+                    验证码
+                    <input style="width: 80px;height: 30px;margin-left: 36px;" type="text">
+                </li>
+            </ul>
+            <div id="yanZheng">
+                <img src="">
+                <p>刷新验证码</p>
+            </div>
+            <div id="sbmit">
+                <a class="sbmit" href="##">保存，下一步</a>
+            </div>
+        </div>
+        <div id="p_Details">
+            <ul style="height:400px;">
+                <li style="width:75px;">项目主图</li>
+                <li style="width:800px;">
+                    <a href="##">上传图片</a>
+                    <span>(最能代表项目的焦点图，图片的尺寸不小于500 x 280px,支持jpg.gif.png格式，不能超过2MB)</span>
+                </li>
+                <li style="width:75px;">项目介绍</li>
+                <li style="width:800px;">
+                    <textarea style="width:600px;height:100px;" type="text"></textarea>
+                    <span>(项目的简单介绍，不超过60个字)</span>
+                </li>
+                <li style="width:75px;">项目配图</li>
+                <li style="width:800px;">
+                    <a href="##">上传图片</a>
+                    <span>(辅助的配图，3-5张图片，支持jpg.gif.png格式，不能超过2MB)</span>
+                </li>
+                <li style="width:75px;">项目介绍</li>
+                <li style="width:800px;">
+                    <input style="width: 200px;height: 30px;" type="text">标题<span style="margin-left:10px;">(向认证用户、基金会和捐款用户介绍与你发起项目之间的背景，有助于了解项目情况，建议不超200字)</span>
+                    <textarea style="width:650px;height:100px;margin-top:20px;"></textarea>
+                </li>
+            </ul>
+            <div id="sbmit_a">
+                <a class="sbmit_a" href="##">提交</a>
+            </div>
+        </div>
+        <div id="finish">
+            <div class="finish_submit">
+                <img @*src="timg.jpg"*@ />
+                <h3>完成提交！</h3>
+            </div>
+            <p>审核结果将在10个工作日内发送到您的QQ邮箱，请注意查收!</p>
+            <div id="sbmit_c">
+                <a class="sbmit_c" href="##">查看我的项目</a>
+            </div>
+        </div>
+    </div>
+    <script type="text/javascript">
+        //***************切换到下一步的资料填写************
+            var oField=document.getElementById('p_Field');
+            var aField=oField.getElementsByTagName('a');
+            for (var i = 0; i < aField.length; i++) {
+                aField[i].onclick=function(){
+                    for (var i = 0; i < aField.length; i++) {
+                        aField[i].className='';
+                    }
+                    this.className='field';
+                }
+            }
+            var oBmi=document.getElementById('sbmit');
+            var oNext=oBmi.getElementsByTagName('a')[0];
+            var oh3=document.getElementsByClassName('h3')[0];
+            var oInf=document.getElementById('inf');
+            var aLis=oInf.getElementsByTagName('li');
+            var center=document.getElementById('p_Center');
+            var oDetails=document.getElementById('p_Details');
+
+            oNext.onclick=function(){//保存，下一步
+                center.style.display='none';
+                oDetails.style.display='block';
+                oh3.innerHTML='项目详情';
+
+                for (var i = 0; i < aLis.length; i++) {
+                    aLis[i].className='';
+                }
+
+                aLis[1].className='tab';
+            }
+            var objSubimt=document.getElementsByClassName('sbmit_a')[0];
+            var detaLis=document.getElementsByClassName('detailed')[0];
+            var dLed_Inf=document.getElementsByClassName('detailed_Inf')[0];
+            var finish_Submit=document.getElementById('finish');
+            objSubimt.onclick=function(){//提交按钮
+                oDetails.style.display='none';
+                finish_Submit.style.display='block';
+                detaLis.style.display='none';
+                dLed_Inf.style.display='none';
+            }
+    </script>
+</body>
+</html>

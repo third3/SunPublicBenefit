@@ -33,12 +33,11 @@ namespace SunPublicBenefit.Models
 
         [DisplayName("权限")]
         public virtual Roles Role { get; set; }
-
-        public virtual ICollection<Project> Project { get; set; }
         public virtual ICollection<DonationRecord> DonationRecord { get; set; }
         public virtual ICollection<Finance> Finance { get; set; }
         public virtual ICollection<PublicBenefit> PublicBenefit { get; set; }
         public virtual ICollection<PublicBenefitRecord> PublicBenefitRecord { get; set; }
         public virtual ICollection<UnBeneficenceApprove> UnBeneficenceApprove { get; set; }
+        public virtual ICollection<ProjectApplication> ProjectApplication { get; set; }
     }
 }

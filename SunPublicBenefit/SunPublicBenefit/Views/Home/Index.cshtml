@@ -5,10 +5,11 @@
 
 <!doctype html>
 <!--[if lt IE 9]><html class="ie6-8"><![endif]-->
+
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <link rel="shortcut icon" href="~/images/logo.ico">
+    <link rel="shortcut icon" href="~/images/logo .ico">
     <title>阳光公益|让爱传递下去</title>
     <link href="~/css/public.css" rel="stylesheet" />
     <link href="~/css/index-pc.css" rel="stylesheet" />
@@ -33,9 +34,9 @@
                                     </div> -->
                 </div>
                 <ul class="cp_ul">
-                    <li class="current"><a class="active" href="#">@Html.ActionLink("官网首页", "Index")</a></li>
+                    <li class="current">@Html.ActionLink("官网首页", "Index")</li>
                     <li><a href="#">基金会</a></li>
-                    <li><a href="#">公益活动</a></li>
+                    <li>@Html.ActionLink("公益活动", "PublicWelfareActivities","Approve")</li>
                     <li><a href="#">捐款</a></li>
                     <li><a href="#">@Html.ActionLink("个人中心", "PersonalCenter")</a></li>
                 </ul>
@@ -50,14 +51,13 @@
                 <li><img src="~/images/cy_yser.jpg" alt=""></li>
             </ul>
             <div class="donation">
-                <form>
-
+                <form class="form_donation">
                     <div>
                         <input type="text" class="dt_txt" id="username" name="UserName" placeholder="用户名/邮箱/账号" />
                     </div>
                     <div><input type="password" class="dt_txt" id="password" name="PassWord" placeholder="密码" /></div>
                     <div class="dt_bt">
-                        <input type="submit" id="login" value="登 陆" />
+                        <input type="button" id="login" value="登 陆" />
                         <input type="button" id="insert" class="dt_zc" value="注 册" />
                     </div>
                 </form>
@@ -123,7 +123,7 @@
                 <div class="persons_ms_ct">
                     <div class="persons_ms_zl">
                         <div class="persons_ms_zl_tl">
-                            <span>曹明秀：博士后的保姆事业</span>
+                            <span></span>
                         </div>
                         <div class="persons_ms_zl_ms">
                             <span></span>
@@ -223,64 +223,21 @@
     </div>
 
     <!-- **************注册弹窗部分************** -->
-    <div class="zc_mack">
+    <div class="zc_mack"></div>
         <div class="zc_ct">
             <div class="zx_cs"></div>
             <div class="zc_ip">
-                <h2 style="text-align:center;color:rgb(244,67,54);margin-bottom: 35px;">注册账户</h2>
+                <h2 style="text-align:center;color:rgb(244,67,54);margin: 7px;">注册账户</h2>
                 <form action="">
-                    <input class="zc_txt" id="add_username" type="text" placeholder="账户名" />
-                    <p>＊请输入用户名</p>
+                    <input class="zc_txt" id="add_username" type="text" placeholder="邮箱" />
+                    <p class="form_userEmail"></p>
                     <input class="zc_txt" id="add_password" type="password" placeholder="密码" />
-                    <p>＊请输入用户名</p>
+                    <p class="form_passOne"></p>
                     <input class="zc_txt" id="add_true_password" type="password" placeholder="确认密码" />
-                    <p>＊请输入用户名</p>
-                    <input type="button" id="add" value="注 册" style="background:rgb(244,67,54);color:#fff;cursor:pointer;margin-top:10px;" />
+                    <p class="form_passTwo"></p>
+                    <input id="add" type="button" value="注 册" style="background:rgb(244,67,54);color:#fff;cursor:pointer;margin-top:10px;"  />
                 </form>
             </div>
         </div>
-    </div>
-
-    <script>
-        $('#login').click(function () {
-            var username = $('#username').val();
-            var password = $('#password').val();
-            $.post('Verify', { 'username': username, 'password': password }, function (data) {
-                if (data == 1) {
-                    alert('用户名或密码错误');
-                    return false;
-                }
-                else {
-                    alert('登录成功');
-                }
-            });
-        });
-        $('#add').click(function () {
-            var add_username = $('#add_username').val();
-            var add_password = $('#add_password').val();
-            var add_true_password = $('#add_true_password').val();
-            if ($('.zc_mack input').val() == '')
-            {
-                alert('您的信息尚未录入完整');
-                return false;
-            }
-            if(add_password != add_true_password)
-            {
-                alert('两次密码不相等');
-            }
-            $.post('addUser', { 'username': add_username, 'password': add_password }, function (data) {
-                if(data == 1)
-                {
-                    alert('该账号已被注册');
-                    return false;
-                }
-                else
-                {
-                    alert('注册成功');
-                    window.location.href = "Index";
-                }
-            });
-        });
-    </script>
 </body>
 </html>
