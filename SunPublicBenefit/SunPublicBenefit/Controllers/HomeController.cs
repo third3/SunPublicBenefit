@@ -172,7 +172,7 @@ namespace SunPublicBenefit.Controllers
         {
             string data = "";
             Session["Users"] = new Users { UserID = Guid.NewGuid(), UserName = "aa", IsStatus = 0 };
-            if (Session["ActiveUser"] != null)
+            if (Session["Users"] != null)
             {
 
                 Users user = Session["Users"] as Users;                            
