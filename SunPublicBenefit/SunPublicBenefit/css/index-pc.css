@@ -22,12 +22,12 @@
             .slider ul li{display: none;position: absolute;left: 0;top: 0px;}
 
             /*轮播图中的登陆部分*/
-            .slider .donation{width:400px;height: 300px;position: absolute;right: 250px;top:50%;transform: translate(0,-50%);overflow:hidden;}
+            .slider .donation{width:400px;height: 300px;position: absolute;right: 250px;top:50%;-webkit-transform: translate(0,-50%);transform: translate(0,-50%);-moz-transform:translate(0,-50%);overflow:hidden;}
             .slider .donation div{height:100px;position: relative;}
             .slider .donation div input{border:1px dashed #fff;height:35px;width:342px;color:#fff;font-size: 15px;outline:none;}
             .slider .donation div input.dt_txt{background: rgba(0,0,0,0);position: absolute;left: 7%;top:31%;}
             .slider .donation div input.dt_txt:focus{border-style: solid;background: #fff;color:#000;}
-            .slider .donation div.dt_bt input{background:rgba(255,255,255,.1);cursor: pointer;transition:.5s;width:143px;margin: 30px 27px;}
+            .slider .donation div.dt_bt input{background:rgba(255,255,255,.1);cursor: pointer;-webkit-transition:.5s;transition:.5s;-moz-transition:.5s;width:143px;margin: 30px 27px;}
             .slider .donation div.dt_bt input:hover{background:rgba(255,255,255,.4);color:#fff;}
             .slider .user_ms{width: auto;height:auto;}
 
@@ -39,7 +39,7 @@
             /*公益动态内容部分*/
             .new_theme{background:rgba(255,0,0,0.5);padding:10px 0 20px 0;}
             .new_theme_ct{-webkit-display:flex;display: flex;width:1300px;margin:0 auto;}
-            .new_theme_ct div.new_theme_ls{cursor: pointer;transition:.5s;flex:1;-webkit-flex:1;float:left;margin:0 10px;padding:0px 0px 10px 0;background:#fff;}
+            .new_theme_ct div.new_theme_ls{cursor: pointer;-webkit-transition:.5s;transition:.5s;-moz-transition:.5s;flex:1;-webkit-flex:1;float:left;margin:0 10px;padding:0px 0px 10px 0;background:#fff;}
             .new_theme_ct div.new_theme_ls:hover{box-shadow: 0 0 15px 2px rgba(44,83,83,.8)}
             .new_theme_ct div.new_theme_img {position: relative;cursor: pointer;}
             .new_theme_ct div.new_theme_img img{width:305px;height:150px;}
@@ -67,8 +67,8 @@
             .persons_ms .persons_ms_ct .persons_ms_zl .persons_ms_zl_ms span{font:15px/32px '微软雅黑';transition:1s;}
 		.persons_ms .persons_ms_ct .persons_ms_tp{flex:1;-webkit-flex:1;position: relative;position: relative;}
 		.persons_ms .persons_ms_ct .persons_ms_tp ul li{float: left;margin:0 0px 9px 10px;height:106px}
-		.persons_ms .persons_ms_ct .persons_ms_tp ul li img{width:145px;height:106px;cursor: pointer;transition:.4s;z-index: 999}
-		.persons_ms .persons_ms_ct .persons_ms_tp ul li img:hover{transform:scale(1.1);}
+		.persons_ms .persons_ms_ct .persons_ms_tp ul li img{width:145px;height:106px;cursor: pointer;-webkit-transition:.4s;transition:.4s;-moz-transition:.4s;z-index: 999}
+		.persons_ms .persons_ms_ct .persons_ms_tp ul li img:hover{-webkit-transform:scale(1.1);transform:scale(1.1);-moz-transform:scale(1.1)}
 
             /*底部服务反馈信息部分*/
             .survey{width:auto;height:300px;background:rgb(67, 67, 67);}

@@ -2,7 +2,7 @@ html,body,a,span,ul,b,p,input,img,li,textarea,input,h2，table,th,td,caption{mar
 ul li{list-style: none;}
 /*注册的弹框部分*/
 .zc_mack{background:rgba(0,0,0,0.5);position: fixed;left: 0;top: 0;display: none;}
-.zc_ct{width:300px;background:rgba(255, 255, 255, 0.9);position: fixed;left: 50%;top: 50%;transition:.3s;transform:translate(-50%,-50%) scale(0);border-radius:10px;}
+.zc_ct{width:300px;background:rgba(255, 255, 255, 0.9);position: fixed;left: 50%;top: 50%;-webkit-transition:.3s;transition:.3s;transition:.3s;-moz-transition:.3s;-webkit-transform:translate(-50%,-50%) scale(0);transform:translate(-50%,-50%) scale(0);-moz-transform:translate(-50%,-50%) scale(0);border-radius:10px;}
 .zc_ct .zx_cs{border-radius:0 10px 0 0;width: 30px;height:30px;background:url("../images/close.png") 30px 30px;position: absolute;right: 0;top: 0;cursor: pointer;transition:.5s;}            
 .zc_ct .zc_ip{width:300px;height:265px;padding:25px 0;}
 .zc_ct .zc_ip form input{border:none;border-radius: 4px;width:202px;height:30px;margin: 12px 49px;}
