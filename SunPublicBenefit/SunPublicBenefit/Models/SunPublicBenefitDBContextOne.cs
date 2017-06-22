@@ -20,6 +20,7 @@ namespace SunPublicBenefit.Models
         public DbSet<PublicBenefitRecord> PublicBenefitRecord { get; set; }
         public DbSet<Roles> Roles { get; set; }
         public DbSet<Users> User { get; set; }
+        public DbSet<UnBeneficenceApprove> UnBeneficenceApprove { get; set; }
         public DbSet<City> City { get; set; }
         public DbSet<Province> Province { get; set; }
     }
