@@ -31,7 +31,7 @@ namespace SunPublicBenefit.Models
         [DisplayName("机构登记性质")]
         public string nature { get; set; }
         [DisplayName("机构规模[总人数]")]
-        public int scale { get; set; }
+        public string scale { get; set; }
 
         [DisplayName("成立日期")]
         public DateTime estaBlishDate { get; set; }
