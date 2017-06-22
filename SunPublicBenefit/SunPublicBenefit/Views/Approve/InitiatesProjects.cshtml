@@ -57,13 +57,10 @@
                 </li>
                 <li>
                     验证码
+                    <img src="~/VCode/Code.ashx"style="cursor:pointer"id="imgCode"/>
                     <input style="width: 80px;height: 30px;margin-left: 36px;" type="text">
                 </li>
             </ul>
-            <div id="yanZheng">
-                <img src="">
-                <p>刷新验证码</p>
-            </div>
             <div id="sbmit">
                 <a class="sbmit" href="##">保存，下一步</a>
             </div>
@@ -107,6 +104,16 @@
         </div>
     </div>
     <script type="text/javascript">
+        var captcha_img = $('#imgCode');
+        var verifyimg = captcha_img.attr("src");
+        captcha_img.attr('title', '点击刷新');
+        captcha_img.click(function () {
+            if (verifyimg.indexOf('?') > 0) {
+                $(this).attr("src", verifyimg + '&random=' + Math.random());
+            } else {
+                $(this).attr("src", verifyimg.replace(/\?.*$/, '') + '?' + Math.random());
+            }
+        });
         //***************省市************
         $.get("/Approve/LoadAllProvinceInfo", function (data) {
             $("#province-id").html(data);
