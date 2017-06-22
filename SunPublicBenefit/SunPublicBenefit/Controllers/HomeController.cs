@@ -17,7 +17,7 @@ namespace SunPublicBenefit.Controllers
         // GET: Home
         public ActionResult Index()
         {
-            addRoles();
+           addRoles();
             return View(db.Roles.ToList());
         }
         public ActionResult Home()
