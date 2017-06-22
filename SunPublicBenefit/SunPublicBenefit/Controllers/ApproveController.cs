@@ -1,16 +1,20 @@
 ﻿using SunPublicBenefit.Models;
 using System;
 using System.Collections;
+using System.Collections.Generic;
 using System.Data.Entity;
 using System.Data.Entity.Validation;
+using System.Linq;
 using System.Text;
 using System.Text.RegularExpressions;
 using System.Web.Mvc;
+using System.Web.Script.Serialization;
+
 namespace SunPublicBenefit.Controllers
 {
     public class ApproveController : ContextController
     {
-        
+
         // GET: Approve
         public ActionResult AutoUserApprove()
         {
@@ -19,7 +23,7 @@ namespace SunPublicBenefit.Controllers
         [HttpPost]
         public ActionResult AutoUserApprove(string identityNumber, string realName, Users user)
         {
-            Session["Users"] = new Users { UserID = Guid.NewGuid(), UserName = "aalkjkh",PassWord="123",IsStatus=0};//测试用，使用时请注释
+            Session["Users"] = new Users { UserID = Guid.NewGuid(), UserName = "aalkjkh", PassWord = "123", IsStatus = 0 };//测试用，使用时请注释
             string userValidateCode = Request["txtCode"];
             string seesionVCode = Session["VCode"] as string;
             Session["VCode"] = null;
@@ -49,7 +53,7 @@ namespace SunPublicBenefit.Controllers
             Regex reg = new Regex("^[\u4e00-\u9fa5]{2,10}$");
             return reg.IsMatch(realName);
         }
-     
+
         public ActionResult UnBeneficenceApprove()
         {
             return View();
@@ -79,13 +83,34 @@ namespace SunPublicBenefit.Controllers
         {
             return View();
         }
-        public   ActionResult PublicWelfareActivities()
+        public ActionResult PublicWelfareActivities()
         {
             return View();
         }
         public ActionResult InitiatesProjects()
         {
             return View();
+        }
+        StringBuilder sb = new StringBuilder();
+        public ActionResult LoadAllProvinceInfo()
+        {
+
+            List<Province> provinceInfo = sun.Province.OrderBy(s => s.ID).ToList();
+            foreach (var province in provinceInfo)
+            {
+                sb.AppendFormat("<option value='{0}'>{1}</option>", province.ID, province.ProvinceName);
+            }
+            return Content(sb.ToString());
+        }
+        public ActionResult GetAllCityByProvinceID()
+        {
+            int pID = int.Parse(Request["pId"] ?? "0");
+            IQueryable<City> cityInfo = from s in sun.City where s.ProvinceID == pID select s;
+            foreach (var city in cityInfo)
+            {
+                sb.AppendFormat("<option value='{0}'>{1}</option>", city.ID, city.CityName);
+            }
+            return Content(sb.ToString());
         }
     }
 }

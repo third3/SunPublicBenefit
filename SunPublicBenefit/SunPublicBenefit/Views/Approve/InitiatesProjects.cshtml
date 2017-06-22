@@ -49,16 +49,15 @@
                     <select id="city-id"></select>
                     市
                 </li>
-                <li>
+                <li id="mubiao">
                     筹款目标
                     <input type="text">元
-                    <span>(请输入整数金额，列如 ：5000)</span>
-
+                    <span style="color: #a09c9c;margin-left: 20px;font-size:12px;">(请输入整数金额，列如 ：5000)</span>
                 </li>
-                <li>
-                    验证码
+                <li class="yan">
+                    <span>验证码</span>
                     <img src="~/VCode/Code.ashx"style="cursor:pointer"id="imgCode"/>
-                    <input style="width: 80px;height: 30px;margin-left: 36px;" type="text">
+                    <input style="width: 80px;height: 30px;margin-left: 40px;" type="text">
                 </li>
             </ul>
             <div id="sbmit">
@@ -69,7 +68,7 @@
             <ul style="height:400px;">
                 <li style="width:75px;">项目主图</li>
                 <li style="width:800px;">
-                    <a href="##">上传图片</a>
+                    <a href="##" id="uploading">上传图片</a>
                     <span>(最能代表项目的焦点图，图片的尺寸不小于500 x 280px,支持jpg.gif.png格式，不能超过2MB)</span>
                 </li>
                 <li style="width:75px;">项目介绍</li>
@@ -104,6 +103,7 @@
         </div>
     </div>
     <script type="text/javascript">
+        //************yanzhenma*************
         var captcha_img = $('#imgCode');
         var verifyimg = captcha_img.attr("src");
         captcha_img.attr('title', '点击刷新');
