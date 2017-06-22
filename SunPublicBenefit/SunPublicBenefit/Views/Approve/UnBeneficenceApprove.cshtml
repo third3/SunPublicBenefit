@@ -146,8 +146,8 @@
             </div>
         </div>
         @* } *@
-        <script>
-                $("#form_captcha").click(function () {
+        @*<script>
+            $("#form_captcha").click(function () {
                     $.post("/Approve/UnBeneficenceApprove", {
                         userName: $("#fg_col").innerHTML,//登录名
                         FullName: $("#form_input1").val(),//项目名称
@@ -162,12 +162,33 @@
                         website: $("#form_input5").val(),//官网
                         explain: $("#explain").val(),//机构简介
                         code: $("#code").val() //验证码
-
                     },
                     function (msg) {
 
                     });
                 });
+        </script>*@
+        <script>
+            $("#form_captcha").click(function () {
+                $.post("/Approve/UnBeneficenceApprove", {
+                    userName: $("#fg_col").innerHTML,//登录名
+                    FullName: $("#form_input1").val(),//项目名称
+                    telePhone: $("#form_input2").val(),//电话
+                    provie: $("#province option:selected").text(),//省
+                    city: $("#city option:selected").text(),//市 
+                    residentAddress: $("#form_input3").val(),//详细地址
+                    nature: $("#nature option:selected").text(), //性质
+                    annual: $("#annual option:selected").text(),//年募款额
+                    fullTime: $("#fullTime option:selected").text(),//全职人数
+                    dateTime: $("#form_input4").val(),//时间
+                    website: $("#form_input5").val(),//官网
+                    explain: $("#explain").val(),//机构简介
+                    code: $("#code").val() //验证码
+                },
+                   function (msg) {
+
+                   });
+            });
         </script>
 </body>
 </html>

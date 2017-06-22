@@ -70,24 +70,21 @@
             }
         })
         //******************点击认证做出判断当前的表单内容是否认证成功******************
-        $.post("/Approve/AutoUserApprove", { identityNumber: $("#form_idCard").val(), realName: $("#realName").val(), txtCode: $("#txtCode").val() }, function (msg) {
-            if (msg == "OK") {
-                showCertification();
-                countDown();
-            }
-        });
+       
 
 
         function showCertification() {
             $(".zc_mack").css("display", "block");
             $(".authentication_success").css("transform", "translate(-50%,-50%) scale(1)");
-        }
-        $(function () {
-            $("#btnAdd").click(function () {
-                $.post("/Approve/AutoUserApprove", { realName: $("#realName").val(), identityNumber: $("#identityNumber").val(), txtCode: $("#txtCode").val() }, function (msg) {
+        }     
+        $("#btnApprove").click(function () {
+                $.post("/Approve/AutoUserApprove", { identityNumber: $("#form_idCard").val(), realName: $("#realName").val(), txtCode: $("#txtCode").val() }, function (msg) {
+                    if (msg == "OK") {
+                        showCertification();
+                        countDown();
+                    }
                 });
             });
-        });
         var captcha_img = $('#imgCode');
         var verifyimg = captcha_img.attr("src");
         captcha_img.attr('title', '点击刷新');
