@@ -43,6 +43,10 @@ namespace SunPublicBenefit.Controllers
         {
             return View();
         }
+        public ActionResult PublicfiguresProject()
+        {
+            return View();
+        }
 
     }
 }
