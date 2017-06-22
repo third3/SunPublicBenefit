@@ -75,16 +75,6 @@
                         </select>
                     </div>
                 </div>
-                @*<div class="form_group">
-                        <div class="col_side lh_col">主要领域:</div>
-                        <div>
-                            <label for="" class="form_label">疾病救助</label>
-                            <label for="" class="form_label">扶贫/救灾</label>
-                            <label for="" class="form_label">教育/助学</label>
-                            <label for="" class="form_label">环境/动物保护</label>
-                            <label for="" class="form_label">其他</label>
-                        </div>
-                    </div>*@
                 <div class="form_group">
                     <div class="col_side lh_col">年募款额:</div>
                     <div>
@@ -107,7 +97,7 @@
                             <option>50人—100人</option>
                             <option>100人以上</option>  
                         </select>
-                        <span class="jg_col">兼职人数:</span>
+                        @*<span class="jg_col">兼职人数:</span>
                         <select name="parttime" id="parttime" class="form_select">
                             <option selected="selected">1人—10人</option>
                             <option>10人—50人</option>
@@ -120,7 +110,7 @@
                             <option>10人—50人</option>
                             <option>50人—100人</option>
                             <option>100人以上</option>  
-                        </select>
+                        </select>*@
                     </div>
                 </div>
                 <div class="form_group">
@@ -148,6 +138,7 @@
                 <div class="form_group">
                     <div class="col_side lh_col">验证码:</div>
                     <div>
+                        <img src="~/VCode/Code.ashx" />
                         <input id="code" class="form_captcha" type="text" />
                         <input id="form_captcha" class="form_captcha" type="submit" @*onclick="showMsApprove('pt_contact','pt_mod_plate')"*@ style="cursor: pointer;" value="下一步" />
                     </div>
@@ -156,19 +147,17 @@
         </div>
         @* } *@
         <script>
-       
                 $("#form_captcha").click(function () {
                     $.post("/Approve/UnBeneficenceApprove", {
+                        userName: $("#fg_col").innerHTML,//登录名
                         FullName: $("#form_input1").val(),//项目名称
                         telePhone: $("#form_input2").val(),//电话
-                        provie: $("#province option:selected").text,//省
-                        city: $("#city option:selected").text,//市 
+                        provie: $("#province option:selected").text(),//省
+                        city: $("#city option:selected").text(),//市 
                         residentAddress: $("#form_input3").val(),//详细地址
-                        nature: $("#nature option:selected").text, //性质
-                        annual: $("#annual option:selected").text,//年募款额
-                        fullTime: $("#fullTime option:selected").text,//全职人数
-                        parttime: $("#parttime option:selected").text,//兼职人数
-                        volunteer: $("#volunteer option:seleted").text,//志愿者
+                        nature: $("#nature option:selected").text(), //性质
+                        annual: $("#annual option:selected").text(),//年募款额
+                        fullTime: $("#fullTime option:selected").text(),//全职人数
                         dateTime: $("#form_input4").val(),//时间
                         website: $("#form_input5").val(),//官网
                         explain: $("#explain").val(),//机构简介
@@ -179,7 +168,6 @@
 
                     });
                 });
-  
         </script>
 </body>
 </html>
