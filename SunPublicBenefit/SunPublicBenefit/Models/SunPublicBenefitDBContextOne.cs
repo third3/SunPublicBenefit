@@ -6,9 +6,9 @@ using System.Web;
 
 namespace SunPublicBenefit.Models
 {
-    public class SunPublicBenefitDBContextOne: DbContext
+    public class SunPublicBenefitDBContextOne : DbContext
     {
-        public SunPublicBenefitDBContextOne():base("SunPublicBenefitDBContext")
+        public SunPublicBenefitDBContextOne() : base("SunPublicBenefitDBContext")
         {
 
         }
@@ -21,5 +21,7 @@ namespace SunPublicBenefit.Models
         public DbSet<Roles> Roles { get; set; }
         public DbSet<Users> User { get; set; }
         public DbSet<UnBeneficenceApprove> UnBeneficenceApprove { get; set; }
+        public DbSet<City> City { get; set; }
+        public DbSet<Province> Province { get; set; }
     }
 }
