@@ -32,7 +32,7 @@ namespace SunPublicBenefit.Controllers
             Session["VCode"] = null;
             if (string.IsNullOrEmpty(seesionVCode) || userValidateCode != seesionVCode)
             {
-                ViewBag.Message = "<script>alert('验证码错误！')</script>";
+                ViewBag.Message = "<script>alert('验证码错误！');</script>";
                 return View();
             }
             if (IDVerify(identityNumber) && IsCN(realName))
@@ -62,20 +62,30 @@ namespace SunPublicBenefit.Controllers
             return View();
         }
         [HttpPost]
-        public ActionResult UnBeneficenceApprove(string userName, string FullName, string telephone, string residentAddress, string provie, string city, string fullTime, string nature, string annual, DateTime dateTime, string website, string explain, string code, UnBeneficenceApprove unben)
+        public ActionResult UnBeneficenceApprove(FormCollection fc, UnBeneficenceApprove unben)
         {
-            unben.FullName = FullName;//机构名称
-            unben.telePhone = telephone;//电话
-            unben.residentAddress = provie + "省" + city + "市" + residentAddress; //详细地址
-            unben.nature = nature;//机构性质
-            unben.scale = Convert.ToInt32(fullTime);//总人数
-            unben.estaBlishDate = dateTime;//成立日期
-            unben.website = website;//官方主页
-            unben.demo = explain;//机构简介
-            unben.code = code;//验证码
+            unben.unBenID =Guid.NewGuid();
+            //验证码是否正确
+            string imgcode = Session["VCode"] as string;//图片中的验证
+            Session["VCode"] = null;
+            string user = fc["userName"];
+            unben.FullName = fc["fullName"];//机构名称
+            unben.telePhone = fc["telephone"] ;//电话
+            unben.residentAddress = fc["provie"] + "省" + fc["city"]  + "市" + fc["residentAddress"]; //详细地址
+            unben.nature =fc["nature"] ;//机构性质
+            unben.scale =fc["fullTime"];//总人数
+            unben.estaBlishDate =Convert.ToDateTime( fc["dateTime"]);//成立日期
+            unben.website = fc["website"];//官方主页
+            unben.demo = fc["explain"];//机构简介
+            unben.code = fc["code"];//验证码
+            if (string.IsNullOrEmpty(imgcode) || imgcode != unben.code)
+            {
+                return Content("false");
+               
+            }
             sun.UnBeneficenceApprove.Add(unben);
             sun.SaveChanges();
-            return View();
+            return RedirectToAction("UnBeneficenceApprove","Project");
         }
         public ActionResult BeneficenceApprove()
         {
