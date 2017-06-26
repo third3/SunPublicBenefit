@@ -106,6 +106,8 @@ namespace SunPublicBenefit.Controllers
         [HttpPost]
         public ActionResult InitiatesProjects(ProjectApplication application)
         {
+            string fullDirMain;
+            string fullDirIllustrating;
             HttpPostedFileBase file1 = Request.Files["imgMainPicture"];
             string fileName = Path.GetFileName(file1.FileName);
             string ext = Path.GetExtension(fileName);
@@ -117,8 +119,8 @@ namespace SunPublicBenefit.Controllers
             {
                 string dir = "/Upload/" + DateTime.Now.Year + "/" + DateTime.Now.Month + "/" + DateTime.Now.Day + "/";
                 Directory.CreateDirectory(Path.GetDirectoryName(Server.MapPath(dir)));//创建文件夹
-                string fullDir = dir + MD5.GetStreamMD5(file1.InputStream) + ext;
-                file1.SaveAs(Request.MapPath(fullDir));
+                fullDirMain = dir + MD5.GetStreamMD5(file1.InputStream) + ext;
+                file1.SaveAs(Request.MapPath(fullDirMain));
             }
             HttpPostedFileBase file2 = Request.Files["imgIllustratingPicture"];
             string fileName2 = Path.GetFileName(file2.FileName);
@@ -130,11 +132,10 @@ namespace SunPublicBenefit.Controllers
             else
             {
                 string dir = "/Upload/" + DateTime.Now.Year + "/" + DateTime.Now.Month + "/" + DateTime.Now.Day + "/";
-                string fullDir = dir + MD5.GetStreamMD5(file2.InputStream) + ext2;
-                file2.SaveAs(Request.MapPath(fullDir));
-
+                fullDirIllustrating = dir + MD5.GetStreamMD5(file2.InputStream) + ext2;
+                file2.SaveAs(Request.MapPath(fullDirIllustrating));
             }
-            return Content("");
+            return RedirectToAction("PersonalCenter", "Home");
         }
         StringBuilder sb = new StringBuilder();
         public ActionResult LoadAllProvinceInfo()
