@@ -44,7 +44,7 @@
                 </div>
                 <div class="form_group">
                     <div class="col_side lh_col">验证码:</div>
-                    <img src="~/VCode/Code.ashx" />
+                    <img src="~/VCode/Code.ashx" id="imgCode" style="cursor:pointer"/>
                     <input type="text" class="form_captcha" id="txtCode" />
                     <input type="button" value="点击认证" id="btnApprove" class="form_approve" />
                     <div class=""></div>
@@ -54,6 +54,16 @@
     </div>
 
     <script type="text/javascript">
+        var captcha_img = $('#imgCode');
+        var verifyimg = captcha_img.attr("src");
+        captcha_img.attr('title', '点击刷新');
+        captcha_img.click(function () {
+            if (verifyimg.indexOf('?') > 0) {
+                $(this).attr("src", verifyimg + '&random=' + Math.random());
+            } else {
+                $(this).attr("src", verifyimg.replace(/\?.*$/, '') + '?' + Math.random());
+            }
+        });
         // *******************身份证检验********************
         // 身份证号码为15位或者18位，15位时全为数字，18位前17位为数字，最后一位是校验位，字或字符X
         var reg = /^\d{6}(18|19|20)?\d{2}(0[1-9]|1[12])(0[1-9]|[12]\d|3[01])\d{3}(\d|X)$/i;
@@ -70,24 +80,21 @@
             }
         })
         //******************点击认证做出判断当前的表单内容是否认证成功******************
-        $.post("/Approve/AutoUserApprove", { identityNumber: $("#form_idCard").val(), realName: $("#realName").val(), txtCode: $("#txtCode").val() }, function (msg) {
-            if (msg == "OK") {
-                showCertification();
-                countDown();
-            }
-        });
+       
 
 
         function showCertification() {
             $(".zc_mack").css("display", "block");
             $(".authentication_success").css("transform", "translate(-50%,-50%) scale(1)");
-        }
-        $(function () {
-            $("#btnAdd").click(function () {
-                $.post("/Approve/AutoUserApprove", { realName: $("#realName").val(), identityNumber: $("#identityNumber").val(), txtCode: $("#txtCode").val() }, function (msg) {
+        }     
+        $("#btnApprove").click(function () {
+                $.post("/Approve/AutoUserApprove", { identityNumber: $("#form_idCard").val(), realName: $("#realName").val(), txtCode: $("#txtCode").val() }, function (msg) {
+                    if (msg == "OK") {
+                        showCertification();
+                        countDown();
+                    }
                 });
             });
-        });
         var captcha_img = $('#imgCode');
         var verifyimg = captcha_img.attr("src");
         captcha_img.attr('title', '点击刷新');

@@ -24,7 +24,7 @@ ul li{list-style: none;}
 
 .footer{text-align:center;padding:25px 0;margin-top:35px;border-top:1px solid #dfdcdc;color:#989898;}
 .inner{width:804px;margin:0 auto;font-size:14px;}
-.concat_us{padding-bottom:10px;border-bottom:1px solid #e2e2e2;height:32px;line-height:32px;}
+
 .concat_us span{margin-right:50px;display:inline-block;float:left;}
 .concat_us .title{font-size:20px;}
 .feedback{float:right;}

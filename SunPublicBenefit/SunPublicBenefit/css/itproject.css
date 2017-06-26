@@ -107,9 +107,13 @@
             border: 1px solid green;
         }
 
-        #p_Center span, #title span {
+        #p_Center .p_Name span,#p_Field span,#mubiao span, #title span {
             color: #a09c9c;
             margin-left: 20px;
+            font-size:12px;
+        }
+        #p_Center .yan ,#p_Center .yan span ,#p_Center .yan input{
+            float:left;
         }
 
         #yanZheng {
@@ -135,7 +139,7 @@
             width: 140px;
             height: 40px;
             margin-left: 88px;
-            margin-top: 100px;
+            margin-top: 80px;
             background: #8cb10c;
             display: block;
             color: #fff;
@@ -234,5 +238,10 @@
             line-height: 40px;
             border-radius: 5px;
             text-align: center;
+        }
+        #imgCode{
+            width:80px;
+            height:30px;
+            margin-left:30px;
         }
 
