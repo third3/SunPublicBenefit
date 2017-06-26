@@ -60,32 +60,24 @@
             </div>
         </div>
         <div class="pb_figures">
-            <div class="pb_figures_ct">
+            <div class="pb_figures_ct" id="pf_ct">
                 <div class="pb_figures_tl">
                     <h2>关于<span style="color:#3a9dea">公益人物</span>新闻</h2>
                 </div>
                 @* ************新闻人物里面的内容通过检索后台的人物的数据有多少条然后进行添加进HTML中通过AJAX进行后台数据的传输********** *@
-                <div class="pb_figures_ms">
-                    <div class="pb_figures_ms_ig">
-                        <a href=""><img src="~/images/cy_ytuz.jpg"/></a>
-                    </div>
-                    <div class="pb_figures_ms_pr">
-                        <ul>
-                            <li class="pfmp_tl"><a href="">孙恒：摇滚青年的公益人生</a></li>
-                            <li  class="pfmp_ms"><span>北京'工友之家'总干事、北京打工青年艺术团团长、同心实验学校校长……2011年3月，京郊皮村，每隔三五分钟，头上就有一架硕大的飞机轰鸣而过，飞机下的小村里，身兼数职的孙恒背着吉他严肃地说：'这些打工朋友用自己的双手、汗水建起了一个美丽的大都市，但是在这个社会的主流声音中，他们却是沉默的。'说完，他唱起了《想起那一年》，歌声如呐喊。他解释说：真正的摇滚精神不是打碎，而是建设。</span></li>
-                            <li class="pfmp_lb">
-                                <span>01月08日</span>
-                                <span>Time</span>
-                                <span>标签:<a>公益人物</a></span>
-                            </li>
-                            <li class="pfmp_details"><a href="">查看详情</a></li>
-                        </ul>
-                    </div>
-                </div>
+                
             </div>
         </div>
         <div class="pageBar">
-
+            <div class="pageBar_ct">
+                <ul>
+                    <li class="prev" id="prev"><a href="#">上一页</a></li>
+                    <li class="reset">
+                        @*这里的数量根据分页数追加*@
+                    </li>
+                    <li class="next" id="next"><a href="#">下一页</a></li>
+                </ul>
+            </div>
         </div>
         <!-- **************网站底部信息反馈部分************** -->
         <div class="footer">

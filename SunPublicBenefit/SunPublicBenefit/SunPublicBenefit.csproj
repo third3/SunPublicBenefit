@@ -157,6 +157,7 @@
     <Content Include="news.txt" />
     <Content Include="persons.txt" />
     <Content Include="Scripts\js\dateTime.js" />
+    <Content Include="Scripts\js\figuress.js" />
     <Content Include="Scripts\js\fragment.js" />
     <Content Include="Scripts\js\index.js" />
     <Content Include="Scripts\js\it-project.js" />
