@@ -1,12 +1,15 @@
 ﻿using SunPublicBenefit.Models;
+using SunPublicBenefit.VCode;
 using System;
 using System.Collections;
 using System.Collections.Generic;
 using System.Data.Entity;
 using System.Data.Entity.Validation;
+using System.IO;
 using System.Linq;
 using System.Text;
 using System.Text.RegularExpressions;
+using System.Web;
 using System.Web.Mvc;
 using System.Web.Script.Serialization;
 
@@ -90,6 +93,39 @@ namespace SunPublicBenefit.Controllers
         {
             return View();
         }
+        [HttpPost]
+        public ActionResult InitiatesProjects(ProjectApplication application)
+        {
+            HttpPostedFileBase file1 = Request.Files["imgMainPicture"];
+            string fileName = Path.GetFileName(file1.FileName);
+            string ext = Path.GetExtension(fileName);
+            if (!(ext == ".jpeg" || ext == ".jpg" || ext == ".png" || ext == ".gif" || ext == ".bmp"))
+            {
+                return Content("sun非法文件");
+            }
+            else
+            {
+                string dir = "/Upload/" + DateTime.Now.Year + "/" + DateTime.Now.Month + "/" + DateTime.Now.Day + "/";
+                Directory.CreateDirectory(Path.GetDirectoryName(Server.MapPath(dir)));//创建文件夹
+                string fullDir = dir + MD5.GetStreamMD5(file1.InputStream) + ext;
+                file1.SaveAs(Request.MapPath(fullDir));
+            }
+            HttpPostedFileBase file2 = Request.Files["imgIllustratingPicture"];
+            string fileName2 = Path.GetFileName(file2.FileName);
+            string ext2 = Path.GetExtension(fileName2);
+            if (!(ext2 == ".jpeg" || ext2 == ".jpg" || ext2 == ".png" || ext2 == ".gif" || ext2 == ".bmp"))
+            {
+                return Content("sun非法文件");
+            }
+            else
+            {
+                string dir = "/Upload/" + DateTime.Now.Year + "/" + DateTime.Now.Month + "/" + DateTime.Now.Day + "/";
+                string fullDir = dir + MD5.GetStreamMD5(file2.InputStream) + ext2;
+                file2.SaveAs(Request.MapPath(fullDir));
+
+            }
+            return Content("");
+        }
         StringBuilder sb = new StringBuilder();
         public ActionResult LoadAllProvinceInfo()
         {
@@ -110,6 +146,22 @@ namespace SunPublicBenefit.Controllers
                 sb.AppendFormat("<option value='{0}'>{1}</option>", city.ID, city.CityName);
             }
             return Content(sb.ToString());
+        }
+        [HttpPost]
+        public ActionResult UploadingImage()
+        {
+            HttpPostedFileBase file = Request.Files["name"];
+            string ext = Path.GetExtension(file.FileName);
+            if (!(ext == ".jpeg" || ext == ".jpg" || ext == ".png" || ext == ".gif" || ext == ".bmp"))
+            {
+                return Content("hl非法文件");
+            }
+            else
+            {
+                string path = "/Upload/" + Guid.NewGuid().ToString() + file.FileName;
+                file.SaveAs(Request.MapPath(path));
+                return Content("hl上传成功");
+            }
         }
     }
 }
