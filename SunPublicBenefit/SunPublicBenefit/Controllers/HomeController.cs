@@ -29,7 +29,7 @@ namespace SunPublicBenefit.Controllers
             string userName = user.UserName;
             string passWord = user.PassWord;
             List<Users> userList = db.User.OrderBy(m => m.UserName).ToList();
-            bool isname = false;            
+            bool isname = false;
             foreach (var item in userList)
             {
                 if (item.UserName == userName && item.PassWord == passWord)
@@ -171,11 +171,12 @@ namespace SunPublicBenefit.Controllers
         public ActionResult IsApprove()
         {
             string data = "";
-            Session["Users"] = new Users { UserID = Guid.NewGuid(), UserName = "aa", IsStatus = 0 };
+            //Session["Users"] = new Users { UserID = Guid.NewGuid(), UserName = "aa", IsStatus = 0 };
+          
             if (Session["Users"] != null)
             {
 
-                Users user = Session["Users"] as Users;                            
+                Users user = Session["Users"] as Users;
                 if (user.IsStatus == 0)
                 {
                     data = "0";
@@ -202,6 +203,15 @@ namespace SunPublicBenefit.Controllers
         }
         public ActionResult PersonalCenter()
         {
+            Users u =Session["Users"] as Users;
+            if (u!=null)
+            {
+                ViewBag.userName = u.UserName;
+            }
+            else
+            {
+                return RedirectToAction("Index", "Home");
+            }
             return View();
         }
     }

@@ -25,7 +25,7 @@
             <div class="form_widget">
                 <div class="form_group">
                     <div class="col_side fg_col">账户名:</div>
-                    <div class="fg_col" id="fg_col">俺的肚皮不能减</div>
+                    <div class="fg_col" id="fg_col">@Html.Raw(ViewBag.userName)</div>
                 </div>
                 <div class="form_group">
                     <div class="col_side lh_col">机构全称:</div>
@@ -208,7 +208,7 @@
             /*传值*/
             $("#form_captcha").click(function () {
                 $.post("/Approve/UnBeneficenceApprove", {
-                    userName: $("#fg_col").innerHTML,//登录名
+                    userName: $("#fg_col").text(),//登录名
                     fullName: $("#form_input1").val(),//项目名称
                     telePhone: $("#form_input2").val(),//电话
                     provie: $("#province-id option:selected").text(),//省

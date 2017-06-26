@@ -53,9 +53,11 @@ namespace SunPublicBenefit.Controllers
             Regex reg = new Regex("^[\u4e00-\u9fa5]{2,10}$");
             return reg.IsMatch(realName);
         }
-
+        Users user;
         public ActionResult UnBeneficenceApprove()
         {
+            user = Session["Users"] as Users;
+            ViewBag.userName = user.UserName;
             return View();
         }
         [HttpPost]
@@ -65,7 +67,9 @@ namespace SunPublicBenefit.Controllers
             //验证码是否正确
             string imgcode = Session["VCode"] as string;//图片中的验证
             Session["VCode"] = null;
-            string user = fc["userName"];
+            string u = fc["userName"];
+            List<Users> users = sun.User.Where(m => m.UserName == u).ToList();
+            //unben.userName = users;
             unben.FullName = fc["fullName"];//机构名称
             unben.telePhone = fc["telephone"] ;//电话
             unben.residentAddress = fc["provie"] + "省" + fc["city"]  + "市" + fc["residentAddress"]; //详细地址
