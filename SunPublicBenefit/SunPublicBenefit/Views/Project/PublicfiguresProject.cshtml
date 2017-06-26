@@ -1,0 +1,115 @@
+﻿
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>阳光公益人物</title>
+    <link href="~/css/public.css" rel="stylesheet" />
+    <link rel="shortcut icon" href="~/images/logo .ico" />
+    <link href="~/css/figures.css" rel="stylesheet"/>
+    <script src="~/Scripts/js/jquery-1.11.3.min.js"></script>
+    <script src="~/Scripts/js/figuress.js"></script>
+</head>
+<body>
+    <div>
+        <div class="nav" style="box-shadow:0 0 10px 1px #d0d0d0;">
+            <div class="nav_menu">
+                <div class="nav_lf_title">
+                    <div class="nav_lf_tllg"></div>
+                </div>
+                <ul class="cp_ul">
+                    <li class="current">@Html.ActionLink("官网首页", "Index", "Home")</li>
+                    <li><a href="#">基金会</a></li>
+                    <li>@Html.ActionLink("公益活动", "PublicWelfareActivities", "Approve")</li>
+                    <li><a href="#">捐款</a></li>
+                    <li><a href="#">@Html.ActionLink("个人中心", "PersonalCenter", "Home")</a></li>
+                </ul>
+            </div>
+        </div>
+        <div class="search">
+            <div class="search-rg">
+                <marquee class="search_marquee" behavior="alternate" scrollamount ="1" behavior="scroll" direction="up" onmouseover=this.stop() onmouseout=this.start()>
+                    <p>
+                       <a href="">孙恒：摇滚青年的公益人生</a>
+                    </p>
+                    <p>
+                        <a href="">曹明秀：博士后的保姆事业</a>
+                    </p>
+                    <p>
+                        <a href="">包唐韬：绝壁支教老师</a>
+                    </p>
+                    <p>
+                        <a href="">董丹丹：边卖玉米边教课本</a>
+                    </p>
+                    <p>
+                        <a href="">曹大佛：把慈善写在路上</a>
+                    </p>
+                    <p>
+                        <a href="">徐白仑：金钥匙盲童教育工程创始人</a>
+                    </p>
+                </marquee>
+                <form action="/" method="post">
+                    <input type="text" placeholder="请输入关键词" />
+                    <input type="button" value="搜索" />
+                </form>
+            </div>
+        </div>
+        <div class="pb_figures">
+            <div class="pb_figures_ct">
+                <div class="pb_figures_tl">
+                    <h2>关于<span style="color:#3a9dea">公益人物</span>新闻</h2>
+                </div>
+                @* ************新闻人物里面的内容通过检索后台的人物的数据有多少条然后进行添加进HTML中通过AJAX进行后台数据的传输********** *@
+                <div class="pb_figures_ms">
+                    <div class="pb_figures_ms_ig">
+                        <a href=""><img src="~/images/cy_ytuz.jpg"/></a>
+                    </div>
+                    <div class="pb_figures_ms_pr">
+                        <ul>
+                            <li class="pfmp_tl"><a href="">孙恒：摇滚青年的公益人生</a></li>
+                            <li  class="pfmp_ms"><span>北京'工友之家'总干事、北京打工青年艺术团团长、同心实验学校校长……2011年3月，京郊皮村，每隔三五分钟，头上就有一架硕大的飞机轰鸣而过，飞机下的小村里，身兼数职的孙恒背着吉他严肃地说：'这些打工朋友用自己的双手、汗水建起了一个美丽的大都市，但是在这个社会的主流声音中，他们却是沉默的。'说完，他唱起了《想起那一年》，歌声如呐喊。他解释说：真正的摇滚精神不是打碎，而是建设。</span></li>
+                            <li class="pfmp_lb">
+                                <span>01月08日</span>
+                                <span>Time</span>
+                                <span>标签:<a>公益人物</a></span>
+                            </li>
+                            <li class="pfmp_details"><a href="">查看详情</a></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="pageBar">
+
+        </div>
+        <!-- **************网站底部信息反馈部分************** -->
+        <div class="footer">
+            <div class="inner">
+                <div class="concat_us">
+                    <span class="title">联系我们</span>
+                    <span>项目合作：XXXX.com</span>
+                    <span>媒体合作：XXXX.com</span>
+                    <div class="feedback">
+                        <a href="">意见反馈</a>|
+                        <a href="">网友投诉</a>
+                    </div>
+                </div>
+                <div class="links">
+                    <a href="">阳光公益慈善基金会</a>|
+                    <a href="">关于阳光公益</a>|
+                    <a href="">服务条款</a>|
+                    <a href="">广告服务</a>|
+                    <a href="">客服中心</a>|
+                    <a href="">网站导航</a>
+                </div>
+                <p class="copyright">Copyright © 1998-2017 Tencent.All Rights Reserved 阳光公益有限公司 版权所有</p>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

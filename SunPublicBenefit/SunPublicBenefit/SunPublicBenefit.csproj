@@ -102,6 +102,7 @@
     <Content Include="Content\bootstrap.css" />
     <Content Include="Content\bootstrap.min.css" />
     <Content Include="Content\Site.css" />
+    <Content Include="css\figures.css" />
     <Content Include="css\home.css" />
     <Content Include="css\index-pa.css" />
     <Content Include="css\index-pc.css" />
@@ -156,6 +157,7 @@
     <Content Include="images\qsgy.png" />
     <Content Include="news.txt" />
     <Content Include="persons.txt" />
+    <Content Include="Scripts\js\figuress.js" />
     <Content Include="Scripts\js\fragment.js" />
     <Content Include="Scripts\js\index.js" />
     <Content Include="Scripts\js\it-project.js" />
@@ -215,6 +217,7 @@
     <Content Include="Views\Approve\MyDonationApprove.cshtml" />
     <Content Include="Views\Approve\PublicWelfareActivities.cshtml" />
     <Content Include="Views\Approve\InitiatesProjects.cshtml" />
+    <Content Include="Views\Project\PublicfiguresProject.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>

@@ -32,3 +32,15 @@ ul li{list-style: none;}
 .copyright{line-height:24px;color:#989898;font-size:12px;}
 .links{margin-top:10px;line-height:26px;}
 .links a{color:#989898;font-size:12px;margin:0 20px;}
+
+/*导航部分*/
+            .nav {width:auto;height:80px;}
+            .nav .nav_menu{width:1200px;height:80px;margin:0 auto;}
+            .nav .nav_menu .nav_lf_title{float:left;position: relative;width:320px;}
+            .nav .nav_menu .nav_lf_title .nav_lf_tllg{float:left;width:256px;height:80px;background: url("../images/1.png");background-size: 256px 80px;}
+            /*.nav .nav_menu .nav_lf_title .nav_lf_tlsp{line-height: 30px;float: right;}*/
+            .nav .nav_menu .nav_lf_title .nav_lf_tlsp .nav_lf_tl{font:25px/80px '微软雅黑';color:#5a5a5a;}
+            .nav .nav_menu .cp_ul{float: right;}
+            .nav .nav_menu .cp_ul li{float: left;}
+            .nav .nav_menu .cp_ul li a{display: block;line-height: 60px;width: 100px;text-align: center;margin: 10px 0;font-size: 15px;}
+            .nav .nav_menu .cp_ul li a.active{background: rgba(255,0,0,.5);color:#fff;}
