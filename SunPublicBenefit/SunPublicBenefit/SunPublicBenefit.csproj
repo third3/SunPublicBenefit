@@ -164,6 +164,8 @@
     <Content Include="fonts\log.PNG" />
     <Content Include="fonts\mark.PNG" />
     <Content Include="fonts\title.PNG" />
+    <Content Include="Upload\2017\6\26\734666A5D534E52F6262DF0D7E0CD66B.jpg" />
+    <Content Include="Upload\2017\6\26\7C0FD15DC6BB5B2D8814AABF65EFB08C.jpg" />
     <Content Include="Web.config" />
     <Content Include="Views\Home\Index.cshtml" />
     <Content Include="Views\Approve\AutoUserApprove.cshtml" />
@@ -195,6 +197,7 @@
     <Compile Include="VCode\Code.ashx.cs">
       <DependentUpon>Code.ashx</DependentUpon>
     </Compile>
+    <Compile Include="VCode\MD5.cs" />
     <Compile Include="VCode\ValidateCode.cs" />
   </ItemGroup>
   <ItemGroup>
