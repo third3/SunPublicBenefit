@@ -29,7 +29,7 @@ namespace SunPublicBenefit.Controllers
             Session["VCode"] = null;
             if (string.IsNullOrEmpty(seesionVCode) || userValidateCode != seesionVCode)
             {
-                ViewBag.Message = "<script>alert('验证码错误！')</script>";
+                ViewBag.Message = "<script>alert('验证码错误！');</script>";
                 return View();
             }
             if (IDVerify(identityNumber) && IsCN(realName))
@@ -61,6 +61,10 @@ namespace SunPublicBenefit.Controllers
         [HttpPost]
         public ActionResult UnBeneficenceApprove(FormCollection fc, UnBeneficenceApprove unben)
         {
+            unben.unBenID =Guid.NewGuid();
+            //验证码是否正确
+            string imgcode = Session["VCode"] as string;//图片中的验证
+            Session["VCode"] = null;
             string user = fc["userName"];
             unben.FullName = fc["fullName"];//机构名称
             unben.telePhone = fc["telephone"] ;//电话
@@ -71,9 +75,14 @@ namespace SunPublicBenefit.Controllers
             unben.website = fc["website"];//官方主页
             unben.demo = fc["explain"];//机构简介
             unben.code = fc["code"];//验证码
+            if (string.IsNullOrEmpty(imgcode) || imgcode != unben.code)
+            {
+                return Content("false");
+               
+            }
             sun.UnBeneficenceApprove.Add(unben);
             sun.SaveChanges();
-            return View();
+            return RedirectToAction("UnBeneficenceApprove","Project");
         }
         public ActionResult BeneficenceApprove()
         {
