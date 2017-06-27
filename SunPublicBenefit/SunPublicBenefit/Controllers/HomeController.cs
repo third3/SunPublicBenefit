@@ -43,7 +43,8 @@ namespace SunPublicBenefit.Controllers
             }
             else
             {
-                Session["Users"] = user;
+               Users users = db.User.FirstOrDefault(m => m.UserName == userName);
+                Session["Users"] = users;
                 return 0;
             }
            

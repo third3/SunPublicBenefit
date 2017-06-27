@@ -44,5 +44,7 @@ namespace SunPublicBenefit.Models
 
         [DisplayName("验证码")]
         public string code { get; set; }
+
+      
     }
 }
