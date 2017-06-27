@@ -33,14 +33,13 @@
             <ul>
                 <li class="p_Name">
                     项目名称
-                    <input type="text">
+                    <input type="text" placeholder="">
                     <span>(不能超过8个字，列如‘为植物人撑起希望’)</span>
                 </li>
                 <li id="p_Field">
                     捐助领域
-                    <input type="text">
+                    <input type="text" placeholder="">
                     <span>(不能超过8个字，列如‘为植物人撑起希望’)</span>
-
                 </li>
                 <li>
                     项目地点
@@ -51,7 +50,7 @@
                 </li>
                 <li id="mubiao">
                     筹款目标
-                    <input type="text">元
+                    <input type="text" placeholder="">元
                     <span style="color: #a09c9c;margin-left: 20px;font-size:12px;">(请输入整数金额，列如 ：5000)</span>
                 </li>
                 <li class="yan">
@@ -91,18 +90,10 @@
                 <a class="sbmit_a" href="##">提交</a>
             </div>
         </div>
-        <div id="finish">
-            <div class="finish_submit">
-                <img @*src="timg.jpg"*@ />
-                <h3>完成提交！</h3>
-            </div>
-            <p>审核结果将在10个工作日内发送到您的QQ邮箱，请注意查收!</p>
-            <div id="sbmit_c">
-                <a class="sbmit_c" href="##">查看我的项目</a>
-            </div>
-        </div>
-    </div>
-    <script type="text/javascript">
+    
+</body>
+</html>
+<script type="text/javascript">
         //************yanzhenma*************
         var captcha_img = $('#imgCode');
         var verifyimg = captcha_img.attr("src");
@@ -147,7 +138,18 @@
         var center = document.getElementById('p_Center');
         var oDetails = document.getElementById('p_Details');
 
+        var oMub = document.getElementById('mubiao');
+        var oMy = oMub.getElementsByTagName('input')[0];
+
         oNext.onclick = function () {//保存，下一步
+            if (oMy.value == '') {
+                oMy.placeholder = '请输入目标金额!';
+                //placeholder.Color = 'red';
+                //oMy.style.backgroundColor
+                //alert('请输入目标金额！');
+                return false;
+            }
+
             center.style.display = 'none';
             oDetails.style.display = 'block';
             oh3.innerHTML = '项目详情';
@@ -161,13 +163,12 @@
         var objSubimt = document.getElementsByClassName('sbmit_a')[0];
         var detaLis = document.getElementsByClassName('detailed')[0];
         var dLed_Inf = document.getElementsByClassName('detailed_Inf')[0];
-        var finish_Submit = document.getElementById('finish');
+        
         objSubimt.onclick = function () {//提交按钮
             oDetails.style.display = 'none';
-            finish_Submit.style.display = 'block';
+            
             detaLis.style.display = 'none';
             dLed_Inf.style.display = 'none';
         }
-    </script>
-</body>
-</html>
+
+</script>
