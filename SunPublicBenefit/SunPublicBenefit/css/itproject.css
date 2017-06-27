@@ -115,12 +115,10 @@
         #p_Center .yan ,#p_Center .yan span ,#p_Center .yan input{
             float:left;
         }
-
         #yanZheng {
             float: left;
             width: 900px;
         }
-
             #yanZheng img {
                 width: 100px;
                 height: 40px;
@@ -244,4 +242,15 @@
             height:30px;
             margin-left:30px;
         }
-
+        ::-webkit-input-placeholder{
+            color:red;
+        }
+        ::-moz-placeholder{
+            color:red;
+        }
+        :-moz-placeholder{
+            color:red;
+        }
+        :-ms-input-placeholder{
+            color:red;
+        }
