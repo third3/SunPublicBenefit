@@ -17,7 +17,7 @@ namespace SunPublicBenefit.Controllers
 {
     public class ApproveController : ContextController
     {
-
+        Users user;
         // GET: Approve
         public ActionResult AutoUserApprove()
         {
@@ -56,7 +56,7 @@ namespace SunPublicBenefit.Controllers
             Regex reg = new Regex("^[\u4e00-\u9fa5]{2,10}$");
             return reg.IsMatch(realName);
         }
-        Users user;
+     
         public ActionResult UnBeneficenceApprove()
         {
             user = Session["Users"] as Users;
@@ -71,8 +71,8 @@ namespace SunPublicBenefit.Controllers
             string imgcode = Session["VCode"] as string;//图片中的验证
             Session["VCode"] = null;
             string u = fc["userName"];
-            List<Users> users = sun.User.Where(m => m.UserName == u).ToList();
-            //unben.userName = users;
+            Users users = sun.User.FirstOrDefault(m => m.UserName == u);
+            unben.userName =users;
             unben.FullName = fc["fullName"];//机构名称
             unben.telePhone = fc["telephone"] ;//电话
             unben.residentAddress = fc["provie"] + "省" + fc["city"]  + "市" + fc["residentAddress"]; //详细地址
@@ -85,7 +85,6 @@ namespace SunPublicBenefit.Controllers
             if (string.IsNullOrEmpty(imgcode) || imgcode != unben.code)
             {
                 return Content("false");
-               
             }
             sun.UnBeneficenceApprove.Add(unben);
             sun.SaveChanges();
