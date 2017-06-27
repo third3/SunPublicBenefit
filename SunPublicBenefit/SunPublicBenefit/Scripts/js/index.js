@@ -72,44 +72,66 @@ $(function () {
     // ************注册验证*************
     var email = /^(\w-*\.*)+@(\w-?)+(\.\w{2,})+$/;
     var passOne = /[A-Za-z].*[0-9]|[0-9].*[A-Za-z]/;
-    function formValidation(ipID, error, pClass, regular) {
-        $('#' + ipID + '').blur(function () {
-            if (!regular.test($('#' + ipID + '').val())) {
-                $("." + pClass + "").text("*" + error + "");
-            } else {
-                $("." + pClass + "").text("");
+    var bool = false;
+    function Idip(ipID) {
+        $("#" + ipID + "").blur(function () {
+            //alert(ipID);
+            if (ipID == "add_username") {
+                name.formValidation("请输入正确的邮箱", "form_userEmail", email);
+            }
+            else if (ipID == "add_password") {
+                pass.formValidation("请输入正确的密码格式(至少要有一位字母)", "form_passOne", passOne);
+            }
+            else {
+                passT.formValidation("请输入两次相同的密码！", "form_passTwo", passOne);
             }
         })
     }
-    new formValidation("add_username", "请输入正确的邮箱", "form_userEmail", email);
-    new formValidation("add_password", "请输入正确的密码格式(至少要有一位字母)", "form_passOne", passOne);
-    
+    Idip.prototype.formValidation = function (error, pClass, regular) {
+        if (this.ipID != "add_true_password") {
+            if (!regular.test($('#' + this.ipID + '').val())) {
+                $("." + pClass + "").text("*" + error + "");
+                bool = false;
+            }
+            else {
+                $("." + pClass + "").text("");
+                bool = true;
+            }
+        } else {
+            ($("#" + this.ipID + "").val() != $("#add_password").val()) ? $("." + pClass + "").text("*" + error + "") : $("." + pClass + "").text("");
+        }
+        return bool;
+    }
+    var name = new Idip("add_username");
+    var pass = new Idip("add_password");
+    var passT = new Idip("add_true_password");
+    //*********************************************
     //**************表单提交判断文本框的信息是否完善***************
     $('#add').click(function () {
         var add_username = $('#add_username').val();
         var add_password = $('#add_password').val();
         var add_true_password = $('#add_true_password').val();
-        if ($('.zc_mack input').val() == '') {
-            alert('您的信息尚未录入完整');
+        if (add_username == "" || add_password == "" || add_true_password == "") {
+            alert("请填写完整的注册信息！");
             return false;
+        } else {
+            $.post('addUser', { 'username': add_username, 'password': add_password }, function (data) {
+                if (bool != true){
+                    alert("请填写正确的注册信息！");
+                    return false;
+                } else if (data == 1) {
+                    alert('该账号已被注册');
+                    return false;
+                }
+                else {
+                    $(".form_passTwo").text("");
+                    alert('注册成功');
+                    window.location.href = "Index";
+                }
+            });
         }
-        
-        if (add_password != add_true_password) {
-            $(".form_passTwo").text("*请输入两次相同的密码");
-            return false;
-        }
-        $.post('addUser', { 'username': add_username, 'password': add_password }, function (data) {
-            if (data == 1) {
-                alert('该账号已被注册');
-                return false;
-            }
-            else {
-                alert('注册成功');
-                window.location.href = "Index";
-            }
-        });
     });
-
+    //*********************************************
 
     // ************加载图片*************
     for (var i = 1; i < 17; i++) {
@@ -173,16 +195,17 @@ $(function () {
 
     // ************注册窗口*************
     $(".zc_mack").css({ "width": $(window).width(), "height": $(window).height() });
+    //关闭注册窗口
     $(".zx_cs").click(function () {
         $(".zc_txt").val("");
+        $(".zc_ip form p").text("");
         $(".zc_mack").css("display", "none");
         $(".zc_ct").css("transform", "translate(-50%,-50%) scale(0)");
     })
+    //打开注册窗口
     $(".dt_zc").click(function () {
         $(".zc_mack").css("display", "block");
-        
         $(".zc_ct").css("transform", "translate(-50%,-50%) scale(1)");
-        console.log("sd");
     })
 
     // ************移动端界面的js代码*************

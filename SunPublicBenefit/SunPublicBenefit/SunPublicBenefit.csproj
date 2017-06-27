@@ -156,6 +156,8 @@
     <Content Include="images\qsgy.png" />
     <Content Include="news.txt" />
     <Content Include="persons.txt" />
+    <Content Include="Scripts\js\dateTime.js" />
+    <Content Include="Scripts\js\figuress.js" />
     <Content Include="Scripts\js\fragment.js" />
     <Content Include="Scripts\js\index.js" />
     <Content Include="Scripts\js\it-project.js" />
@@ -164,6 +166,8 @@
     <Content Include="fonts\log.PNG" />
     <Content Include="fonts\mark.PNG" />
     <Content Include="fonts\title.PNG" />
+    <Content Include="Scripts\js\lhgcalendar.js" />
+    <Content Include="Scripts\js\locg.js" />
     <Content Include="Scripts\laydate\laydate.js" />
     <Content Include="Scripts\laydate\need\laydate.css" />
     <Content Include="Scripts\laydate\skins\dahong\icon.png" />
@@ -180,6 +184,8 @@
     <Content Include="Scripts\laydate\skins\yahui\laydate.css" />
     <Content Include="Scripts\laydate\skins\yalan\icon.png" />
     <Content Include="Scripts\laydate\skins\yalan\laydate.css" />
+    <Content Include="Upload\2017\6\26\734666A5D534E52F6262DF0D7E0CD66B.jpg" />
+    <Content Include="Upload\2017\6\26\7C0FD15DC6BB5B2D8814AABF65EFB08C.jpg" />
     <Content Include="Web.config" />
     <Content Include="Views\Home\Index.cshtml" />
     <Content Include="Views\Approve\AutoUserApprove.cshtml" />
@@ -211,6 +217,7 @@
     <Compile Include="VCode\Code.ashx.cs">
       <DependentUpon>Code.ashx</DependentUpon>
     </Compile>
+    <Compile Include="VCode\MD5.cs" />
     <Compile Include="VCode\ValidateCode.cs" />
   </ItemGroup>
   <ItemGroup>
