@@ -105,7 +105,7 @@ namespace SunPublicBenefit.Controllers
         }
         [HttpPost]
         public ActionResult InitiatesProjects(ProjectApplication application)
-        {
+        {         
             string fullDirMain;
             string fullDirIllustrating;
             HttpPostedFileBase file1 = Request.Files["imgMainPicture"];
