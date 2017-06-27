@@ -66,7 +66,7 @@ namespace SunPublicBenefit.Controllers
         [HttpPost]
         public ActionResult UnBeneficenceApprove(FormCollection fc, UnBeneficenceApprove unben)
         {
-            unben.unBenID =Guid.NewGuid();
+            unben.unBenID = Guid.NewGuid();
             //验证码是否正确
             string imgcode = Session["VCode"] as string;//图片中的验证
             Session["VCode"] = null;
@@ -74,22 +74,22 @@ namespace SunPublicBenefit.Controllers
             List<Users> users = sun.User.Where(m => m.UserName == u).ToList();
             //unben.userName = users;
             unben.FullName = fc["fullName"];//机构名称
-            unben.telePhone = fc["telephone"] ;//电话
-            unben.residentAddress = fc["provie"] + "省" + fc["city"]  + "市" + fc["residentAddress"]; //详细地址
-            unben.nature =fc["nature"] ;//机构性质
-            unben.scale =fc["fullTime"];//总人数
-            unben.estaBlishDate =Convert.ToDateTime( fc["dateTime"]);//成立日期
+            unben.telePhone = fc["telephone"];//电话
+            unben.residentAddress = fc["provie"] + "省" + fc["city"] + "市" + fc["residentAddress"]; //详细地址
+            unben.nature = fc["nature"];//机构性质
+            unben.scale = fc["fullTime"];//总人数
+            unben.estaBlishDate = Convert.ToDateTime(fc["dateTime"]);//成立日期
             unben.website = fc["website"];//官方主页
             unben.demo = fc["explain"];//机构简介
             unben.code = fc["code"];//验证码
             if (string.IsNullOrEmpty(imgcode) || imgcode != unben.code)
             {
                 return Content("false");
-               
+
             }
             sun.UnBeneficenceApprove.Add(unben);
             sun.SaveChanges();
-            return RedirectToAction("UnBeneficenceApprove","Project");
+            return RedirectToAction("UnBeneficenceApprove", "Project");
         }
         public ActionResult BeneficenceApprove()
         {
@@ -109,7 +109,25 @@ namespace SunPublicBenefit.Controllers
         }
         [HttpPost]
         public ActionResult InitiatesProjects(ProjectApplication application)
-        {         
+        {
+            string userValidateCode = Request["txt-code"].ToString();
+            string seesionVCode = Session["VCode"] as string;
+            Session["VCode"] = null;
+            if (string.IsNullOrEmpty(seesionVCode) || userValidateCode != seesionVCode)
+            {
+                ViewBag.Message = "<script>alert('验证码错误！');</script>";
+                return View();
+            }
+            application.ApplicationID = Guid.NewGuid();
+            application.ProjectName = Request["project-name"].ToString();
+            application.Email = Request["email"].ToString();
+            application.ProjectSite = Request.Form["province-site"].ToString()+Request.Form["city-site"].ToString();
+            application.TargetFigure = Convert.ToInt32(Request["target-figure"]);
+            application.ProjectBriefIntroduction = Request["txt-BriefIntroduction"].ToString();
+            application.ProjectIntroductionTitle = Request["txt-title"].ToString();
+            application.ProjectIntroduction = Request["txt-introduction"].ToString();
+            Users user = Session["Users"] as Users;   
+            application.UserName=user.UserName;    
             string fullDirMain;
             string fullDirIllustrating;
             HttpPostedFileBase file1 = Request.Files["imgMainPicture"];
@@ -117,7 +135,8 @@ namespace SunPublicBenefit.Controllers
             string ext = Path.GetExtension(fileName);
             if (!(ext == ".jpeg" || ext == ".jpg" || ext == ".png" || ext == ".gif" || ext == ".bmp"))
             {
-                return Content("sun非法文件");
+                ViewBag.Message = "<script>alert('图片格式不正确！');</script>";
+                return View();
             }
             else
             {
@@ -131,7 +150,8 @@ namespace SunPublicBenefit.Controllers
             string ext2 = Path.GetExtension(fileName2);
             if (!(ext2 == ".jpeg" || ext2 == ".jpg" || ext2 == ".png" || ext2 == ".gif" || ext2 == ".bmp"))
             {
-                return Content("sun非法文件");
+                ViewBag.Message = "<script>alert('图片格式不正确！');</script>";
+                return View();
             }
             else
             {
@@ -139,6 +159,10 @@ namespace SunPublicBenefit.Controllers
                 fullDirIllustrating = dir + MD5.GetStreamMD5(file2.InputStream) + ext2;
                 file2.SaveAs(Request.MapPath(fullDirIllustrating));
             }
+            application.ImportantImageAddress = fullDirMain;
+            application.BasicImageAddress = fullDirIllustrating;
+            sun.ProjectApplication.Add(application);
+            sun.SaveChanges();
             return RedirectToAction("PersonalCenter", "Home");
         }
         StringBuilder sb = new StringBuilder();

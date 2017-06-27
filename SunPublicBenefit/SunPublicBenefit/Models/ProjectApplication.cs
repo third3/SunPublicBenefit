@@ -21,6 +21,10 @@ namespace SunPublicBenefit.Models
         [Required(ErrorMessage = "请输入项目地点")]
         public string ProjectSite { get; set; }
 
+        [DisplayName("电子邮箱")]
+        [Required(ErrorMessage = "请输入电子邮箱")]
+        public string Email { get; set; }
+
         [DisplayName("筹款目标金额")]
         [Required(ErrorMessage = "请输入筹款目标金额")]
         public int TargetFigure { get; set; }
@@ -45,8 +49,8 @@ namespace SunPublicBenefit.Models
         [Required(ErrorMessage = "请填写项目介绍")]
         public string ProjectIntroduction { get; set; }
 
-        [DisplayName("用户")]
-        public virtual Users User { get; set; }
+        [DisplayName("项目发起人")]
+        public string UserName { get; set; }
 
         public virtual ICollection<Project> Project { get; set; }
 

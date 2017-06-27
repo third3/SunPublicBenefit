@@ -23,5 +23,6 @@ namespace SunPublicBenefit.Models
         public DbSet<UnBeneficenceApprove> UnBeneficenceApprove { get; set; }
         public DbSet<City> City { get; set; }
         public DbSet<Province> Province { get; set; }
+        public DbSet<ProjectApplication> ProjectApplication { get; set; }
     }
 }
